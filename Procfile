@@ -1,1 +1,1 @@
-web: grunt connect:server
+web: grunt start

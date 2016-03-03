@@ -7,7 +7,8 @@ dependencies:
 
 test:
   override:
-    - grunt karma:unit
+    - grunt test
+#    - grunt lint
 
 deployment:
   prod:

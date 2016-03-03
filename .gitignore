@@ -2,3 +2,8 @@
 node_modules
 bower_components
 src/dependencies
+src/calcApp.css
+src/style.css
+src/script.js
+dist/script.min.js
+dist/style.min.css

@@ -35,24 +35,50 @@ module.exports = function (grunt) {
   };
 
   var sassConfig = {
-
+    default: {
+      files: {
+        'src/calcApp.css': 'src/calcApp.scss'
+      }
+    }
   };
 
   var concatConfig = {
-
+    default: {
+      files: {
+        'src/script.js': [
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'bower_components/angular/angular.js',
+          'src/calcApp.module.js',
+          'src/calcCtrl.js'
+        ],
+        'src/style.css': [
+          'bower_components/bootstrap/dist/css/bootstrap.css',
+          'src/calcApp.css'
+        ]
+      }
+    }
   };
 
   var uglifyConfig = {
-
+    default: {
+      files: {
+        'dist/script.min.js': ['src/script.js']
+      }
+    }
   };
 
   var cssminConfig = {
-
+    default: {
+      files: {
+        'dist/style.min.css': ['src/style.css']
+      }
+    }
   };
 
   var connectConfig = {
     options: {
-      base: 'src',
+      base: 'dist',
       keepalive: true
     },
     server: {
@@ -99,4 +125,26 @@ module.exports = function (grunt) {
   };
 
   grunt.initConfig(gruntConfig);
+
+  grunt.registerTask('build', [
+    'sass',
+    'concat',
+    'uglify',
+    'cssmin'
+  ]);
+
+  grunt.registerTask('startlocal', [
+    'build',
+    'connect:local'
+  ]);
+
+  grunt.registerTask('start', [
+    'build',
+    'connect:local'
+  ]);
+
+  grunt.registerTask('test', [
+    'build',
+    'karma:unit'
+  ]);
 };
