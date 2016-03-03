@@ -4,3 +4,12 @@ dependencies:
     - bower install
   post:
     - grunt copy
+
+test:
+  override:
+    - grunt karma:unit
+
+deployment:
+  production:
+    branch: master
+    
