@@ -1,0 +1,22 @@
+{
+  "name": "build-and-deploy",
+  "version": "1.0.0",
+  "description": "continuous deployment of simple javascript application",
+  "author": "Eirik Bell",
+  "homepage": "https://github.com/nerdschoolbergen/build-and-deploy",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-karma": "^0.12.1",
+    "grunt-sass": "^1.1.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.21",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs2-launcher": "^0.5.0",
+    "load-grunt-tasks": "^3.4.1"
+  }
+}
