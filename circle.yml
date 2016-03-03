@@ -9,6 +9,8 @@ test:
   override:
     - grunt karma:unit
 
-#deployment:
-#  production:
-#    branch: master
+deployment:
+  prod:
+    branch: master
+    heroku:
+      appname: nerdschool-deploy
