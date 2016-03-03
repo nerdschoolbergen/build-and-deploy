@@ -9,7 +9,6 @@ test:
   override:
     - grunt karma:unit
 
-deployment:
-  production:
-    branch: master
-    
+#deployment:
+#  production:
+#    branch: master
