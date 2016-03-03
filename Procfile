@@ -1,1 +1,1 @@
-web: grunt connect:server
+web: ./node_modules/grunt-cli/bin/grunt connect:server
