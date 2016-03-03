@@ -52,15 +52,19 @@ module.exports = function (grunt) {
 
   var connectConfig = {
     options: {
-      port: 9600,
-      hostname: 'localhost',
       base: 'src',
-      keepalive: true,
-      open: true
+      keepalive: true
     },
-    serve: {
+    server: {
       options: {
-        port: 9601
+        port: process.env.PORT || 9601
+      }
+    },
+    local: {
+      options: {
+        hostname: 'localhost',
+        port: 9601,
+        open: true
       }
     }
   };
