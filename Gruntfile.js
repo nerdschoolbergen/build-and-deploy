@@ -3,37 +3,6 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
-  var copyConfig = {
-    dependencies: {
-      files: [
-        {
-          expand: true,
-          cwd: 'bower_components/angular/',
-          src: 'angular.js',
-          dest: 'src/dependencies/scripts/'
-        },
-        {
-          expand: true,
-          cwd: 'bower_components/jquery/dist/',
-          src: 'jquery.js',
-          dest: 'src/dependencies/scripts/'
-        },
-        {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist/js/',
-          src: 'bootstrap.js',
-          dest: 'src/dependencies/scripts/'
-        },
-        {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist/css/',
-          src: 'bootstrap.css',
-          dest: 'src/dependencies/styles/'
-        }
-      ]
-    }
-  };
-
   var sassConfig = {
     default: {
       files: {
@@ -115,7 +84,6 @@ module.exports = function (grunt) {
   };
 
   var gruntConfig = {
-    copy: copyConfig,
     sass: sassConfig,
     concat: concatConfig,
     uglify: uglifyConfig,
