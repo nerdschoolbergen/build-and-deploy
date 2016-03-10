@@ -77,10 +77,67 @@ Try interracting a bit with the calculator, notice that we have implementation o
 Also its impossible to divide by zero!
 
 ## Continuous integration
+Continuous integration is a series of steps with the purpose of proving the code does not meet appropriate standards.
+If the process are not able to prove issues with the code, the build passes and code are verified.
+Steps involved are different from project to project, but often covers these steps:
+ * Download code from repository, fail build if repo could not be reached
+ * Download dependencies for code, fail build if not able to retrieve a dependency
+ * Build the code, fail build if not able to build
+ * Run unit tests, fail build a test fails
 
-### Compiling with grunt
+Other steps are also common, such as static code analysis to validate against code standards, integration tests, scripted GUI tests, etc.
+
+### Building with grunt
+Our build process will consist of a few steps to download code and dependencies, before we compile a css file, concatenate multiple javascript and css files into a single before minifying them.
+The steps for downloading and building code have already occurred for us by the commands we previously executed.
+Open packages.json and see the configuration for postinstall in the scripts object.
+This tells npm to run the command `bower install && grunt build` right after `npm install`.
+Lets break down what is happening:
+* Download code: `git clone` for new repository or `git pull` to get changes from existing repository.
+* Download dependencies: `npm install` downloads npm dependencies and immediately after runs `bower install` to download bower packages.
+* The && clause causes `grunt build` to run right after `bower install`. "build" is an alias for running several tasks within grunt in sequence:
+  * `grunt sass` will compile calcApp.sas into calcApp.css
+  * `grunt concat` will combine jquery.js, angular.js and bootstrap.js from bower folders and calcApp.module.js and calcCtrl.js from src folder into a single file: script.js, and bootstrap.css from bower folder and calcApp.css from src folder into a single css file: style.css
+  * `grunt uglify` will minify the javascript file src/script.js into dist/script.min.js
+  * `grunt cssmin` will minify the css file src/style.css into dist/style.min.css
+
+Lets try to run this step by step to see whats actually happening. Start by deleting the following:
+* bower_components folder
+* dist/script.min.js
+* dist/style.min.css
+* src/calcApp.css
+* src/script.js
+* src/style.css
+
+Run the command `connect:local`, and see that our web page is currently not very functional!
+
+Now lets run some commands and see what happends:
+* `bower install`, notice how bower_components folder is created with our dependencies
+* `grunt sass`, notice src/calcApp.css is created, open and examine contents
+* `grunt concat`, notice src/script.js and src/style.css is created, open and examine contents
+* `grunt uglify`, notice dist/script.min.js is created, open and examine contents
+* `grunt cssmin`, notice dist/style.min.css is created, open and examine contents
+
+Running the command `connect:local` will now serve our web page and it now works!
+We had to do alot of things in correct order to make this work, isnt it nice to automate those repetitive tasks?
 
 ### Testing with grunt and karma
+Open the file test/calcCtrl.spec.js.
+This is a unit test to verify that the engine behind our calculator works correctly.
+Unit tests are valuable to verify logic and a vital part of continuous integration.
+If everything is to be automated, we have to trust that our unit tests will uncover any defects in our code.
+Lets try to run our unit tests: `grunt karma:unit`
+
+The console should report that 21 of 21 unit tests succeeded.
+So how does a failing unit test look like?
+Try changing the 2+2 unit test to calculate 2+3 instead and run `grunt karma:unit`.
+Revert your change to make the unit test succeed again.
+
+We already created an alias for `grunt karma:unit`, rather run `grunt test` and see that results are the same.
+Open packages.json and see the configuration for test in the scripts object.
+This tells npm that test execution should run the command `grunt test`.
+Try it by running `npm test`.
+We will come back to why this is handy in the next section about CircleCI.
 
 ### CircleCI account
 

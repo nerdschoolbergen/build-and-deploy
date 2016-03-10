@@ -30,8 +30,6 @@
       else {
         vm.result = 'Operator not implemented';
       }
-
-      console.log(firstArg, secondArg, operator);
     }
   };
 }());
