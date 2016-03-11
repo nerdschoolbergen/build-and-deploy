@@ -186,10 +186,76 @@ Lets try to run again and see if our tests execute on build server.
 Our build now succeeds, and you may see the test execution by using grunt in the build log.
 
 ## Continuous deployment
+So we verified our code is building nicely and tests are passing.
+We are halfway there, now we also need a web server serving our app.
+Continuous deployment is the process of automatically deploying our changes to a web server after a successful build.
+A web server is something responding to a port on a machine and responds by running our code in a process on the machine.
+Typical web servers include Apache, Internet Information Services and Node.js.
+We currently launch a web server using our command `grunt connect:local` (or `grunt startlocal` which also builds before serving).
+Our web server is connect, which is a middleware on top of Node.
+
+We also have a configuration for running on a server.
+Try running `grunt connect:server`.
+You will see in console that it started a web server on http://0.0.0.0:9601, but no browser were opened this time.
+Try to visit [http://localhost:9601/](http://localhost:9601/) and see that our app is currently running.
+If you open Gruntfile.js and locate the connectConfig object, you will also notice that the port is assigned as process.env.PORT || 9601.
+This means that if the PORT environment variable is present, use that value, else default to port 9601.
+In many environments the PORT environment variable is used by convention.
+One of those is Heroku which will launch the server listening to a port from Heroku instead of 9601.
+So lets have a look at Heroku.
 
 ### Heroku account and link to CircleCI
+Heroku is a cloud solution offering containers (Heroku calls them Dynos) where you may run your code.
+As mentioned, Heroku assigns a port to serve our application so we dont have to worry about that.
+So we want to deploy to this container every time our application builds, lets create a Heroku account!
+
+Go to [https://www.heroku.com/](https://www.heroku.com/) and click the sign up for free button.
+Enter your information and select Node.js as your development language.
+We need a new app, up in the right corner of the dashboard there is a + icon, click it and select Create new app.
+Give it an easy to remember name which has not been previously used, like eirik-build-and-deploy, and select Europe as your runtime selection.
+This was easy enough, but there is nothing there!
+Now its time to connect our CircleCI to Heroku and deploy our app!
+
+In CircleCI go to your project (build-and-deploy) and click project settings up right.
+Luckily for us Heroku Deployment is an option in the menu.
+Here we see that we are prompted for the Heroku API Key.
+Open the blue link for the Heroku API Key in a new browser tab and scroll to bottom.
+There is an option here to show the api key, click it and copy the key into CircleCI.
+After you click save, further click the set user to your user button.
+
+Almost done now, CircleCI also require us to set up where in our Heroku account to deploy the application.
+Open the circle.yml file and find the deployment configuration in bottom.
+We have a deployment configuration which deploys to the prod environment using the master git branch on heroku using a configured appname.
+Uncomment this block and change appname to your easy to remember app name we configured above.
+Lets commit and push to see what happens.
+
+The build was successful, lets try and access our web page at https://APPNAME.herokuapp.com/.
+We now have an application running, but its not working as intended.
+If we open our developer console in the web prowser (F12), we see that there indeed was an error happening here.
+The error is angular is not defined, and if we further look at sources, style.min.css does not contain the content from bootstrap.
+If you are good at reading minified files you will also notice that not only is angular missing, jquery and bootstrap isnt there either.
 
 ### Procfile
+What we are missing have a common factor, they all come from bower.
+So to find out what is happening, lets start with how Heroku knows how to run our web server.
+Open the Procfile from project root directory.
+The Procfile is the file Heroku reads when its about to start the application.
+We see that its gonna start something by the web keyword which is assigned the `grunt start` command.
+If we go into our Gruntfile.js and find the start task almost at bottom, we see that start also runs the build task, which should make sure we have all we need to run our app, so whats wrong?
+
+Remember we removed that script object from packages.json to remove some of the magic?
+The postinstall command we had there did indeed run bower install after npm install was executed.
+Lets reintroduce it, and make it look like this:
+
+```javascript
+"scripts": {
+  "postinstall": "bower install"
+},
+```
+
+Also as we know install bower packages through npm, lets remove it from our dependencies section of cricle.yml.
+Commit and push the changes to try again.
+The result is quite nice, our app is now functional.
 
 ## Lets complete this app
 
