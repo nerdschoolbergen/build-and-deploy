@@ -96,7 +96,7 @@ Lets break down what is happening:
 * Download code: `git clone` for new repository or `git pull` to get changes from existing repository.
 * Download dependencies: `npm install` downloads npm dependencies and immediately after runs `bower install` to download bower packages.
 * The && clause causes `grunt build` to run right after `bower install`. "build" is an alias for running several tasks within grunt in sequence:
-  * `grunt sass` will compile calcApp.sas into calcApp.css
+  * `grunt sass` will compile calcApp.sass into calcApp.css
   * `grunt concat` will combine jquery.js, angular.js and bootstrap.js from bower folders and calcApp.module.js and calcCtrl.js from src folder into a single file: script.js, and bootstrap.css from bower folder and calcApp.css from src folder into a single css file: style.css
   * `grunt uglify` will minify the javascript file src/script.js into dist/script.min.js
   * `grunt cssmin` will minify the css file src/style.css into dist/style.min.css
@@ -140,8 +140,50 @@ Try it by running `npm test`.
 We will come back to why this is handy in the next section about CircleCI.
 
 ### CircleCI account
+A build server is a machine responsible for executing all your automated build tasks.
+Typical local installations on a dedicated server is TeamCity, Jenkins and Team Foundation Server.
+Last few years cloud solutions have emerged, with the 2 most popular ones being TravisCI and CircleCI.
+Today we will set up our application in CircleCI.
+
+CircleCI offers a free account if you limit to 1 concurrent build.
+Head over to [https://circleci.com/](https://circleci.com/) and click the sign up for free button.
+Follow the button to github and log in with your user account.
+Allow CircleCI to access your github account by pressing authorize.
+Back in CircleCI, click your github user account and then select your build-and-deploy repository you forked earlier.
+Watch the build in CircleCI.
+
+Our build succeeded, and some kind of magic happened.
+CircleCI did everything we wanted, `npm install` was executed as we have a package.json file in our repo, meaning also `bower install` and `grunt build` ran due to our scripts configuration.
+Notice CircleCI also ran `npm test` to verify our unit tests.
 
 ### circle.yml
+So far so good, but lets do something about the magic and make it all happen ourselves.
+Go to package.json and remove the whole scripts object.
+Commit and push your changes and watch the build fail without getting bower packages, building or testing in CircleCI, it no longer knows what to do.
+It also tells us the reason for failure is no tests executed.
+
+So lets start with `npm install`, we know thats the first thing we have to do after downloading code.
+CircleCI is configured through the circle.yml file.
+Open it and look in the top, we see a dependencies step with an override and it does what we want, installs npm packages.
+Uncomment the top 3 lines by removing # at start of line and try again.
+
+We got the same result, and that was expected, after all `npm install` already executes automatically.
+Next step is `bower install`, we know that has to execute next.
+We already have a dependencies step, and bower installs dependencies.
+Add another line below the npm task to do the same for bower and push it to your repo.
+
+One step further, notice bower was correctly executed after npm in the build log.
+We also know that `grunt build` must be executed to verify our code.
+Building should occur right after dependencies are downloaded, and luckily CircleCI offers a post step to our dependencies.
+Uncomment line 5 (post:) in circle.yml and add another line below to execute `grunt build`.
+Commit and check results.
+The grunt task should now execute right after bower.
+
+Time to make the build pass by adding our unit tests.
+We want to execute the tests by the command `grunt test`.
+Go to circle.yml, find the test step and uncomment the first 3 lines.
+Lets try to run again and see if our tests execute on build server.
+Our build now succeeds, and you may see the test execution by using grunt in the build log.
 
 ## Continuous deployment
 
@@ -156,3 +198,5 @@ We will come back to why this is handy in the next section about CircleCI.
 ### Lets fail a build and fix it
 
 ### Implement multiply by test-driven development
+
+## How about some static code analysis for our app?
