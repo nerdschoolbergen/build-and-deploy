@@ -255,14 +255,27 @@ Lets reintroduce it, and make it look like this:
 
 Also as we know install bower packages through npm, lets remove it from our dependencies section of cricle.yml.
 Commit and push the changes to try again.
-The result is quite nice, our app is now functional.
+The result is quite nice, our app is now functional, and its all automatic.
 
 ## Lets complete this app
+Our calculator is functional for plus and divide, however we also need to implement the rest to have a proper calculator.
+With a deployment pipeline in place, this should be easy, we just have to implement the code and CircleCI + Heroku takes care of the rest.
 
 ### Implement minus and ship to Heroku!
+Minus should be pretty straight forward, and there is already some unit tests to help out.
+Open test/calcCtrl.spec.js and uncomment the lines 84-128 (all of the comments).
+When running unit tests, we notice that they fail due to missing implementation.
+Go into src/calcCtrl.js and implement minus.
 
 ### Lets fail a build and fix it
+Before we push our changes, lets fail one of the unit tests to see if build server picks it up!
+Change one of the minus unit tests to a different value and verify its failing before sending to server.
+Our code failed the build due to failing unit test, and more importantly it did not deploy any code to Heroku.
+Fix the test, push to Github and test it in Heroku.
 
 ### Implement multiply by test-driven development
+We're still missing multip
 
-## How about some static code analysis for our app?
+## Bonus tasks
+
+### How about some static code analysis for our app?
