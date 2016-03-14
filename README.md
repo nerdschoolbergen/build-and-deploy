@@ -68,7 +68,7 @@ In the dist folder we have the actual web page we are developing and are suppose
 In the root of the repository we also find a bunch off configuration files.
 For now lets not worry about them.
 
-Lets start our application. from command line run the following command:
+Lets start our application. From command line run the following command:
 
 `grunt startlocal`
 
@@ -83,7 +83,7 @@ Steps involved are different from project to project, but often covers these ste
  * Download code from repository, fail build if repo could not be reached
  * Download dependencies for code, fail build if not able to retrieve a dependency
  * Build the code, fail build if not able to build
- * Run unit tests, fail build a test fails
+ * Run unit tests, fail build if a test fails
 
 Other steps are also common, such as static code analysis to validate against code standards, integration tests, scripted GUI tests, etc.
 
@@ -109,7 +109,7 @@ Lets try to run this step by step to see whats actually happening. Start by dele
 * src/script.js
 * src/style.css
 
-Run the command `connect:local`, and see that our web page is currently not very functional!
+Run the command `grunt connect:local`, and see that our web page is currently not very functional!
 
 Now lets run some commands and see what happends:
 * `bower install`, notice how bower_components folder is created with our dependencies
@@ -118,7 +118,7 @@ Now lets run some commands and see what happends:
 * `grunt uglify`, notice dist/script.min.js is created, open and examine contents
 * `grunt cssmin`, notice dist/style.min.css is created, open and examine contents
 
-Running the command `connect:local` will now serve our web page and it now works!
+Running the command `grunt connect:local` will now serve our web page and it now works!
 We had to do alot of things in correct order to make this work, isnt it nice to automate those repetitive tasks?
 
 ### Testing with grunt and karma
@@ -166,6 +166,7 @@ So lets start with `npm install`, we know thats the first thing we have to do af
 CircleCI is configured through the circle.yml file.
 Open it and look in the top, we see a dependencies step with an override and it does what we want, installs npm packages.
 Uncomment the top 3 lines by removing # at start of line and try again.
+CircleCI should pick up that our code was pushed to Github and immediately starts a new build.
 
 We got the same result, and that was expected, after all `npm install` already executes automatically.
 Next step is `bower install`, we know that has to execute next.
@@ -189,10 +190,10 @@ Our build now succeeds, and you may see the test execution by using grunt in the
 So we verified our code is building nicely and tests are passing.
 We are halfway there, now we also need a web server serving our app.
 Continuous deployment is the process of automatically deploying our changes to a web server after a successful build.
-A web server is something responding to a port on a machine and responds by running our code in a process on the machine.
+A web server is something receiving a request on a port on a machine and responds by running our code in a process on the machine.
 Typical web servers include Apache, Internet Information Services and Node.js.
-We currently launch a web server using our command `grunt connect:local` (or `grunt startlocal` which also builds before serving).
-Our web server is connect, which is a middleware on top of Node.
+We currently launch a web server using our command `grunt connect:local` (or the grunt alias `grunt startlocal` which also builds before serving).
+Our web server is connect, which is a middleware on top of Node.JS.
 
 We also have a configuration for running on a server.
 Try running `grunt connect:server`.
@@ -214,7 +215,7 @@ Enter your information and select Node.js as your development language.
 We need a new app, up in the right corner of the dashboard there is a + icon, click it and select Create new app.
 Give it an easy to remember name which has not been previously used, like eirik-build-and-deploy, and select Europe as your runtime selection.
 This was easy enough, but there is nothing there!
-Now its time to connect our CircleCI to Heroku and deploy our app!
+Now its time to connect our CircleCI account to Heroku and deploy our app!
 
 In CircleCI go to your project (build-and-deploy) and click project settings up right.
 Luckily for us Heroku Deployment is an option in the menu.
@@ -243,7 +244,7 @@ The Procfile is the file Heroku reads when its about to start the application.
 We see that its gonna start something by the web keyword which is assigned the `grunt start` command.
 If we go into our Gruntfile.js and find the start task almost at bottom, we see that start also runs the build task, which should make sure we have all we need to run our app, so whats wrong?
 
-Remember we removed that script object from packages.json to remove some of the magic?
+Remember we removed that script object from package.json to remove some of the magic?
 The postinstall command we had there did indeed run bower install after npm install was executed.
 Lets reintroduce it, and make it look like this:
 
@@ -253,9 +254,9 @@ Lets reintroduce it, and make it look like this:
 },
 ```
 
-Also as we know install bower packages through npm, lets remove it from our dependencies section of cricle.yml.
+Also as we know this will install bower packages through npm, lets remove it from our dependencies section of cricle.yml.
 Commit and push the changes to try again.
-The result is quite nice, our app is now functional, and its all automatic.
+The result is quite nice, our app is now functional, and its all automatically deployed.
 
 ## Lets complete this app
 Our calculator is functional for plus and divide, however we also need to implement the rest to have a proper calculator.
@@ -264,13 +265,14 @@ With a deployment pipeline in place, this should be easy, we just have to implem
 ### Implement minus and ship to Heroku!
 Minus should be pretty straight forward, and there is already some unit tests to help out.
 Open test/calcCtrl.spec.js and uncomment the lines 84-128 (all of the comments).
-When running unit tests, we notice that they fail due to missing implementation.
+When running unit tests with the commend `grunt test`, we notice that they fail due to missing implementation.
 Go into src/calcCtrl.js and implement minus.
+Running `grunt test` again should report our tests are now passing.
 
 ### Lets fail a build and fix it
 Before we push our changes, lets fail one of the unit tests to see if build server picks it up!
 Change one of the minus unit tests to a different value and verify its failing before sending to server.
-Our code failed the build due to failing unit test, and more importantly it did not deploy any code to Heroku.
+Our code failed the build due to a failing unit test, and more importantly it did not deploy any code to Heroku.
 Fix the test, push to Github and test it in Heroku.
 
 ### Implement multiply by test-driven development
@@ -281,7 +283,7 @@ Run test to verify they are failing, and implement to make them pass.
 Push code and test the calculator after its deployed to Heroku!
 
 ### How about some static code analysis for our app?
-Static code analysis helps us validate that our code is following good coding standards, and avoid causing problems wither in future development, by the browser reading our code or by different browsers understanding our code differently.
+Static code analysis helps us validate that our code is following good coding standards, and avoid causing problems either in future development, by the browser reading our code or by different browsers understanding our code differently.
 Lets make sure our code follows the coding practices suggested by JSHint.
 
 Start with adding a js hint package for grunt, [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint), by including it in npm dependencies.
