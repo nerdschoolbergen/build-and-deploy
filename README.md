@@ -274,8 +274,33 @@ Our code failed the build due to failing unit test, and more importantly it did 
 Fix the test, push to Github and test it in Heroku.
 
 ### Implement multiply by test-driven development
-We're still missing multip
-
-## Bonus tasks
+We're still missing multiply implementation.
+Start with fixing the unit tests for multiply, we currently have a single test verifying that multiply is not implemented.
+Make sure different cases are covered, like multiply with zero and negative numbers.
+Run test to verify they are failing, and implement to make them pass.
+Push code and test the calculator after its deployed to Heroku!
 
 ### How about some static code analysis for our app?
+Static code analysis helps us validate that our code is following good coding standards, and avoid causing problems wither in future development, by the browser reading our code or by different browsers understanding our code differently.
+Lets make sure our code follows the coding practices suggested by JSHint.
+
+Start with adding a js hint package for grunt, [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint), by including it in npm dependencies.
+Adding the package is described in the Getting Started section, dont mind the loading part, all grunt packages are already being loaded.
+There is a `grunt lint` command commented out i circle.yml, remove the # to include it in the testing process.
+Now its time to define the lint task in Gruntfile.js, add it at bottom and configure it to run 'jshint'.
+We have the package loaded, but it needs to be configured.
+Add a jshintConfig object and configure it with 2 files, src/calcApp.module.js and src/calcCtrl.js.
+Add the configuration object to the property jshint on gruntConfig object.
+If in doubt check with the documentation at [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint).
+Push your code and see what happens with our build.
+
+The build failed and we get some feedback on whats wrong with our code.
+Its complaining that we are defining result variable several times.
+And indeed we are, in javascript if blocks does not isolate scope, so even though it will never execute more than one of our blocks in an if/else statement, we are indeed reusing the variable.
+Lets assign results directly to vm.result instead, after all we are not doing anything more with it anyway.
+Run `grunt lint` to see if we fixed all errors.
+
+There is 2 more issues with our code.
+There is a missing semicolon on a statement, and we have a semicolon on a function declaration which is unnecessary.
+Fix these issues, run `grunt lint` again to verify no more code issues and push changes.
+Now our build should pass and deploy our app!

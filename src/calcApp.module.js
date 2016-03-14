@@ -1,3 +1,5 @@
-'use strict';
+(function(){
+  'use strict';
 
-angular.module('calcApp', []);
+  angular.module('calcApp', []);
+}());
