@@ -288,7 +288,8 @@ Lets make sure our code follows the coding practices suggested by JSHint.
 
 Start with adding a js hint package for grunt, [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint), by including it in npm dependencies.
 Adding the package is described in the Getting Started section, dont mind the loading part, all grunt packages are already being loaded.
-There is a `grunt lint` command commented out i circle.yml, remove the # to include it in the testing process.
+Static code analysis should be part of our testing.
+Open circle.yml and add a step below `grunt test` with the command `grunt lint`.
 Now its time to define the lint task in Gruntfile.js, add it at bottom and configure it to run 'jshint'.
 We have the package loaded, but it needs to be configured.
 Add a jshintConfig object and configure it with 2 files, src/calcApp.module.js and src/calcCtrl.js.
