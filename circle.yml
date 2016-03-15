@@ -1,14 +1,17 @@
-#dependencies:
-#  override:
-#    - npm install
-#  post:
+dependencies:
+  override:
+    - npm install
+    - bower install
+  post:
+    -grunt build
 
-#test:
-#  override:
-#    - grunt test
+test:
+  override:
+    - grunt test
+    - grunt lint
 
-#deployment:
-#  prod:
-#    branch: master
-#    heroku:
-#      appname: nerdschool-deploy
+deployment:
+  prod:
+    branch: master
+    heroku:
+      appname: nerdschool-deploy

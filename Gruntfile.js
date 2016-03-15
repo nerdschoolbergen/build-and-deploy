@@ -37,6 +37,12 @@ module.exports = function (grunt) {
     }
   };
 
+ var jshintConfig = {
+   default: {
+     src: ['src/calcCtrl.js', 'src/calcApp.module.js']
+   }
+ };
+
   var cssminConfig = {
     default: {
       files: {
@@ -89,7 +95,8 @@ module.exports = function (grunt) {
     uglify: uglifyConfig,
     cssmin: cssminConfig,
     connect: connectConfig,
-    karma: karmaConfig
+    karma: karmaConfig,
+    jshint: jshintConfig
   };
 
   grunt.initConfig(gruntConfig);
@@ -113,5 +120,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'karma:unit'
+  ]);
+
+  grunt.registerTask('lint', [
+      'jshint'
   ]);
 };
