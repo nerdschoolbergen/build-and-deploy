@@ -212,8 +212,8 @@ So we want to deploy to this container every time our application builds, lets c
 
 Go to [https://www.heroku.com/](https://www.heroku.com/) and click the sign up for free button.
 Enter your information and select Node.js as your development language.
-We need a new app, up in the right corner of the dashboard there is a + icon, click it and select Create new app.
-Give it an easy to remember name which has not been previously used, like eirik-build-and-deploy, and select Europe as your runtime selection.
+We need a new app, up in the right corner of the dashboard there is a new button, click it and select Create new app.
+Give it an easy to remember name which has not been previously used, like (for your host) eirik-build-and-deploy, and select Europe as your runtime selection.
 This was easy enough, but there is nothing there!
 Now its time to connect our CircleCI account to Heroku and deploy our app!
 
