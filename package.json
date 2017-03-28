@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {		
     "postinstall": "bower install && grunt build",		
-    "test": "grunt test"		
+    "test": "grunt test"
   },
   "description": "continuous deployment of simple javascript application",
   "author": "Eirik Bell",
@@ -22,7 +22,6 @@
     "grunt-karma": "^0.12.1"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^1.0.0",
     "jasmine-core": "^2.4.1",
     "karma-jasmine": "^0.3.7",
     "karma-phantomjs2-launcher": "^0.5.0"
