@@ -5,6 +5,7 @@ Using continuous integration and continuous deployment, we will utilize some clo
 We will also use several tools which helps with development of javascript applications like npm, bower and grunt.
 
 ## Prerequisites
+* Presentation: [https://drive.google.com/open?id=1FHwVkd7pzRW3xvMh4m7p9PGoPXrq_erdECNMJmQYHdI](https://drive.google.com/open?id=1FHwVkd7pzRW3xvMh4m7p9PGoPXrq_erdECNMJmQYHdI)
 * Bring your own laptop
 * Make sure Git is installed and available on command line. Install from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 * Node JS with npm must be installed and available on command line. Install from: https://nodejs.org/
