@@ -1,6 +1,6 @@
-#dependencies:
-#  override:
-#    - npm install
+dependencies:
+  override:
+    - npm install
 #  post:
 
 #test:
