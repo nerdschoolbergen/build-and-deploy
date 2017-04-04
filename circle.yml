@@ -5,9 +5,9 @@ dependencies:
   post:
     - grunt build
 
-#test:
-#  override:
-#    - grunt test
+test:
+  override:
+    - grunt test
 
 #deployment:
 #  prod:
