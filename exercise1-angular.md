@@ -44,144 +44,29 @@ First you need a copy of this Git repository on your computer. You'll also need 
 - Install Grunt on command line: `npm install -g grunt-cli`
 - Install our application's dependencies: `npm install`
 
-> :bulb: The `-g` switch when installing packages using npm indicates that the package will be installed globally on your computer instead of locally within your application. Typically this is used to make packages available on our PATH so they can be invoked using a terminal.
+> :bulb: The `-g` switch when installing packages using npm indicates that the package will be installed globally on your computer instead of locally within your application. Typically this is used to make packages available on our PATH so they can be invoked using a terminal.  
 
 > :exclamation: You might need to restart your terminal window after installing bower and grunt-cli. Typing `grunt --version` and `bower -v` in the terminal should return version numbers and not errors.
 
 :pencil2: Once everything is installed, open the repository using your favorite text editor.
 
-:book: You will notice 2 folders containing dependencies. The folder `bower_components` contains libraries installed by Bower. Bower installs its dependencies through the `npm install` command we just did.
-These are typically dependencies on frontend libraries such as jquery, angular and bootstrap.
-The node_modules folder contains dependencies installed by npm, here you will find grunt which is our task runner, bower and karma which is our test runner.
-Dont worry about the rest in node_modules folder, its just a bunch of dependencies and some are tasks we will use with grunt.
+> :book: You will notice 2 folders containing dependencies.
+- The `bower_components` folder contains libraries installed by Bower. Bower installs its dependencies through the `npm install` command we just did.
+Bower is typically used for _front-end_ dependencies such as jQuery, Angular, and Bootstrap.
+- The `node_modules` folder contains dependencies installed by _npm_, here you'll find Grunt, which is our task runner, Bower itself, and KarmaJS which is our test runner.
 
-If you wish to understand more about how npm, bower and grunt is configured, check out this repository: https://github.com/nerdschoolbergen/js-infrastructure
+> :book: There's also some folders belonging to our application: `src`, `dist` and `test`.  
+- The `src` folder is where you develop your code. It contains JavaScript files (`calcCtrl.js` will be important later) and the `.scss` file which'll be compiled into css and contains our styling.  
+- The `test` folder contains a Jasmine unit test file to test our `src/calcCtrl` file.  
+- The `dist` folder contains the actual html web page we are developing and are supposed to deploy to production.
 
-We also have some folders for our application, src, dist and test.
-The src folder is where you develop your code, here you will find the javascript files (calcCtrl.js will be important) and the scss file which may be compiled into css.
-In the test folder we find a jasmine unit test file to test our calcCtrl file from the src folder.
-In the dist folder we have the actual web page we are developing and are supposed to deploy to the clouds!
+Also note the configuration files in the root folder, such as `package.json`, `Gruntfile.js`, `bower.json`, `circle.yml`, and `Procfile`. We'll come back to each of these later. For now, let's start the application and see what it does.
 
-In the root of the repository we also find a bunch off configuration files.
-For now lets not worry about them.
-
-Lets start our application. From command line run the following command:
-
-`grunt startlocal`
+:pencil2: In a terminal/command line, make sure you're in the same folder as `package.json` (that goes for all commands you'll run from here on). Then run `grunt startlocal`.
 
 The application will now open in your default browser at url: [http://localhost:9601](http://localhost:9601).
-Try interracting a bit with the calculator, notice that we have implementation of plus and divide, while minus and multiply are currently not supported.
-Also its impossible to divide by zero!
 
-## Continuous integration
-Continuous integration is a series of steps with the purpose of proving the code does not meet appropriate standards.
-If the process are not able to prove issues with the code, the build passes and code are verified.
-Steps involved are different from project to project, but often covers these steps:
- * Download code from repository, fail build if repo could not be reached
- * Download dependencies for code, fail build if not able to retrieve a dependency
- * Build the code, fail build if not able to build
- * Run unit tests, fail build if a test fails
-
-Other steps are also common, such as static code analysis to validate against code standards, integration tests, scripted GUI tests, etc.
-
-### Building with grunt
-Our build process will consist of a few steps to download code and dependencies, before we compile a css file, concatenate multiple javascript and css files into a single before minifying them.
-The steps for downloading and building code have already occurred for us by the commands we previously executed.
-Open packages.json and see the configuration for postinstall in the scripts object.
-This tells npm to run the command `bower install && grunt build` right after `npm install`.
-Lets break down what is happening:
-* Download code: `git clone` for new repository or `git pull` to get changes from existing repository.
-* Download dependencies: `npm install` downloads npm dependencies and immediately after runs `bower install` to download bower packages.
-* The && clause causes `grunt build` to run right after `bower install`. "build" is an alias for running several tasks within grunt in sequence:
-  * `grunt sass` will compile calcApp.sass into calcApp.css
-  * `grunt concat` will combine jquery.js, angular.js and bootstrap.js from bower folders and calcApp.module.js and calcCtrl.js from src folder into a single file: script.js, and bootstrap.css from bower folder and calcApp.css from src folder into a single css file: style.css
-  * `grunt uglify` will minify the javascript file src/script.js into dist/script.min.js
-  * `grunt cssmin` will minify the css file src/style.css into dist/style.min.css
-
-Lets try to run this step by step to see whats actually happening. Start by deleting the following:
-* bower_components folder
-* dist/script.min.js
-* dist/style.min.css
-* src/calcApp.css
-* src/script.js
-* src/style.css
-
-Run the command `grunt connect:local`, and see that our web page is currently not very functional!
-
-Now lets run some commands and see what happends:
-* `bower install`, notice how bower_components folder is created with our dependencies
-* `grunt sass`, notice src/calcApp.css is created, open and examine contents
-* `grunt concat`, notice src/script.js and src/style.css is created, open and examine contents
-* `grunt uglify`, notice dist/script.min.js is created, open and examine contents
-* `grunt cssmin`, notice dist/style.min.css is created, open and examine contents
-
-Running the command `grunt connect:local` will now serve our web page and it now works!
-We had to do alot of things in correct order to make this work, isnt it nice to automate those repetitive tasks?
-
-### Testing with grunt and karma
-Open the file test/calcCtrl.spec.js.
-This is a unit test to verify that the engine behind our calculator works correctly.
-Unit tests are valuable to verify logic and a vital part of continuous integration.
-If everything is to be automated, we have to trust that our unit tests will uncover any defects in our code.
-Lets try to run our unit tests: `grunt karma:unit`
-
-The console should report that 21 of 21 unit tests succeeded.
-So how does a failing unit test look like?
-Try changing the 2+2 unit test to calculate 2+3 instead and run `grunt karma:unit`.
-Revert your change to make the unit test succeed again.
-
-We already created an alias for `grunt karma:unit`, rather run `grunt test` and see that results are the same.
-Open packages.json and see the configuration for test in the scripts object.
-This tells npm that test execution should run the command `grunt test`.
-Try it by running `npm test`.
-We will come back to why this is handy in the next section about CircleCI.
-
-### CircleCI account
-A build server is a machine responsible for executing all your automated build tasks.
-Typical local installations on a dedicated server is TeamCity, Jenkins and Team Foundation Server.
-Last few years cloud solutions have emerged, with the 2 most popular ones being TravisCI and CircleCI.
-Today we will set up our application in CircleCI.
-
-CircleCI offers a free account if you limit to 1 concurrent build.
-Head over to [https://circleci.com/](https://circleci.com/) and click the sign up for free button.
-Follow the button to github and log in with your user account.
-Allow CircleCI to access your github account by pressing authorize.
-Back in CircleCI, click your github user account and then select your build-and-deploy repository you forked earlier.
-Watch the build in CircleCI.
-
-Our build succeeded, and some kind of magic happened.
-CircleCI did everything we wanted, `npm install` was executed as we have a package.json file in our repo, meaning also `bower install` and `grunt build` ran due to our scripts configuration.
-Notice CircleCI also ran `npm test` to verify our unit tests.
-
-### circle.yml
-So far so good, but lets do something about the magic and make it all happen ourselves.
-Go to package.json and remove the whole scripts object.
-Commit and push your changes and watch the build fail without getting bower packages, building or testing in CircleCI, it no longer knows what to do.
-It also tells us the reason for failure is no tests executed.
-
-So lets start with `npm install`, we know thats the first thing we have to do after downloading code.
-CircleCI is configured through the circle.yml file.
-Open it and look in the top, we see a dependencies step with an override and it does what we want, installs npm packages.
-Uncomment the top 3 lines by removing # at start of line and try again.
-CircleCI should pick up that our code was pushed to Github and immediately starts a new build.
-
-We got the same result, and that was expected, after all `npm install` already executes automatically.
-Next step is `bower install`, we know that has to execute next.
-We already have a dependencies step, and bower installs dependencies.
-Add another line below the npm task to do the same for bower and push it to your repo.
-
-One step further, notice bower was correctly executed after npm in the build log.
-We also know that `grunt build` must be executed to verify our code.
-Building should occur right after dependencies are downloaded, and luckily CircleCI offers a post step to our dependencies.
-Uncomment line 5 (post:) in circle.yml and add another line below to execute `grunt build`.
-Commit and check results.
-The grunt task should now execute right after bower.
-
-Time to make the build pass by adding our unit tests.
-We want to execute the tests by the command `grunt test`.
-Go to circle.yml, find the test step and uncomment the first 3 lines.
-Lets try to run again and see if our tests execute on build server.
-Our build now succeeds, and you may see the test execution by using grunt in the build log.
+:pencil2: Try interacting with the calculator. Notice that addition and division is implemented, while subtracting and multiplying is not.
 
 ## Continuous deployment
 So we verified our code is building nicely and tests are passing.

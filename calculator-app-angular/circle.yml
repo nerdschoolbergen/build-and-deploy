@@ -1,0 +1,15 @@
+dependencies:
+ override:
+   - npm install
+   - bower install
+ post:
+
+test:
+ override:
+   - npm test
+
+deployment:
+ prod:
+   branch: master
+   heroku:
+     appname: nerdschool-deploy
