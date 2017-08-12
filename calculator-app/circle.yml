@@ -1,0 +1,14 @@
+dependencies:
+ override:
+   - npm install
+ post:
+
+test:
+ override:
+   - npm test
+
+deployment:
+ prod:
+   branch: master
+   heroku:
+     appname: nerdschool-deploy
