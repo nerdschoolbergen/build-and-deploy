@@ -70,7 +70,7 @@ dependencies:
 
 :pencil2: Update the circle.yml file and push the changes. The grunt task should now execute right after bower.
 
-[img07](./images/img07.png)
+![img07](./images/img07.png)
 
 Time to make the build pass by adding our unit tests.
 
@@ -94,6 +94,6 @@ dependencies:
 
 Push the changes and see that the build now succeeds in CircleCI. You should also see the test results in the build log.
 
-[img06](./images/img06.png)
+![img06](./images/img06.png)
 
 ### [Go to exercise 5 :arrow_right:](./exercise-5.md)
