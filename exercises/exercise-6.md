@@ -85,3 +85,6 @@ There is a missing semicolon on a statement, and we have a semicolon on a functi
 :pencil2: Fix these issues, run `grunt lint` again to verify there's no more code issues and push changes.
 
 Now our build should pass and the app should be deployed! :tada: :tada: :tada:
+
+
+### :tada: All done! :tada:

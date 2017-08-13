@@ -124,3 +124,5 @@ So let's re-introduce this step:
 ```
 
 This instructs npm to run `bower install` after `npm install` has finished.
+
+### [Go to exercise 6 :arrow_right:](./exercise-6.md)

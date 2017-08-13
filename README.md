@@ -38,6 +38,7 @@ Have fun! And remember to ask an instructor if you're stuck.
 
 :pencil2: - A task you should do  
 :book: - A section of text to read (no tasks, just information).  
+:bulb: - Additional information.  
 :exclamation: - Something important.  
 :question: - Open-ended question for the reader ("What do you think would happen if...")  
 :poop: - Bad practice (don't-do-this)  

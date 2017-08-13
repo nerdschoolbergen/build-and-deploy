@@ -55,3 +55,5 @@ Let's run these steps and see what's going on.
 :pencil2: Running the command `grunt connect:local` will now serve our web page and it now works!
 
 We had to do a lot of steps in correct order to make this work. Isn't it nice to automate those repetitive tasks?
+
+### [Go to exercise 3 :arrow_right:](./exercise-3.md)

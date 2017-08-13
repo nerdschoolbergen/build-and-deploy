@@ -22,3 +22,5 @@ We already created an alias for `grunt karma:unit` - `grunt test`.
 :pencil2: Try it by running `npm test`.
 
 We will come back to why this is handy in the next section about CircleCI.
+
+### [Go to exercise 4 :arrow_right:](./exercise-4.md)

@@ -85,3 +85,5 @@ dependencies:
 ```
 
 Push the changes and see that the build now succeeds in CircleCI. You should also see the test results in the build log.
+
+### [Go to exercise 5 :arrow_right:](./exercise-5.md)
