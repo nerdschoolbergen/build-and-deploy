@@ -13,21 +13,21 @@ The last few years, fast and agile cloud solutions have emerged. Two of the most
 Today we'll set up our application using [CircleCI](https://circleci.com/). CircleCI offers a free account if you limit to 1 concurrent build.
 
 :pencil2: Open a new browser tab and [sign up](https://circleci.com/signup/) using GitHub. Allow CircleCI to access your github account by pressing authorize.  
-:pencil2: Back in CircleCI, click your GitHub user account and then select the build-and-deploy repository you forked earlier.  
+:pencil2: Back in CircleCI, click your GitHub user account and then select the build-and-deploy repository you forked earlier. Use `Linux` as OS, `2.0` as the platform version, and `Node` as your environment. Click the `Start building` button to complete the setup.  
 :pencil2: Watch the build in CircleCI.  
 
 Our build succeeded, seemingly by magic!
 
 CircleCI did everything we wanted. Because we have a `package.json` file in our repository, `npm install` was executed. And because the `"postinstall"`-script in `package.json` says that `bower install` and `grunt build` should be run, they were.
 
-Notice CircleCI also ran `npm test` to verify our unit tests.
+Notice that CircleCI also ran our tests because we have specified that the `npm test` script should run `grunt test` as mentioned in the previous exercise.
 
-### 4.2 - `circle.yml`
-So far so good, but let's do something about the magic and make it all happen ourselves, so we know what's going on.
+### 4.2 - Introducing the `circle.yml` file
+So far so good, but let's do something about the magic and make it all happen ourselves, so we know what's going on. Magic is cool but we want to make sure we understand the details of what's going on. The more "magic" something seems, the more important it is to understand it. You should never have to explain to someone else that something in your codebase "just works" without knowing how.
 
 :pencil2: Go to package.json and remove the whole `"scripts"` section.  
 :pencil2: _Commit_ and _push_ your changes.  
-:pencil2: Watch the build fail without getting bower packages, building, or testing in CircleCI, it no longer knows what to do.  
+:pencil2: Watch the build fail without getting bower packages, building, or testing in CircleCI. It no longer knows what to do.  
 
 It informs us the reason for failure is no tests executed, which is not quite correct.
 
@@ -47,7 +47,7 @@ dependencies:
 
 CircleCI should pick up that our code was pushed to Github and immediately start a new build.
 
-We got the same result, which was to be expected. After all, `npm install` already executes automatically so we made the process more explicit and understandable, which is always a good thing.
+We got the same result, which was to be expected. After all, `npm install` already executes automatically so we made the process more explicit and understandable, which is always a good thing, but it didn't get us much further in terms of fixing our build.
 
 Next step is `bower install`, we know that has to execute next.
 
@@ -70,6 +70,8 @@ dependencies:
 
 :pencil2: Update the circle.yml file and push the changes. The grunt task should now execute right after bower.
 
+[img07](./images/img07.png)
+
 Time to make the build pass by adding our unit tests.
 
 We want to execute the tests by using the command `grunt test`.
@@ -88,7 +90,10 @@ dependencies:
 +  override:
 +   - grunt test
 ```
+(:exclamation: Please note that the `test` section you just added is a sibling to the `dependencies` section and not a child of it).
 
 Push the changes and see that the build now succeeds in CircleCI. You should also see the test results in the build log.
+
+[img06](./images/img06.png)
 
 ### [Go to exercise 5 :arrow_right:](./exercise-5.md)

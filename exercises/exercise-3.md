@@ -23,10 +23,10 @@ So how does a failing unit test look like?
 
 We already created an alias for `grunt karma:unit` - `grunt test`.
 
-:pencil2: Open `package.json` and see the `"scripts"`-section and note the `"test"`-script. This tells npm that test execution should run the command `grunt test`. Script commands such as `"start"` and `"test"` have special meaning to npm and will be run by tools such as CircleCI (we can also add `"scripts"` ourselves that has no meaning to npm but make our life easier).
+:pencil2: Open `package.json` and see the `"scripts"`-section and note the `"test"`-script. This tells npm that test execution should run the command `grunt test`. Script commands such as `"start"` and `"test"` have special meaning to npm and for tools that leverage npm - such as CircleCI which we'll use later. We can also add our own targets to the `"scripts"`-section. These will have no meaning to npm, but can make our life easier.
 
 :pencil2: Try it by running `npm test`.
 
-We will come back to why this is handy in the next section about CircleCI.
+We'll come back to why this is handy in the next exercise when we introduce CircleCI.
 
 ### [Go to exercise 4 :arrow_right:](./exercise-4.md)

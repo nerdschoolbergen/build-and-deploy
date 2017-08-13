@@ -40,6 +40,9 @@ First you need a copy of this Git repository on your computer. You'll also need 
 
 - Install Bower on your computer: `npm install -g bower`
 - Install Grunt on command line: `npm install -g grunt-cli`
+
+:exclamation: If you're using Windows, you'll also need to install some additional build tools: `npm install -g windows-build-tools`. Make sure you're in a shell with Admin rights.
+
 - Install our application's dependencies: `npm install`
 
 > :bulb: The `-g` switch when installing packages using npm indicates that the package will be installed globally on your computer instead of locally within your application. Typically this is used to make packages available on our PATH so they can be invoked using a terminal.  
