@@ -3,10 +3,6 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
-  var jsHintConfig = {
-    all: ['src/calcApp.module.js', 'src/calcCtrl.js'],
-  };
-
   var sassConfig = {
     default: {
       files: {
@@ -94,7 +90,6 @@ module.exports = function (grunt) {
     cssmin: cssminConfig,
     connect: connectConfig,
     karma: karmaConfig,
-    jshint: jsHintConfig,
   };
 
   grunt.initConfig(gruntConfig);
@@ -118,9 +113,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'karma:unit'
-  ]);
-
-  grunt.registerTask('lint', [
-    'jshint:all'
   ]);
 };
