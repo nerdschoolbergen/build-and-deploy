@@ -1,5 +1,9 @@
 # Exercise 2 - Understanding the build pipeline
 
+## In this exercise we will
+* Learn about _continuous integration_
+* Understand our _build pipeline_
+
 ## :book: Continuous integration
 _Continuous Integration (CI)_ is a series of steps with the only purpose of _proving that the code does **not** meet the required standards to be deployed to production._
 

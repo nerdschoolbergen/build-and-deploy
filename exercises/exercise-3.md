@@ -1,5 +1,11 @@
 # Exercise 3 - Testing
 
+## In this exercise we will
+* Learn about testing.
+* Run the tests.
+
+<hr />
+
 :pencil2: Open the file `test/calcCtrl.spec.js`.
 
 These are _unit tests_ to verify that the engine behind our calculator works correctly.

@@ -1,5 +1,10 @@
 # Exercise 4 - Setting up a CircleCI build server
 
+## In this exercise we will
+* Learn about CircleCI.
+* Register an account on CircleCI.
+* Get our build working on CircleCI.
+
 ## 4.1 - CircleCI Account
 A build server is a machine responsible for executing all your automated build tasks.
 Typical local installations on a dedicated server is _TeamCity_, _Jenkins_ and _Team Foundation Server (TFS)_.

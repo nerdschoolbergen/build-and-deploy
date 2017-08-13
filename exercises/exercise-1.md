@@ -17,11 +17,9 @@ The benefits of automating the deployment workflow is many, but chief among them
 
 In most organizations, _build servers_ are a vital part of the deployment pipeline, aiming to automate the whole build process and preferably, the deployment process.
 
-### In this exercise we will
+## In this exercise we will
 * _Fork_ and _clone_ our Git repository and get it running on your computer.
-* Setup _continuous integration_ using CircleCI
-* Setup _continuous deployment_ using Heroku
-* Improve our simple calculator application and watch the automation eliminate manual work.
+* Understand what the default content of the repository is.
 
 # 1.1 Getting started
 

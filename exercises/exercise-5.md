@@ -1,5 +1,11 @@
 # Exercise 5 - Continuous Deployment
 
+## In this exercise we will
+* Learn about _continuous deployment_.
+* Learn about Heroku.
+* Register an account on Heroku.
+* Deploy our build to the internet using Heroku.
+
 So we verified our code is building and tests are passing. We are halfway there! Now we just need a web server to serve and host our app.
 
 > :book: _Continuous deployment_ is the process of automatically deploying our changes to a web server after a successful build.

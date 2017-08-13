@@ -1,4 +1,12 @@
 # Exercise 6 - Implementing more features
+
+## In this exercise we will
+* Implement more features in our app.
+* Add static code analysis to the build pipeline.
+* Only allow builds that passes static code analysis.
+
+<hr />
+
 Our calculator can do addition and division, but is sorely lacking subtraction and multiplying.
 
 With a deployment pipeline in place, this should be easy. We just have to implement the features and CircleCI and Heroku takes care of the rest.
