@@ -1,1 +1,1 @@
-web: serve -s dist
+web: grunt start

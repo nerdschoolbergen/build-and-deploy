@@ -133,4 +133,6 @@ So let's re-introduce this step:
 
 This instructs npm to run `bower install` after `npm install` has finished.
 
+:pencil2: Commit and push this change, then refresh your heroku website once the build has finished. The app should now, finally, be working without error.
+
 ### [Go to exercise 6 :arrow_right:](./exercise-6.md)
