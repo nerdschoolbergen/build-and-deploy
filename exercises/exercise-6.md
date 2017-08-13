@@ -3,7 +3,7 @@ Our calculator can do addition and division, but is sorely lacking subtraction a
 
 With a deployment pipeline in place, this should be easy. We just have to implement the features and CircleCI and Heroku takes care of the rest.
 
-## 6.1 - Implement subtraction ship to production
+## 6.1 - Implement subtraction
 Implementing subtraction should be pretty straight forward. There's even some unit tests in place to help us get started.
 
 :pencil2: Open `test/calcCtrl.spec.js` and uncomment the lines `84-128` (all of the comments).  
@@ -78,13 +78,12 @@ The build failed and we got some feedback on why. It's complaining that we are d
 :pencil2: Let's fix this for now by assigning results directly to `vm.result` instead.  
 :pencil2: Run `grunt lint` to see if we fixed all errors.  
 
-There is 2 more issues with our code.
+There are 2 more issues in our code.
 
-There is a missing semicolon on a statement, and we have a semicolon on a function declaration which is unnecessary.
-
-:pencil2: Fix these issues, run `grunt lint` again to verify there's no more code issues and push changes.
+:pencil2: Fix these issues, then run `grunt lint` again to verify there's no more issues and push the changes.
 
 Now our build should pass and the app should be deployed! :tada: :tada: :tada:
 
+Feel free to add more features and play around with the build pipeline and the code.
 
-### :tada: All done! :tada:
+### :1st_place_medal: All done! :1st_place_medal:
