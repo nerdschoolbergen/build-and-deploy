@@ -24,7 +24,7 @@ You will see in console that it started a web server on http://0.0.0.0:9601, but
 
 :pencil2: Try to open [http://localhost:9601/](http://localhost:9601/) and see that our app is currently running.
 
-:pencil2: Open Gruntfile.js and locate the `connectConfig` object. Notice that the port is assigned as `process.env.PORT || 9601`. This means that if the `PORT` _environment variable_ is present, use that value. Otherwise default to port 9601.
+:pencil2: Open Gruntfile.js and locate the `connectConfig` object. Notice that the port is assigned as `process.env.PORT || 9601`. This means that if the `PORT` variable is present, use that value. Otherwise default to port `9601`.
 
 In many environments the PORT environment variable is used by convention. One of those environments is _Heroku_ which will launch the server listening to a port _provided by Heroku_ instead of 9601.
 
@@ -54,9 +54,9 @@ Luckily for us _Heroku Deployment_ is an option in the menu.
 
 Here we see that we are prompted for the Heroku API Key.
 
-:pencil2: Open the blue link for the Heroku API Key in a new browser tab and scroll to bottom.  
-:pencil2: There is an option here to show the api key, click it and copy the key into CircleCI.  
-:pencil2: After you click save, further click the set user to your user button.  
+:pencil2: Open [https://dashboard.heroku.com/account](https://dashboard.heroku.com/account) and scroll down to the "API Key" section. Click "Reveal" and copy the key.  
+:pencil2: Back in CircleCI, paste the API key.  
+:pencil2: Do the "Step 2" instructions and set the deploy user to your current user.
 
 Almost done now.
 
