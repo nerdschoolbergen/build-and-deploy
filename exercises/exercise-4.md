@@ -96,4 +96,6 @@ Push the changes and see that the build now succeeds in CircleCI. You should als
 
 ![img06](./images/img06.png)
 
+![img08](./images/img08.png)
+
 ### [Go to exercise 5 :arrow_right:](./exercise-5.md)
