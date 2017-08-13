@@ -6,9 +6,6 @@ We will also use several tools which helps with development of JavaScript applic
 
 ## [Open presentation slides](https://drive.google.com/open?id=1FHwVkd7pzRW3xvMh4m7p9PGoPXrq_erdECNMJmQYHdI)
 
-## Focus of this lesson
-{The focus or purpose of this workshop}
-
 ## What you need
 * Make sure Git is installed and available on command line (`git --version` in a terminal should not produce an error). [Install Git](https://git-scm.com/downloads) if you don't have it.
 * NodeJS with npm must be installed and available on command line (`node -v` and `npm -v` in a terminal should not produce an error. You should have a NodeJS version greater than 8 and npm version greater than 5). Install from: https://nodejs.org/
@@ -18,8 +15,9 @@ We will also use several tools which helps with development of JavaScript applic
 
 ## How to get started
 
-* Start by cloning this repository into a folder on your computer (`git clone {repository url}`). If you've never used git before, you can alternatively use the the "Download ZIP" button on this page.
-* Although you have this `README.md` file on your computer it's easier to read it on GitHub, so we recommend you keep this page open in a web browser with the exercise tasks.
+* Although you have this `README.md` file on your computer, it's easier to read it on GitHub with formatting. We therefore recommend you keep a web browser tab open with the exercise tasks.
+* Start by opening [exercise 1](./exercises/exercise-1.md/).
+* Remember to ask an instructor if you're stuck.
 
 ## Exercises
 
@@ -30,9 +28,7 @@ We will also use several tools which helps with development of JavaScript applic
 - [Exercise 5](./exercises/exercise-5.md/)
 - [Exercise 6](./exercises/exercise-6.md/)
 
-Have fun! And remember to ask an instructor if you're stuck.
-
-## Symbols and notation used in exercises
+### Symbols and notation used in exercises
 
 #### Emojis with special meaning
 
