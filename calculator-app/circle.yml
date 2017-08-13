@@ -6,6 +6,7 @@ dependencies:
 test:
  override:
    - npm test
+   - grunt lint
 
 deployment:
  prod:

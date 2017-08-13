@@ -21,8 +21,8 @@ Notice CircleCI also ran `npm test` to verify our unit tests.
 So far so good, but let's do something about the magic and make it all happen ourselves, so we know what's going on.
 
 :pencil2: Go to package.json and remove the whole `"scripts"` section.  
-:pencil2: _Commit_ and _push_ your changes.
-:pencil2: Watch the build fail without getting bower packages, building, or testing in CircleCI, it no longer knows what to do.
+:pencil2: _Commit_ and _push_ your changes.  
+:pencil2: Watch the build fail without getting bower packages, building, or testing in CircleCI, it no longer knows what to do.  
 
 It informs us the reason for failure is no tests executed, which is not quite correct.
 
