@@ -6,8 +6,8 @@ post:
   - grunt build
 
 test:
-    override:
-        - npm test
+  override:
+    - npm test
 
 deployment:
 prod:
