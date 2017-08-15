@@ -10,7 +10,7 @@ test:
     - npm test
 
 deployment:
-prod:
-  branch: master
-  heroku:
-    appname: anders-build-and-deploy
+  prod:
+    branch: master
+    heroku:
+      appname: anders-build-and-deploy
