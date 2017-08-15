@@ -77,10 +77,10 @@ test:
    - npm test
 
 + deployment:
-+ prod:
-+   branch: master
-+   heroku:
-+     appname: {your-heroku-app-name}
++   prod:
++     branch: master
++     heroku:
++       appname: {your-heroku-app-name}
 ```
 
 We now have a _deployment configuration_ which deploys to the _prod_ environment using the _master_ branch in our Git repository, and deploys to the Heroku app you specified.
