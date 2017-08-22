@@ -30,7 +30,7 @@ We will also use several tools which helps with development of JavaScript applic
 
 ### Symbols and notation used in exercises
 
-#### Emojis with special meaning
+#### Icons with special meaning
 
 :pencil2: - A task you should do  
 :book: - A section of text to read (no tasks, just information).  
