@@ -14,33 +14,32 @@ const styles = {
   }
 };
 
-const PosterCard = ({ classes, posterUrl, movieDetails }) => {
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={posterUrl}
-          title={movieDetails.title}
-        />
-        <CardContent>
-          <Typography variant="headline" component="h2">
-            {movieDetails.title}
-          </Typography>
-          <Typography component="p">{movieDetails.overview}</Typography>
-        </CardContent>
-        <CardActions>
-          {/* <Button size="small" color="primary">
+// This component renders the movie poster and some details about the movie
+const PosterCard = ({ classes, posterUrl, movieDetails }) => (
+  <div>
+    <Card className={classes.card}>
+      <CardMedia
+        className={classes.media}
+        image={posterUrl}
+        title={movieDetails.title}
+      />
+      <CardContent>
+        <Typography variant="headline" component="h2">
+          {movieDetails.title}
+        </Typography>
+        <Typography component="p">{movieDetails.overview}</Typography>
+      </CardContent>
+      <CardActions>
+        {/* <Button size="small" color="primary">
             Share
           </Button>
           <Button size="small" color="primary">
             Learn More
           </Button> */}
-        </CardActions>
-      </Card>
-    </div>
-  );
-};
+      </CardActions>
+    </Card>
+  </div>
+);
 
 PosterCard.propTypes = {
   classes: PropTypes.object.isRequired,

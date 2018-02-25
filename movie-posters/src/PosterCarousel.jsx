@@ -85,6 +85,7 @@ class PosterCarousel extends Component {
     return TheMovieDbApi.getConfiguration()
       .then(json => {
         this.setState({
+          isFetchingConfig: false,
           theMovieDbConfig: json
         });
       })
