@@ -28,13 +28,17 @@ class PosterCarousel extends Component {
   constructor(props) {
     super(props);
 
+    // The component's initial state
     this.state = {
       isFetchingPopularMovies: true,
+      isFetchingConfig: true,
       movies: [],
       currentMovieIndex: 0,
-      theMovieDbConfig: null
+      theMovieDbConfig: null,
+      hasError: false
     };
 
+    // Magic sauce to ensure the "this" context is correct throughout the components lifecycle
     this.showNextPoster = this.showNextPoster.bind(this);
     this.getPopularMovies = this.getPopularMovies.bind(this);
     this.getTheMovieDbConfiguration = this.getTheMovieDbConfiguration.bind(
@@ -44,7 +48,11 @@ class PosterCarousel extends Component {
   }
 
   componentDidMount() {
+    // This method is called by React when the component mounts the first time
+
+    // We need to get some configuration settings from the API first
     this.getTheMovieDbConfiguration().then(() => {
+      // When we have the config, we can get the movies
       this.getPopularMovies();
     });
   }
@@ -52,6 +60,7 @@ class PosterCarousel extends Component {
   getPopularMovies() {
     return TheMovieDbApi.getPopularMovies()
       .then(json => {
+        // When we get the response body back, we update our state with the data
         this.setState({
           isFetchingPopularMovies: false,
           movies: json.results,
@@ -59,16 +68,38 @@ class PosterCarousel extends Component {
         });
       })
       .catch(err => {
-        this.setState({ isFetchingPopularMovies: false });
+        const error = JSON.stringify(err);
+        console.error(
+          `An error occurred when attempting to get the most popular movies! ${error}`
+        );
+
+        // Set state indicating we're in a faulted state
+        this.setState({
+          isFetchingPopularMovies: false,
+          hasError: true
+        });
       });
   }
 
   getTheMovieDbConfiguration() {
-    return TheMovieDbApi.getConfiguration().then(json => {
-      this.setState({
-        theMovieDbConfig: json
+    return TheMovieDbApi.getConfiguration()
+      .then(json => {
+        this.setState({
+          theMovieDbConfig: json
+        });
+      })
+      .catch(err => {
+        const error = JSON.stringify(err);
+        console.error(
+          `An error occurred when attempting to get config values from the API! ${error}`
+        );
+
+        // Set state indicating we're in a faulted state
+        this.setState({
+          isFetchingConfig: false,
+          hasError: true
+        });
       });
-    });
   }
 
   showNextPoster() {
@@ -78,22 +109,34 @@ class PosterCarousel extends Component {
   }
 
   constructPosterUrl(posterPath) {
+    // The API documentation explains how this url must be constructed:
+    // https://developers.themoviedb.org/3/getting-started/images
     const baseUrl = this.state.theMovieDbConfig.images.base_url;
-    const posterSize = this.state.theMovieDbConfig.images.poster_sizes[4]; // 500px width
-    return `${baseUrl}${posterSize}${posterPath}`;
+    const posterSize500pxWidth = this.state.theMovieDbConfig.images
+      .poster_sizes[4];
+    return `${baseUrl}${posterSize500pxWidth}${posterPath}`;
   }
 
   render() {
+    // This method is called by React on every render.
+    // It will be called every time this.props or this.state changes
+
+    // Destruct props and state so we can use it less verbosely
     const { classes } = this.props;
-    const { isFetchingPopularMovies, currentMovieIndex, movies } = this.state;
+    const {
+      isFetchingPopularMovies,
+      isFetchingConfig,
+      currentMovieIndex,
+      movies
+    } = this.state;
 
-    const currentMovie = movies[currentMovieIndex];
-    const isLastMovie = currentMovieIndex + 1 === movies.length;
-
-    if (isFetchingPopularMovies) {
+    // Show progress bar if we're fetching any data
+    if (isFetchingPopularMovies || isFetchingConfig) {
       return <LinearProgress />;
     }
 
+    const currentMovie = movies[currentMovieIndex];
+    const isLastMovieInList = currentMovieIndex + 1 === movies.length;
     const posterUrl = this.constructPosterUrl(currentMovie.poster_path);
 
     return (
@@ -106,7 +149,7 @@ class PosterCarousel extends Component {
             variant="fab"
             color="primary"
             onClick={this.showNextPoster}
-            disabled={isLastMovie}
+            disabled={isLastMovieInList}
           >
             <NavigateNextIcon />
           </Button>

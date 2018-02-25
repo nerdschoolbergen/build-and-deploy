@@ -18,13 +18,11 @@ The benefits of automating the deployment workflow is many, but chief among them
 ### In this exercise we will
 
 * _Fork_ and _clone_ our Git repository and get it running on your computer.
-* Setup _continuous integration_ using CircleCI
-* Setup _continuous deployment_ using Heroku
-* Improve our simple calculator application and watch the automation eliminate manual work.
+* Take a quick tour of the repository and the app (even though the app is _not_ the focus of this workshop - deploying it is).
 
 # 1.1 Getting started
 
-First you need a copy of this Git repository on your computer. You'll also need to _push_ changes to Git in order to trigger builds, but at the moment this repository is owned by the Nerschool GitHub organization. To make your own copy of this repository that you'll have full access to, you must _Fork_ this repository.
+First you need a copy of this Git repository on your computer. You'll also need to _push_ changes to Git in order to trigger builds, but at the moment this repository is owned by the Nerschool GitHub organization so you can read but not touch. To make your own copy of this repository that you'll have full access to, you must _Fork_ this repository.
 
 :pencil2: Make sure you're logged in to GitHub.  
 :pencil2: In this Git repository, click the _Fork_ button in the top right corner.
@@ -37,36 +35,57 @@ First you need a copy of this Git repository on your computer. You'll also need 
 
 ![img03](./images/img03.png)
 
-:pencil2: Navigate to the repository folder and run the following commands:
+:pencil2: Navigate to the repository folder and run the following command:
 
-* Install Bower on your computer: `npm install -g bower`
-* Install Grunt on command line: `npm install -g grunt-cli`
 * Install our application's dependencies: `npm install`
 
-> :bulb: The `-g` switch when installing packages using npm indicates that the package will be installed globally on your computer instead of locally within your application. Typically this is used to make packages available on our PATH so they can be invoked using a terminal.
+> If the command produces an error saying npm is unrecognized, you need to install [NodeJS](https://nodejs.org/en/) first, then restart the terminal window and try again.
 
-> :exclamation: You might need to restart your terminal window after installing bower and grunt-cli. Typing `grunt --version` and `bower -v` in the terminal should return version numbers and not errors.
+:pencil2: Once everything is installed, open the repository using your favorite text editor or IDE.
+:pencil2: Expand the `movie-posters` folder.
 
-:pencil2: Once everything is installed, open the repository using your favorite text editor.
+From top to bottom:
 
-> :book: You will notice 2 folders containing dependencies.
+* The `config` folder contains configuration settings for the app. The only interesting part here is the Webpack config files, which we'll look at in more detail soon.
+* The `node_modules` folder is where all dependencies for the app is installed to. This folder was created when you did `npm install`.
+* The `public` folder is relevant when we will put our app into production. This is the folder where we'll serve our app from when it's hosted on a webserver.
+* The `scripts` folder is just infrastructure created by the scaffolding tool we used to generate this project.
+* The `src` folder is where you'll find the app we'll deploy throughout these exercises.
 
-* The `bower_components` folder contains libraries installed by Bower. Bower installs its dependencies through the `npm install` command we just did.
-  Bower is typically used for _front-end_ dependencies such as jQuery, Angular, and Bootstrap.
-* The `node_modules` folder contains dependencies installed by _npm_, here you'll find Grunt, which is our task runner, Bower itself, and KarmaJS which is our test runner.
+> The project was created using [create-react-app](https://github.com/facebook/create-react-app), a scaffolding tool made for getting started with React apps quickly. It's a great tool if you want to explore making front-end apps using React.
 
-> :book: There's also some folders belonging to our application: `src`, `dist` and `test`.
+:pencil2: Run `npm start` in your terminal. A browser should open at [http://localhost:3000](http://localhost:3000).  
+:pencil2: Click the button and fetch a few movie posters.
 
-* The `src` folder is where you develop your code. It contains JavaScript files (`calcCtrl.js` will be important later) and the `.scss` file which'll be compiled into css and contains our styling.
-* The `test` folder contains a Jasmine unit test file to test our `src/calcCtrl` file.
-* The `dist` folder contains the actual html web page we are developing and are supposed to deploy to production.
+# :book: 1.2 The app
 
-Also note the configuration files in the root folder, such as `package.json`, `Gruntfile.js`, `bower.json`, `circle.yml`, and `Procfile`. We'll come back to each of these later. For now, let's start the application and see what it does.
+Today is about deploying the app and not how it works or building more features, but it's worth having a quick tour nontheless.
 
-:pencil2: In a terminal/command line, make sure you're in the same folder as `package.json` (that goes for all commands you'll run from here on). Then run `grunt startlocal`.
+## 1.2.1 How it works
 
-The application will now open in your default browser at url: [http://localhost:9601](http://localhost:9601).
+* It uses the [API](https://developers.themoviedb.org/3) for [The Movie DB](https://www.themoviedb.org/) to fetch movie information. An API key has been registered for this workshop, but please make your own if you want to expand on this in your own project after this workshop.
+* On startup we get the first page of the most popular movies (20 movies) from the API.
+* Each movie has some details, including a poster url
+* We feed each poster url to a component that displays it along with the movie's title and description
+* When we click the Next button we feed the next poster url to the component.
 
-:pencil2: Try interacting with the calculator. Notice that addition and division is implemented, while subtracting and multiplying is not.
+> You might need an React plugin for your editor to get syntax highlighting for React (`.jsx`) files. You should install it now if you don't have one.
+
+## 1.2.2 Components
+
+* `PosterCarousel.jsx` is doing the heavy lifting. It's responsible for fetching the movies and send the correct movie to the display component.
+  * `componentDidMount` is a special lifecycle method from the React framework which is invoked when the component is initially mounted/started. As you can see, we kick off a few http requests to TheMovieDb here.
+  * `render` is another special method from the React framework. It's responsible for returning a new view if any `state` or `props` changes (for example after we call `setState` with new state).
+  * While we're fetching data (`isFetchingPopularMovies` is `true`) we show a progress bar
+  * When we're not fetching data we'll render the `PosterCard` component along with a `Button`.
+* `PosterCard` is responsible for showing the poster and some movie information.
+
+## 1.2.3 Supporting libraries
+
+* The GUI components are from [Material UI](https://material-ui-next.com/)
+* Material UI uses [JSS (css-in-js)](http://cssinjs.org/) so we use it too, for simplicity. This is why you'll see styling in the `.jsx` files and not in separate `.css` or `.sass` stylesheets.
+* The Material UI guys also made a library of common icons: [material-ui-icons](https://material.io/icons/)
+
+> If you're interested in learning more about React (later!), we have a complete Nerdschool React workshop [here](https://github.com/nerdschoolbergen/react)
 
 ### [Go to exercise 2 :arrow_right:](./exercise-2.md)
