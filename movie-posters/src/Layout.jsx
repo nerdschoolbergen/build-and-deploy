@@ -19,11 +19,12 @@ const Layout = ({ classes, children }) => {
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} />
-      <Grid container spacing={24} justify="center">
+      {children}
+      {/* <Grid container spacing={24} justify="center">
         <Grid item xl={6} lg={8} md={10} sm={12} xs={12}>
-          {children}
+          
         </Grid>
-      </Grid>
+      </Grid> */}
     </div>
   );
 };

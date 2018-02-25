@@ -3,9 +3,26 @@ import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import Button from "material-ui/Button";
 import { LinearProgress } from "material-ui/Progress";
+import NavigateNextIcon from "material-ui-icons/NavigateNext";
 import PosterCard from "./PosterCard";
+import TheMovieDbApi from "./TheMovieDbApi";
 
-const styles = () => ({});
+const styles = theme => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
+  },
+  posterCard: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  nextButton: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: theme.spacing.unit * 2
+  }
+});
 
 class PosterCarousel extends Component {
   constructor(props) {
@@ -14,24 +31,26 @@ class PosterCarousel extends Component {
     this.state = {
       isFetchingPopularMovies: true,
       movies: [],
-      currentMovieIndex: 0
+      currentMovieIndex: 0,
+      theMovieDbConfig: null
     };
 
     this.showNextPoster = this.showNextPoster.bind(this);
+    this.getPopularMovies = this.getPopularMovies.bind(this);
+    this.getTheMovieDbConfiguration = this.getTheMovieDbConfiguration.bind(
+      this
+    );
+    this.constructPosterUrl = this.constructPosterUrl.bind(this);
   }
 
   componentDidMount() {
-    const apiKey = "0e7601740ef116eda5e9b83993959d45";
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
-    const options = {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    };
+    this.getTheMovieDbConfiguration().then(() => {
+      this.getPopularMovies();
+    });
+  }
 
-    fetch(url, options)
-      .then(response => response.json())
+  getPopularMovies() {
+    return TheMovieDbApi.getPopularMovies()
       .then(json => {
         this.setState({
           isFetchingPopularMovies: false,
@@ -44,14 +63,30 @@ class PosterCarousel extends Component {
       });
   }
 
+  getTheMovieDbConfiguration() {
+    return TheMovieDbApi.getConfiguration().then(json => {
+      this.setState({
+        theMovieDbConfig: json
+      });
+    });
+  }
+
   showNextPoster() {
     this.setState({
       currentMovieIndex: this.state.currentMovieIndex + 1
     });
   }
 
+  constructPosterUrl(posterPath) {
+    const baseUrl = this.state.theMovieDbConfig.images.base_url;
+    const posterSize = this.state.theMovieDbConfig.images.poster_sizes[4]; // 500px width
+    return `${baseUrl}${posterSize}${posterPath}`;
+  }
+
   render() {
+    const { classes } = this.props;
     const { isFetchingPopularMovies, currentMovieIndex, movies } = this.state;
+
     const currentMovie = movies[currentMovieIndex];
     const isLastMovie = currentMovieIndex + 1 === movies.length;
 
@@ -59,15 +94,21 @@ class PosterCarousel extends Component {
       return <LinearProgress />;
     }
 
+    const posterUrl = this.constructPosterUrl(currentMovie.poster_path);
+
     return (
-      <div>
-        <PosterCard
-          posterUrl={currentMovie.poster_path}
-          movieDetails={currentMovie}
-        />
-        <div>
-          <Button onClick={this.showNextPoster} disabled={isLastMovie}>
-            Next
+      <div className={classes.root}>
+        <div className={classes.posterCard}>
+          <PosterCard posterUrl={posterUrl} movieDetails={currentMovie} />
+        </div>
+        <div className={classes.nextButton}>
+          <Button
+            variant="fab"
+            color="primary"
+            onClick={this.showNextPoster}
+            disabled={isLastMovie}
+          >
+            <NavigateNextIcon />
           </Button>
         </div>
       </div>
@@ -76,9 +117,7 @@ class PosterCarousel extends Component {
 }
 
 PosterCarousel.propTypes = {
-  posterUrl: PropTypes.string.isRequired,
-  movieDetails: PropTypes.object.isRequired,
-  onGetNextPoster: PropTypes.func.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(PosterCarousel);

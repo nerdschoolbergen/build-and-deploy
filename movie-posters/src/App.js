@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
-import Layout from "./Layout";
 import Paper from "material-ui/Paper";
+import Layout from "./Layout";
+import PosterCarousel from "./PosterCarousel";
 
 const styles = theme => ({
   root: {
@@ -18,7 +19,7 @@ const styles = theme => ({
 const App = ({ classes }) => {
   return (
     <Layout>
-      <Paper className={classes.paper}>xs=12</Paper>{" "}
+      <PosterCarousel />
     </Layout>
   );
 };
