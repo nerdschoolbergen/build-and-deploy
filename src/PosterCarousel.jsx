@@ -1,27 +1,28 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import Button from "material-ui/Button";
-import { LinearProgress } from "material-ui/Progress";
-import NavigateNextIcon from "material-ui-icons/NavigateNext";
-import PosterCard from "./PosterCard";
-import TheMovieDbApi from "./TheMovieDbApi";
+/* eslint-disable no-console */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import { LinearProgress } from 'material-ui/Progress';
+import NavigateNextIcon from 'material-ui-icons/NavigateNext';
+import PosterCard from './PosterCard';
+import TheMovieDbApi from './TheMovieDbApi';
 
 const styles = theme => ({
   root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   posterCard: {
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center',
   },
   nextButton: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: theme.spacing.unit * 2
-  }
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: theme.spacing.unit * 2,
+  },
 });
 
 class PosterCarousel extends Component {
@@ -35,15 +36,13 @@ class PosterCarousel extends Component {
       movies: [],
       currentMovieIndex: 0,
       theMovieDbConfig: null,
-      hasError: false
+      hasError: false,
     };
 
     // Magic sauce to ensure the "this" context is correct throughout the components lifecycle
     this.showNextPoster = this.showNextPoster.bind(this);
     this.getPopularMovies = this.getPopularMovies.bind(this);
-    this.getTheMovieDbConfiguration = this.getTheMovieDbConfiguration.bind(
-      this
-    );
+    this.getTheMovieDbConfiguration = this.getTheMovieDbConfiguration.bind(this);
     this.constructPosterUrl = this.constructPosterUrl.bind(this);
   }
 
@@ -59,53 +58,49 @@ class PosterCarousel extends Component {
 
   getPopularMovies() {
     return TheMovieDbApi.getPopularMovies()
-      .then(json => {
+      .then((json) => {
         // When we get the response body back, we update our state with the data
         this.setState({
           isFetchingPopularMovies: false,
           movies: json.results,
-          currentMovieIndex: 0
+          currentMovieIndex: 0,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         const error = JSON.stringify(err);
-        console.error(
-          `An error occurred when attempting to get the most popular movies! ${error}`
-        );
+        console.error(`An error occurred when attempting to get the most popular movies! ${error}`);
 
         // Set state indicating we're in a faulted state
         this.setState({
           isFetchingPopularMovies: false,
-          hasError: true
+          hasError: true,
         });
       });
   }
 
   getTheMovieDbConfiguration() {
     return TheMovieDbApi.getConfiguration()
-      .then(json => {
+      .then((json) => {
         this.setState({
           isFetchingConfig: false,
-          theMovieDbConfig: json
+          theMovieDbConfig: json,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         const error = JSON.stringify(err);
-        console.error(
-          `An error occurred when attempting to get config values from the API! ${error}`
-        );
+        console.error(`An error occurred when attempting to get config values from the API! ${error}`);
 
         // Set state indicating we're in a faulted state
         this.setState({
           isFetchingConfig: false,
-          hasError: true
+          hasError: true,
         });
       });
   }
 
   showNextPoster() {
     this.setState({
-      currentMovieIndex: this.state.currentMovieIndex + 1
+      currentMovieIndex: this.state.currentMovieIndex + 1,
     });
   }
 
@@ -113,8 +108,7 @@ class PosterCarousel extends Component {
     // The API documentation explains how this url must be constructed:
     // https://developers.themoviedb.org/3/getting-started/images
     const baseUrl = this.state.theMovieDbConfig.images.base_url;
-    const posterSize500pxWidth = this.state.theMovieDbConfig.images
-      .poster_sizes[4];
+    const posterSize500pxWidth = this.state.theMovieDbConfig.images.poster_sizes[4];
     return `${baseUrl}${posterSize500pxWidth}${posterPath}`;
   }
 
@@ -128,12 +122,17 @@ class PosterCarousel extends Component {
       isFetchingPopularMovies,
       isFetchingConfig,
       currentMovieIndex,
-      movies
+      movies,
+      hasError,
     } = this.state;
 
     // Show progress bar if we're fetching any data
     if (isFetchingPopularMovies || isFetchingConfig) {
       return <LinearProgress />;
+    }
+
+    if (hasError) {
+      return <h1>An error occurred. SAD!</h1>;
     }
 
     const currentMovie = movies[currentMovieIndex];
@@ -161,7 +160,7 @@ class PosterCarousel extends Component {
 }
 
 PosterCarousel.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(PosterCarousel);

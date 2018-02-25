@@ -1,10 +1,10 @@
-const apiKey = "0e7601740ef116eda5e9b83993959d45";
+const apiKey = '0e7601740ef116eda5e9b83993959d45';
 
 const options = {
-  method: "GET",
+  method: 'GET',
   headers: {
-    Accept: "application/json"
-  }
+    Accept: 'application/json',
+  },
 };
 
 class TheMovieDbApi {
