@@ -9,13 +9,16 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     marginBottom: theme.spacing.unit * 2
+  },
+  toolbar: {
+    justifyContent: "center"
   }
 });
 
 const SimpleAppBar = ({ classes }) => (
   <div className={classes.root}>
     <AppBar position="static" color="primary">
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Typography variant="title" color="inherit">
           Movie Posters!
         </Typography>
