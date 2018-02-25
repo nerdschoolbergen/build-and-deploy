@@ -40,11 +40,11 @@ From top to bottom, this tells TravisCI to:
 
 A build should be starting immediately on your repository. The build should succeed.
 
-![](./images/travis01.png)
-
 :pencil2: Scroll to the bottom of the build log.
 
 :bulb: Notice that you can see commands being run to the right in the build log. This is helpful for finding config related to our app.
+
+![](./images/travis01.png)
 
 :pencil2: Find the sections for `npm run build`. It should be one of the last events that occurred.
 
@@ -60,4 +60,37 @@ Luckily `create-react-app` also included ESLint along with some rules (the `esli
 
 :pencil2: Open `package.json` and add `"lint": "eslint src/**/*.js src/**/*.jsx"` under `"scripts"`. This will run eslint on .js and .jsx files.  
 :pencil2: Run `npm run lint` in your terminal. The command should take a few seconds, then exit without errors.  
-:pencil2: Open `src/PosterCard.jsx`
+:pencil2: Open `src/PosterCard.jsx` and comment out line 41 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
+
+```
+18:23  error  'classes' is missing in props validation  react/prop-types
+```
+
+:pencil2: Undo the comment and save the file as it was.
+
+## Testing
+
+There is already a script for running our tests in package.json.
+
+:pencil2: Run `npm test` and see that it succeeds. If the terminal says "No changes since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL mode. It'll just run through all tests and exit the script.
+
+## Run our CI steps on Travis
+
+Now that we've added more scripts to run, we need to tell Travis about them.
+
+:pencil2: Open `.travis.yml` and change `scripts` to be a list of commands:
+
+```yml
+script:
+  - npm run lint
+  - npm test
+  - npm run build
+```
+
+Note that in yml files, whitespace/indentation matters. Each list item should be two spaces in.
+
+:pencil2: Commit all changes and push them to git.  
+:pencil2: Open Travis again and watch the build succeed.  
+:pencil2: Locate the lint and test scripts in the build log.
+
+![](./images/travis02.png)
