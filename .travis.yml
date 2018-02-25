@@ -4,7 +4,7 @@ node_js:
 cache:
   directories:
   - node_modules
-script: node ./movie-posters/scripts/build.js
+script: build.sh
 # deploy:
 #   on: master
 #   provider: heroku
