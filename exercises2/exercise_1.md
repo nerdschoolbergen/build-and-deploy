@@ -88,4 +88,4 @@ Today is about deploying the app and not how it works or building more features,
 
 > If you're interested in learning more about React (later!), we have a complete Nerdschool React workshop [here](https://github.com/nerdschoolbergen/react)
 
-### [Go to exercise 2 :arrow_right:](./exercise-2.md)
+### [Go to exercise 2 :arrow_right:](./exercise_2.md)

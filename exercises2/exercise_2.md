@@ -83,6 +83,19 @@ Line 169 to 212 is a confusing mess that basically just processes our css. This 
 **`*` files**  
 Line 220 to 229 says that if Webpack encounters any file that haven't been picked up by any of the above loaders, it should just copy that file to the `static/media` folder
 
-What do we mean when we say "whenever Webpack _encounters a file_"? This is simply that we `import` or `require` a file with that extension in our code. For example to load an image we'd use `import myImage from './cat.png'` in our code. The cat.png image would then be handled by the `url-loader`, as described between lines 138 to 145 because that's where the `.png` extension is handled.
+What do we mean when we say "whenever Webpack _encounters a file_"? This is simply that we `import` or `require` a file with that extension in our code. For example, to load an image we'd use `import myImage from './cat.png'` in our code. The cat.png image would then be handled by the `url-loader`, as described between lines 138 to 145 because that's where the `.png` extension is handled.
 
-:sweat_smile: Phew! That's alot of config. Even though we understand that all this configuration seems daunting, we hope that you now have a rough idea of what Webpack does, and what our build pipeline looks like.
+:sweat_smile: Phew! That's alot of config. Even though all this configuration seems daunting, we hope that you now have a rough idea of what Webpack does, and what our build pipeline looks like.
+
+### 2.2 - Building our app
+
+:pencil2: Run `npm run build` to build our app using the `webpack.config.prod` config.
+
+This builds our app and puts it in the `/build` folder. This folder is what we will deploy to our web server and host on the internet.
+
+We need a static web server to host the app once built. The build output suggests `serve` (`serve -s build` in the terminal).
+
+:pencil2: Run `npm install -g serve`. This will install `serve` globally on your computer. You probably need to run the terminal as admin to do this.  
+:pencil2: Run `serve -s build` to host the build folder, then open [http://localhost:5000](http://localhost:5000) in your browser and verify the app runs. (You might need to restart the terminal window after installing serve to use it).
+
+### [Go to exercise 3 :arrow_right:](./exercise_3.md)
