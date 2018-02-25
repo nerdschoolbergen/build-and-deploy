@@ -4,7 +4,7 @@ node_js:
 cache:
   directories:
   - node_modules
-script: build.sh
+script: ./build.sh
 # deploy:
 #   on: master
 #   provider: heroku
