@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PosterCard should render correctly 1`] = `
+<PosterCard
+  classes={
+    Object {
+      "card": "PosterCard-card-1",
+      "media": "PosterCard-media-2",
+    }
+  }
+  movieDetails={
+    Object {
+      "description": "Some movie description",
+      "title": "Mock Movie 14",
+    }
+  }
+  posterUrl="/mock-poster.png"
+/>
+`;
