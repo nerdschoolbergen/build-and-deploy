@@ -7,3 +7,4 @@ src/style.css
 src/script.js
 dist/script.min.js
 dist/style.min.css
+.vscode/
