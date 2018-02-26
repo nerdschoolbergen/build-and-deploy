@@ -25,6 +25,7 @@ We'll look at the infrastructure of deploying an app to production and not the a
 * [Exercise 2](./_exercises/exercise_2.md/)
 * [Exercise 3](./_exercises/exercise_3.md/)
 * [Exercise 4](./_exercises/exercise_4.md/)
+* [Exercise 5 (bonus)](./_exercises/exercise_5.md/)
 
 Have fun! And remember to ask an instructor if you're stuck.
 
