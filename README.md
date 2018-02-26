@@ -1,34 +1,30 @@
 # Build and Deploy
 
-This exercise is a JavaScript application which is only partly implemented.
-Using continuous integration and continuous deployment, we will utilize some cloud tools to provide the deployment pipeline.
-We will also use several tools which helps with development of JavaScript applications like [npm](https://www.npmjs.com/), [bower](https://bower.io/) and [grunt](https://gruntjs.com/).
+In this workshop we'll learn about building and deploying a simple front-end application.
 
 ## [Open presentation slides](https://drive.google.com/open?id=1FHwVkd7pzRW3xvMh4m7p9PGoPXrq_erdECNMJmQYHdI)
 
 ## Focus of this lesson
-{The focus or purpose of this workshop}
+
+We'll look at the infrastructure of deploying an app to production and not the app itself.
 
 ## What you need
+
 * Make sure Git is installed and available on command line (`git --version` in a terminal should not produce an error). [Install Git](https://git-scm.com/downloads) if you don't have it.
 * NodeJS with npm must be installed and available on command line (`node -v` and `npm -v` in a terminal should not produce an error. You should have a NodeJS version greater than 8 and npm version greater than 5). Install from: https://nodejs.org/
 * A good text editor of your choice, such as [Atom](https://atom.io/), [SublimeText](https://www.sublimetext.com/), or [Visual Studio Code](https://www.visualstudio.com/). If you don't have a favorite already, we recommend [Atom](https://atom.io/).
 * If you are completely new to JavaScript, it is recommended to explore and test the language beforehand
-* We will not go into the details about npm, bower and grunt. If you want to learn more about them, please see our [JavaScript Infrastructure workshop](https://github.com/nerdschoolbergen/js-infrastructure).
 
 ## How to get started
 
-* Start by cloning this repository into a folder on your computer (`git clone {repository url}`). If you've never used git before, you can alternatively use the the "Download ZIP" button on this page.
 * Although you have this `README.md` file on your computer it's easier to read it on GitHub, so we recommend you keep this page open in a web browser with the exercise tasks.
 
 ## Exercises
 
-- [Exercise 1](./exercises/exercise-1.md/) (start here)
-- [Exercise 2](./exercises/exercise-2.md/)
-- [Exercise 3](./exercises/exercise-3.md/)
-- [Exercise 4](./exercises/exercise-4.md/)
-- [Exercise 5](./exercises/exercise-5.md/)
-- [Exercise 6](./exercises/exercise-6.md/)
+* [Exercise 1](./_exercises/exercise_1.md/) (start here)
+* [Exercise 2](./_exercises/exercise_2.md/)
+* [Exercise 3](./_exercises/exercise_3.md/)
+* [Exercise 4](./_exercises/exercise_4.md/)
 
 Have fun! And remember to ask an instructor if you're stuck.
 
@@ -42,7 +38,7 @@ Have fun! And remember to ask an instructor if you're stuck.
 :exclamation: - Something important.  
 :question: - Open-ended question for the reader ("What do you think would happen if...")  
 :poop: - Bad practice (don't-do-this)  
-:star: - A bonus task (not required)  
+:star: - A bonus task (not required)
 
 #### Keyboard keys
 
