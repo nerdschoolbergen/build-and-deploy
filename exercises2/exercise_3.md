@@ -2,6 +2,8 @@
 
 Instead of setting up a build server from scratch, we'll use Travis CI to do all the heavy lifting for us.
 
+As the name implies, this is a service for handling our Continuous Integration steps. We'll have to find another service for hosting our app once we've built and verified it using Travis.
+
 ## Travis CI config
 
 Travis is configured through a `.travis.yml` file in our repo.
@@ -19,6 +21,8 @@ script: npm run build
 ```
 
 The file should be named `.travis.yml`, not `travis.yml`.
+
+> If you're on mac or linux and can't see `.travis.yml` or any other file that starts with a dot, it's because on nix filesystems, filenames starting with dot indicates that they should be hidden. You need to enable your file explorer to show hidden files if you want to see them when browsing a folder. If you list all files using `ls -la` in your terminal you should see several files starting with dot: `.gitignore`, `.eslintrc.js`, `.travis.yml`.
 
 From top to bottom, this tells TravisCI to:
 
@@ -48,7 +52,7 @@ A build should be starting immediately on your repository. The build should succ
 
 :pencil2: Find the sections for `npm run build`. It should be one of the last events that occurred.
 
-# Continuous Integration
+# Improving Continuous Integration
 
 Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
 
@@ -58,7 +62,19 @@ Linting is just to verify that our code follows certain best practices and code 
 
 Luckily `create-react-app` also included ESLint along with some rules (the `eslint-*` packages listed under `dependencies` in `package.json`, but it does not run it by default.
 
-:pencil2: Open `package.json` and add `"lint": "eslint src/**/*.js src/**/*.jsx"` under `"scripts"`. This will run eslint on .js and .jsx files.  
+> We added the `eslint-config-airbnb` package in addition to the create-react-app defaults. The Airbnb config is by many seen as the defacto standard for modern JavaScript code practices.
+
+> We're also overriding certain rules in the `.eslintrc.js` file because some rules are unnecessarily strict and hard to work with.
+
+:pencil2: Open `package.json` and add `"lint": "eslint src/**/*.js src/**/*.jsx"` under `"scripts"`. This will run eslint on .js and .jsx files.
+
+```
+"scripts": {
+  ...
+  "lint": "eslint src/**/*.js src/**/*.jsx"
+},
+```
+
 :pencil2: Run `npm run lint` in your terminal. The command should take a few seconds, then exit without errors.  
 :pencil2: Open `src/PosterCard.jsx` and comment out line 41 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
 
@@ -66,17 +82,21 @@ Luckily `create-react-app` also included ESLint along with some rules (the `esli
 18:23  error  'classes' is missing in props validation  react/prop-types
 ```
 
+This is an example of linting helping us enforce good coding practices.
+
+> All modern code editors and IDE's has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful. [Like this](./images/eslint01.png).
+
 :pencil2: Undo the comment and save the file as it was.
 
 ## Testing
 
 There is already a script for running our tests in package.json.
 
-:pencil2: Run `npm test` and see that it succeeds. If the terminal says "No changes since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL mode. It'll just run through all tests and exit the script.
+:pencil2: Run `npm test` and see that it succeeds. If the terminal says "No changes since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL loop or watch mode. It'll just run through all tests once and exit the script.
 
 ## Run our CI steps on Travis
 
-Now that we've added more scripts to run, we need to tell Travis about them.
+Now that we've added more scripts to run, we need to tell Travis about them, and the order in which to run them.
 
 :pencil2: Open `.travis.yml` and change `scripts` to be a list of commands:
 
@@ -91,6 +111,10 @@ Note that in yml files, whitespace/indentation matters. Each list item should be
 
 :pencil2: Commit all changes and push them to git.  
 :pencil2: Open Travis again and watch the build succeed.  
-:pencil2: Locate the lint and test scripts in the build log.
+:pencil2: Locate the lint and test scripts in the build log and see that they succeeds.
 
 ![](./images/travis02.png)
+
+Well done so far :tada:! Next, we'll deploy the app.
+
+### [Go to exercise 4 :arrow_right:](./exercise_4.md)

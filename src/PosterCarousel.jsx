@@ -49,7 +49,8 @@ class PosterCarousel extends Component {
   componentDidMount() {
     // This method is called by React when the component mounts the first time
 
-    // We need to get some configuration settings from the API first
+    // We need to get some configuration settings from the API first.
+    // We need the config to construct a complete poster url later.
     this.getTheMovieDbConfiguration().then(() => {
       // When we have the config, we can get the movies
       this.getPopularMovies();
@@ -81,6 +82,7 @@ class PosterCarousel extends Component {
   getTheMovieDbConfiguration() {
     return TheMovieDbApi.getConfiguration()
       .then((json) => {
+        // Store the received configuration in state so we can access it later
         this.setState({
           isFetchingConfig: false,
           theMovieDbConfig: json,
@@ -131,6 +133,7 @@ class PosterCarousel extends Component {
       return <LinearProgress />;
     }
 
+    // Show error message if anything failed
     if (hasError) {
       return <h1>An error occurred. SAD!</h1>;
     }

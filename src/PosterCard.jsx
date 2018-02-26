@@ -38,7 +38,7 @@ const PosterCard = ({ classes, posterUrl, movieDetails }) => (
 );
 
 PosterCard.propTypes = {
-  // classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
   posterUrl: PropTypes.string.isRequired,
   movieDetails: PropTypes.object.isRequired,
 };
