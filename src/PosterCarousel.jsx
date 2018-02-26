@@ -63,7 +63,7 @@ class PosterCarousel extends Component {
         // When we get the response body back, we update our state with the data
         this.setState({
           isFetchingPopularMovies: false,
-          movies: json.results,
+          movies: json.results.slice(2),
           currentMovieIndex: 0,
         });
       })
