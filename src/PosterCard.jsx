@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
 const styles = {
@@ -26,9 +25,7 @@ const PosterCard = ({ classes, posterUrl, movieDetails }) => (
         <Typography component="p">{movieDetails.overview}</Typography>
       </CardContent>
       <CardActions>
-        <Button color="primary" href={`https://www.themoviedb.org/movie/${movieDetails.id}`} large>
-          Read more
-        </Button>
+        {/* TODO */}
       </CardActions>
     </Card>
   </div>
