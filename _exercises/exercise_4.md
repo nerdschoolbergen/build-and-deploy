@@ -17,11 +17,10 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 ![](./images/heroku01.png)
 
 :pencil2: Give it a name (for example `YOURNAME-build-and-deploy`).  
-:pencil2: Choose `Europe` as the region.
-
-Ignore the `Add to pipeline` option.
-
-:pencil2: Click `Create app`.
+:pencil2: Choose `Europe` as the region.  
+:pencil2: Add a _pipeline_. A pipeline is a build pipeline which our deployment will belong to. This workshop will only utilize one pipeline, but a bigger project might consist of many apps that needs to be deployed individually.  
+:pencil2: Name the pipeline something similar to what you named the project.  
+:pencil2: Choose `production` as the stage/environment.
 
 ## Connecting TravisCI and Heroku
 
