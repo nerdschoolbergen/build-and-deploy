@@ -1,3 +1,0 @@
-user: nerdschoolbergen
-pw: movienerds
-apikey: 0e7601740ef116eda5e9b83993959d45

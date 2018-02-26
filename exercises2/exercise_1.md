@@ -42,7 +42,6 @@ First you need a copy of this Git repository on your computer. You'll also need 
 > If the command produces an error saying npm is unrecognized, you need to install [NodeJS](https://nodejs.org/en/) first, then restart the terminal window and try again.
 
 :pencil2: Once everything is installed, open the repository using your favorite text editor or IDE.
-:pencil2: Expand the `movie-posters` folder.
 
 From top to bottom:
 
@@ -61,6 +60,12 @@ From top to bottom:
 
 Today is about deploying the app and not how it works or building more features, but it's worth having a quick tour nontheless.
 
+As the name implies, the app simply displays movie posters.
+
+![](./images/app01.png)
+
+Clicking the button below the poster will show another poster.
+
 ## 1.2.1 How it works
 
 * It uses the [API](https://developers.themoviedb.org/3) for [The Movie DB](https://www.themoviedb.org/) to fetch movie information. An API key has been registered for this workshop, but please make your own if you want to expand on this in your own project after this workshop.
@@ -76,15 +81,16 @@ Today is about deploying the app and not how it works or building more features,
 * `PosterCarousel.jsx` is doing the heavy lifting. It's responsible for fetching the movies and send the correct movie to the display component.
   * `componentDidMount` is a special lifecycle method from the React framework which is invoked when the component is initially mounted/started. As you can see, we kick off a few http requests to TheMovieDb here.
   * `render` is another special method from the React framework. It's responsible for returning a new view if any `state` or `props` changes (for example after we call `setState` with new state).
-  * While we're fetching data (`isFetchingPopularMovies` is `true`) we show a progress bar
+  * While we're fetching data (`isFetchingPopularMovies` is `true`) we show a progress bar.
   * When we're not fetching data we'll render the `PosterCard` component along with a `Button`.
-* `PosterCard` is responsible for showing the poster and some movie information.
+  * If fetching movies failed, we show a simplistic error message.
+* `PosterCard.jsx` is responsible for showing the poster and some movie information.
 
 ## 1.2.3 Supporting libraries
 
 * The GUI components are from [Material UI](https://material-ui-next.com/)
 * Material UI uses [JSS (css-in-js)](http://cssinjs.org/) so we use it too, for simplicity. This is why you'll see styling in the `.jsx` files and not in separate `.css` or `.sass` stylesheets.
-* The Material UI guys also made a library of common icons: [material-ui-icons](https://material.io/icons/)
+* The Material UI guys also made a library of common icons which we use for the "Next"-button icon: [material-ui-icons](https://material.io/icons/)
 
 > If you're interested in learning more about React (later!), we have a complete Nerdschool React workshop [here](https://github.com/nerdschoolbergen/react)
 
