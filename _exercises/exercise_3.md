@@ -22,8 +22,6 @@ script: npm run build
 
 The file should be named `.travis.yml`, not `travis.yml`.
 
-> If you're on mac or linux and can't see `.travis.yml` or any other file that starts with a dot, it's because on nix filesystems, filenames starting with dot indicates that they should be hidden. You need to enable your file explorer to show hidden files if you want to see them when browsing a folder. If you list all files using `ls -la` in your terminal you should see several files starting with dot: `.gitignore`, `.eslintrc.js`, `.travis.yml`.
-
 From top to bottom, this tells TravisCI to:
 
 * Assume our app requires a NodeJS environment to build.

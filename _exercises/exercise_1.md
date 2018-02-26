@@ -35,7 +35,7 @@ First you need a copy of this Git repository on your computer. You'll also need 
 
 ![img03](./images/img03.png)
 
-:pencil2: Navigate to the repository folder and run the following command:
+:pencil2: Navigate to the repository folder in your terminal and run the following command:
 
 * Install our application's dependencies: `npm install`
 
@@ -43,13 +43,24 @@ First you need a copy of this Git repository on your computer. You'll also need 
 
 :pencil2: Once everything is installed, open the repository using your favorite text editor or IDE.
 
-From top to bottom:
+Let's go through what the folders and files are for:
+
+**Folders**
 
 * The `config` folder contains configuration settings for the app. The only interesting part here is the Webpack config files, which we'll look at in more detail soon.
 * The `node_modules` folder is where all dependencies for the app is installed to. This folder was created when you did `npm install`.
 * The `public` folder is relevant when we will put our app into production. This is the folder where we'll serve our app from when it's hosted on a webserver.
 * The `scripts` folder is just infrastructure created by the scaffolding tool we used to generate this project.
 * The `src` folder is where you'll find the app we'll deploy throughout these exercises.
+
+**Files**
+
+* The `.eslintrc.js` file contains configurations for ESLint. We'll go more into detail about this later.
+
+> If you're on mac or linux and can't see `.eslintrc.js` or any other file that starts with a dot (such as `.gitignore`), it's because on nix filesystems, filenames starting with dot indicates that they should be hidden. You need to enable your file explorer to show hidden files if you want to see them when browsing a folder. You can use the `-a` switch to list all files (including hidden ones) in your terminal using `ls`: `ls -a` or `ls -la`.
+
+* The `package-lock.json` file is just for NPM to keep track of our dependencies.
+* The `package.json` file is where we keep some info about our app, some _scripts_ like building the app and running tests, and listing our dependencies.
 
 > The project was created using [create-react-app](https://github.com/facebook/create-react-app), a scaffolding tool made for getting started with React apps quickly. It's a great tool if you want to explore making front-end apps using React.
 

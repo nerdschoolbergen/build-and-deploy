@@ -28,9 +28,9 @@ However, Webpack doesn't understand all this without being told what to do. We h
 
 :pencil2: Open `config/webpack.config.prod.js`.
 
-This file was created by the folks making `create-react-app`, our scaffolding tool. The comments explaining the configurations are also written by them. In real projects we tend to write this file ourself by hand, because scaffolding tools often support features we won't need or understand, which makes this file seem more complex and scary than it needs to be. Learning Webpack is a topic worthy of it's own workshop so we won't go into details here. We will look at parts of it, though.
+This file was created by the folks making `create-react-app`, our scaffolding tool which generated this app for us. The comments explaining the configurations are also written by them, and can be very helpful to understand how it works. In real projects we tend to write this file ourself by hand, because scaffolding tools often support features we won't need or understand, which makes this file seem more bloated, complex and scary than it needs to be. Learning Webpack is a topic worthy of it's own workshop so we won't go into details here, but we'll look at parts of it.
 
-Webpack is just a "dumb" engine. It's main features or _build tasks_ are separated out into _plugins_ and _loaders_. Let's go through all of that are used here to de-mystify them a bit, starting with the plugins.
+Webpack is just a "dumb" engine. It's main features or _build tasks_ are separated out into _**plugins**_ and _**loaders**_. Let's go through all of that are used here to de-mystify them a bit, starting with the plugins.
 
 ### 2.1.1 - Webpack Plugins used by our app
 
@@ -52,7 +52,7 @@ Minimizes JavaScript so it takes less space, thus making it faster to download a
 Extracts css into a .css file so it can be cached individually by the browser. (Otherwise it would be bundled inside the .js file containing our whole app).
 
 **`ManifestPlugin`**  
-Create a manifest of all assets to help tools to understand our app (used with Progressive Web Apps).
+Create a manifest of all assets to help tools to understand our app (used with Progressive Web Apps, which we don't care about in this workshop).
 
 **`SWPrecacheWebpackPlugin`**  
 Use with Progressive Web Apps, which we don't care about in this workshop.
@@ -64,7 +64,7 @@ Tells Webpack to ignore certain paths if we don't want to include it in our bund
 
 :pencil2: Scroll to line 107 (the start of `module`).
 
-As mentioned, Webpack is an _asset bundler_. The rules listed in the `module.rules` array (starts at line 109) describes what Webpack should do when it encounter files with different file extensions (for example `.js`, `.jsx`, `.css`, `.png`). Let's get a quick overview of what is configured here.
+As mentioned, Webpack is an _asset bundler_. The rules listed in the `module.rules` array (starts at line 109) describes what Webpack should do when it encounter files with different file extensions - different _assets_ (for example `.js`, `.jsx`, `.css`, `.png`). Let's get a quick overview of what is configured here.
 
 The order of these rules matter. Think of files flowing through the rules array, from the first loader to the last, in that order.
 
