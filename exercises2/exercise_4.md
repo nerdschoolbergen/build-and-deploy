@@ -10,6 +10,8 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 
 ## Create a project
 
+> If you have done this Nerdschool workshop before and already have a Heroku project for this, either delete it or create a new one with a slightly different name, for example `build-and-deploy-2018`.
+
 :pencil2: On your dashboard, create a new app.
 
 ![](./images/heroku01.png)
@@ -42,6 +44,8 @@ deploy:
     secure: ah4aKbX7LRA8Av1x...
 ```
 
+## Deploy config
+
 :pencil2: We also need to tell Travis that we're deploying to Heroku. Add `provider: heroku` to the `deploy` section.  
 :pencil2: We must also tell Travis what Heroku app we want to deploy. Add `app: YOUR_HEROKU_APP_NAME`.
 
@@ -54,3 +58,7 @@ deploy:
   api_key:
     secure: ah4aKbX7LRA8Av1x...
 ```
+
+## Deploying
+
+:pencil2: Time to test the whole pipeline! Git commit and push all your changes. Then jump over to Travis and see that the build succeeds.
