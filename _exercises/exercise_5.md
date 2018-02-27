@@ -15,7 +15,7 @@ The link should open [The Movie Db's page for the given movie](https://www.themo
 * In `PosterCard.jsx`, `import` a `Button` from `material-ui`, which is the UI library we use. [Here are some demos for making buttons](https://material-ui-next.com/demos/buttons/)
 
 * The button should be placed inside the `CardActions` element in `PosterCard.jsx`.
-* In the button's `href` prop, construct a full url to The Movie Db's page for the given movie. You can use `https://www.themoviedb.org/movie/MOVIE_ID` as the url. The `MOVIE_ID` is available in `movieDetails` which is already available inside `PosterCard`.
+* In the button's `href` prop, construct a full url to The Movie Db's page for the given movie. You can use `https://www.themoviedb.org/movie/MOVIE_ID` as the url. The movie ID is available in `movieDetails` (`movieDetails.id`) which is already available inside `PosterCard`.
 
 ### Print all movie details to the screen
 
