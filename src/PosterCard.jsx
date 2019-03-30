@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
@@ -22,7 +25,7 @@ const PosterCard = ({ classes, posterUrl, movieDetails }) => (
         <Typography variant="headline" component="h2">
           {movieDetails.title}
         </Typography>
-        <Typography component="p">{movieDetails.overview}</Typography>
+        <Typography component="h5">{movieDetails.overview}</Typography>
       </CardContent>
       <CardActions>
         {/* TODO */}

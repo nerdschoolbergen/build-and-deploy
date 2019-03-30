@@ -1,19 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PosterCard should render correctly 1`] = `
-<PosterCard
-  classes={
-    Object {
-      "card": "PosterCard-card-1",
-      "media": "PosterCard-media-2",
-    }
-  }
-  movieDetails={
-    Object {
-      "description": "Some movie description",
-      "title": "Mock Movie 14",
-    }
-  }
-  posterUrl="/mock-poster.png"
-/>
+<div>
+  <div
+    className="MuiPaper-root-4 MuiPaper-elevation1-7 MuiPaper-rounded-5 MuiCard-root-3 PosterCard-card-1"
+  >
+    <div
+      className="MuiCardMedia-root-31 PosterCard-media-2"
+      style={
+        Object {
+          "backgroundImage": "url(\\"/mock-poster.png\\")",
+        }
+      }
+      title="Mock Movie 14"
+    />
+    <div
+      className="MuiCardContent-root-33"
+    >
+      <h2
+        className="MuiTypography-root-34 MuiTypography-headline-39"
+      >
+        Mock Movie 14
+      </h2>
+      <h5
+        className="MuiTypography-root-34 MuiTypography-body1-43"
+      />
+    </div>
+    <div
+      className="MuiCardActions-root-70"
+    />
+  </div>
+</div>
 `;
