@@ -13,10 +13,10 @@ We'll look at the infrastructure of deploying an app to production and not the a
 * Git must be installed and available on command line
   * `git --version` in a terminal should not produce an error. 
   * [Install Git](https://git-scm.com/downloads) if you don't have it.
-* NodeJS with npm must be installed and available on command line
+* Node.js with npm must be installed and available on command line
   * `node -v` and `npm -v` in a terminal should not produce an error.
-  * You should have a NodeJS version 10 or later and npm version 6 or later.
-  * [Install NodeJS LTS](https://nodejs.org/) if you don't have it.
+  * You should have a Node.js version 10 or later and npm version 6 or later.
+  * [Install Node.js LTS](https://nodejs.org) if you don't have it.
 * A good text editor of your choice, such as [Visual Studio Code](https://www.visualstudio.com/), [Atom](https://atom.io/) or [SublimeText](https://www.sublimetext.com/). If you don't have a favorite already, we recommend [Visual Studio Code](https://www.visualstudio.com/).
 * If you are completely new to JavaScript, it is recommended to explore and test the language beforehand.
 
