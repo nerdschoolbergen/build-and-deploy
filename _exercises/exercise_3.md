@@ -13,7 +13,7 @@ Travis is configured through a `.travis.yml` file in our repo.
 ```yml
 language: node_js
 node_js:
-  - '8'
+  - "stable"
 cache:
   directories:
   - node_modules
@@ -24,9 +24,9 @@ The file should be named `.travis.yml`, not `travis.yml`.
 
 From top to bottom, this tells TravisCI to:
 
-* Assume our app requires a NodeJS environment to build.
-* Use NodeJS 8.
-* Cache the node_modules directory so we don't have to wait for `npm install` on every build.
+* Assume our app requires a Node.js environment to build.
+* Use the latest stable Node.js release (LTS).
+* Cache the `node_modules` directory so we don't have to wait for `npm install` on every build.
 * Run the `build` script, which will build our app with production config.
 
 :pencil2: Save and git commit this file. Git push all your changes so far.
