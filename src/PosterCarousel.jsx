@@ -102,16 +102,18 @@ class PosterCarousel extends Component {
   }
 
   showNextPoster() {
+    const { currentMovieIndex } = this.state;
     this.setState({
-      currentMovieIndex: this.state.currentMovieIndex + 1,
+      currentMovieIndex: currentMovieIndex + 1,
     });
   }
 
   constructPosterUrl(posterPath) {
     // The API documentation explains how this url must be constructed:
     // https://developers.themoviedb.org/3/getting-started/images
-    const baseUrl = this.state.theMovieDbConfig.images.base_url;
-    const posterSize500pxWidth = this.state.theMovieDbConfig.images.poster_sizes[4];
+    const { theMovieDbConfig } = this.state;
+    const baseUrl = theMovieDbConfig.images.base_url;
+    const posterSize500pxWidth = theMovieDbConfig.images.poster_sizes[4];
     return `${baseUrl}${posterSize500pxWidth}${posterPath}`;
   }
 
