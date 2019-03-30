@@ -22,10 +22,10 @@ const PosterCard = ({ classes, posterUrl, movieDetails }) => (
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={posterUrl} title={movieDetails.title} />
       <CardContent>
-        <Typography variant="headline" component="h2">
+        <Typography variant="h5" component="h2">
           {movieDetails.title}
         </Typography>
-        <Typography component="h5">{movieDetails.overview}</Typography>
+        <Typography component="p">{movieDetails.overview}</Typography>
       </CardContent>
       <CardActions>
         {/* TODO */}

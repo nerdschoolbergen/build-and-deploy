@@ -18,11 +18,11 @@ exports[`PosterCard should render correctly 1`] = `
       className="MuiCardContent-root-33"
     >
       <h2
-        className="MuiTypography-root-34 MuiTypography-headline-39"
+        className="MuiTypography-root-34 MuiTypography-h5-50"
       >
         Mock Movie 14
       </h2>
-      <h5
+      <p
         className="MuiTypography-root-34 MuiTypography-body1-43"
       />
     </div>
