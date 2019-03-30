@@ -39,7 +39,7 @@ First you need a copy of this Git repository on your computer. You'll also need 
 
 * Install our application's dependencies: `npm install`
 
-> If the command produces an error saying npm is unrecognized, you need to install [NodeJS](https://nodejs.org/en/) first, then restart the terminal window and try again.
+> If the command produces an error saying npm is unrecognized, you need to install [Node.js](https://nodejs.org) first, then restart the terminal window and try again.
 
 :pencil2: Once everything is installed, open the repository using your favorite text editor or IDE.
 
@@ -47,10 +47,8 @@ Let's go through what the folders and files are for:
 
 **Folders**
 
-* The `config` folder contains configuration settings for the app. The only interesting part here is the Webpack config files, which we'll look at in more detail soon.
 * The `node_modules` folder is where all dependencies for the app is installed to. This folder was created when you did `npm install`.
 * The `public` folder is relevant when we will put our app into production. This is the folder where we'll serve our app from when it's hosted on a webserver.
-* The `scripts` folder is just infrastructure created by the scaffolding tool we used to generate this project.
 * The `src` folder is where you'll find the app we'll deploy throughout these exercises.
 
 **Files**
