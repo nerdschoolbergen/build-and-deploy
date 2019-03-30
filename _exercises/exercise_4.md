@@ -10,13 +10,13 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 
 ## Create a project
 
-> If you have done this Nerdschool workshop before and already have a Heroku project for this, either delete it or create a new one with a slightly different name, for example `build-and-deploy-2018`.
+> If you have done this Nerdschool workshop before and already have a Heroku project for this, either delete it or create a new one with a slightly different name, for example `YOURNAME-build-and-deploy-2019`.
 
 :pencil2: On your dashboard, create a new app.
 
 ![](./images/heroku01.png)
 
-:pencil2: Give it a name (for example `YOURNAME-build-and-deploy`).  
+:pencil2: Give it a name (for example `YOURNAME-build-and-deploy-2019`).  
 :pencil2: Choose `Europe` as the region.  
 :pencil2: Add a _pipeline_. A pipeline is a build pipeline which our deployment will belong to. This workshop will only utilize one pipeline, but a bigger project might consist of many apps that needs to be deployed individually.  
 :pencil2: Name the pipeline something similar to what you named the project.  
@@ -61,7 +61,7 @@ deploy:
 ```yml
 language: node_js
 node_js:
-- '8'
+- 'stable'
 cache:
   directories:
   - node_modules
@@ -71,7 +71,7 @@ script:
 - npm run build
 deploy:
   provider: heroku
-  app: eaardal-build-and-deploy-2018
+  app: eaardal-build-and-deploy-2019
   skip_cleanup: true
   api_key:
     secure: ah4aKbX7LRA8Av1x...

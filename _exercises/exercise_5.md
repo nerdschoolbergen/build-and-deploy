@@ -12,7 +12,7 @@ Here are some suggestions to features you can make:
 
 The link should open [The Movie Db's page for the given movie](https://www.themoviedb.org/movie/374720-dunkirk).
 
-* In `PosterCard.jsx`, `import` a `Button` from `material-ui`, which is the UI library we use. [Here are some demos for making buttons](https://material-ui-next.com/demos/buttons/)
+* In `PosterCard.jsx`, `import` a `Button` from `@material-ui/core/Button`, which is the UI library we use. [Here are some demos for making buttons](https://material-ui-next.com/demos/buttons/)
 
 * The button should be placed inside the `CardActions` element in `PosterCard.jsx`.
 * In the button's `href` prop, construct a full url to The Movie Db's page for the given movie. You can use `https://www.themoviedb.org/movie/MOVIE_ID` as the url. The movie ID is available in `movieDetails` (`movieDetails.id`) which is already available inside `PosterCard`.
@@ -26,13 +26,13 @@ The `movieDetails` object used in `PosterCard` contains a lot more information y
 ![](./images/app02.png)
 
 * In `PosterCard.jsx`, print all of this out to the screen in some pretty way.
-* Browse [Materual UI](https://material-ui-next.com/demos/cards/) and find some suitable way to present it all.
+* Browse the [Material UI docs](https://material-ui-next.com/demos/cards/) and find some suitable way to present it all.
 
 ### List all posters in a grid
 
 This one is slightly more advanced...
 
-* Make a copy of `PosterCarousel.jsx` and name it something more fitting like `PosterGrid` or `PosterList` or just `Posters`.
+* Make a copy of `PosterCarousel.jsx` and name it something more fitting like `PosterGrid.jsx` or `PosterList.jsx` or just `Posters.jsx`.
 * You basically want to keep the logic for fetching the API configuration and the most popular movies, but change the `render` method to return a list of `PosterCard` components.
   * In React you can render a list of stuff like this:
 

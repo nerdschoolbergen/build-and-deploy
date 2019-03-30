@@ -13,7 +13,7 @@ Travis is configured through a `.travis.yml` file in our repo.
 ```yml
 language: node_js
 node_js:
-  - "stable"
+  - 'stable'
 cache:
   directories:
   - node_modules
