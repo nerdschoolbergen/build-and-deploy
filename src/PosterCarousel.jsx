@@ -13,7 +13,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 4,
   },
   posterCard: {
     display: 'flex',
