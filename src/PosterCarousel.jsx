@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import { LinearProgress } from 'material-ui/Progress';
-import NavigateNextIcon from 'material-ui-icons/NavigateNext';
+import { withStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PosterCard from './PosterCard';
 import TheMovieDbApi from './TheMovieDbApi';
 
@@ -13,6 +13,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    marginTop: theme.spacing.unit * 4,
   },
   posterCard: {
     display: 'flex',
@@ -148,14 +149,13 @@ class PosterCarousel extends Component {
           <PosterCard posterUrl={posterUrl} movieDetails={currentMovie} />
         </div>
         <div className={classes.nextButton}>
-          <Button
-            variant="fab"
+          <Fab
             color="primary"
             onClick={this.showNextPoster}
             disabled={isLastMovieInList}
           >
             <NavigateNextIcon />
-          </Button>
+          </Fab>
         </div>
       </div>
     );
