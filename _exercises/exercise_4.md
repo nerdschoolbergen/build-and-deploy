@@ -16,7 +16,7 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 
 ![](./images/heroku01.png)
 
-:pencil2: Give it a name (for example `YOURNAME-build-and-deploy-2019`).  
+:pencil2: Give it a name (for example `YOURNAME-build-and-deploy-CURRENT_YEAR`).  
 :pencil2: Choose `Europe` as the region.  
 :pencil2: Add a _pipeline_. A pipeline is a build pipeline which our deployment will belong to. This workshop will only utilize one pipeline, but a bigger project might consist of many apps that needs to be deployed individually.  
 :pencil2: Name the pipeline something similar to what you named the project.  
