@@ -62,7 +62,7 @@ deploy:
 ```yml
 language: node_js
 node_js:
-- 'stable'
+- '10'
 cache:
   directories:
   - node_modules
