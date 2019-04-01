@@ -77,7 +77,7 @@ Luckily `create-react-app` also included ESLint along with some rules (the `esli
 :pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
 
 ```
-18:23  error  'classes' is missing in props validation  react/prop-types
+20:23  error  'classes' is missing in props validation  react/prop-types
 ```
 
 This is an example of linting helping us enforce good coding practices.
@@ -90,7 +90,7 @@ This is an example of linting helping us enforce good coding practices.
 
 There is already a script for running our tests in package.json.
 
-:pencil2: Run `npm test` and see that it succeeds. If the terminal says "No changes since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL loop or watch mode. It'll just run through all tests once and exit the script.
+:pencil2: Run `npm test` and see that it succeeds. If the terminal says "No tests found related to files changed since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL loop or watch mode. It'll just run through all tests once and exit the script.
 
 ## Run our CI steps on Travis
 
