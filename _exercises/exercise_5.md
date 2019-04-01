@@ -10,7 +10,7 @@ Here are some suggestions to features you can make:
 
 ![](./images/app03.png)
 
-The link should open [The Movie Db's page for the given movie](https://www.themoviedb.org/movie/374720-dunkirk).
+The link should open [The Movie Db's page for the given movie](https://www.themoviedb.org/movie/374720).
 
 * In `PosterCard.jsx`, `import` a `Button` from `@material-ui/core/Button`, which is the UI library we use. [Here are some demos for making buttons](https://material-ui-next.com/demos/buttons/)
 
