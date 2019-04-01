@@ -33,7 +33,7 @@ The first obstacle is that Travis expects us to use an encrypted version of the 
 
 Unfortunately, the TravisCI CLI tool is not a standalone app, but a Ruby gem, which means we need Ruby installed to get this to work. If you already have Ruby installed, great, but check in the Travis CI install instructions that your version is sufficient.
 
-:pencil2: Follow the install instructions [here](https://github.com/travis-ci/travis.rb#installation) to install Ruby and the Travis CLI tool on your OS.  
+:pencil2: Follow the install instructions [here](https://github.com/travis-ci/travis.rb#installation) to install Ruby and the Travis CLI tool on your OS. (Tip: On MacOS, install the [Homebrew package manager](https://brew.sh/) and install via `brew install travis`.)  
 :pencil2: Once you have Ruby and the Travis CLI tool installed and available on your terminal, head over to your [Account Settings](https://dashboard.heroku.com/account) page on Heroku and scroll down to `API Key`. Generate a new one or `Reveal` your existing one if any. Copy it.  
 :pencil2: Make sure your terminal is in the repository root directory (in the same dir as the travis.yml file) then run `travis encrypt YOUR_HEROKU_KEY --add deploy.api_key`.  
 :pencil2: Open `.travis.yml`. The script should've added a `deploy` section with an encrypted key:
