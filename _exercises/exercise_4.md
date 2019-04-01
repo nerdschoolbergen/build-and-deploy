@@ -10,7 +10,7 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 
 ## Create a project
 
-> If you have done this Nerdschool workshop before and already have a Heroku project for this, either delete it or create a new one with a slightly different name, for example `YOURNAME-build-and-deploy-2019`.
+> If you have done this Nerdschool workshop before and already have a Heroku project for this, either delete it or create a new one with a slightly different name, for example `YOURNAME-build-and-deploy-CURRENT_YEAR`.
 
 :pencil2: On your dashboard, create a new app.
 
