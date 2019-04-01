@@ -34,7 +34,7 @@ However, Webpack doesn't understand all this without being told what to do. We h
 
 The development config (`npm start`) starts a special development web server (`webpack-dev-server`), which enables amongst other things the following features:
 
-* Automatic and incremental building_ when files are added or changed without restarting the dev server (so you don't have to run `npm start` all the time)
+* _Automatic and incremental building_ when files are added or changed without restarting the dev server (so you don't have to run `npm start` all the time)
 * _Automatic page refresh_ when code is changed, without restarting the dev server ("Hot reloading" with no page refresh is possible to configure as well)
 * _An error overlay_ displaying errors from Webpack in the web page
 
