@@ -78,13 +78,6 @@ deploy:
     secure: ah4aKbX7LRA8Av1x...
 ```
 
-### Heroku
-
-Heroku must also be told what to do with our app, and this is also done through a config file named `Procfile`.
-
-:pencil2: Create a new file named `Procfile` in the root of your repository.  
-:pencil2: It should just contain a single line: `web: serve -s build`. This will start the `serve` app from our `build` folder.
-
 ## Deploying
 
 :pencil2: Time to test the whole pipeline! Git commit and push all your changes. Then jump over to Travis and see that the build succeeds, and that the build log indicates that it's deploying to Heroku.  
