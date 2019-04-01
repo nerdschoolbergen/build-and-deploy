@@ -74,7 +74,7 @@ Luckily `create-react-app` also included ESLint along with some rules (the `esli
 ```
 
 :pencil2: Run `npm run lint` in your terminal. The command should take a few seconds, then exit without errors.  
-:pencil2: Open `src/PosterCard.jsx` and comment out line 35 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
+:pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
 
 ```
 18:23  error  'classes' is missing in props validation  react/prop-types
