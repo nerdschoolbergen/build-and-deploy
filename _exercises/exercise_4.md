@@ -21,6 +21,7 @@ We're going to use Heroku today, because TravisCI and Heroku integrate nicely wi
 :pencil2: Add a _pipeline_. A pipeline is a build pipeline which our deployment will belong to. This workshop will only utilize one pipeline, but a bigger project might consist of many apps that needs to be deployed individually.  
 :pencil2: Name the pipeline something similar to what you named the project.  
 :pencil2: Choose `production` as the stage/environment.
+:pencil2: Finally, click "Create app" to create your Heroku app.
 
 ## Connecting TravisCI and Heroku
 
