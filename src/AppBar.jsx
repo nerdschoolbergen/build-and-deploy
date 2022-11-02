@@ -22,7 +22,7 @@ function AppBar({ classes }) {
     <div className={classes.root}>
       <MuiAppBar position="static" color="primary">
         <Toolbar className={classes.toolbar}>
-          <Typography variant="title" color="inherit">
+          <Typography variant="h6" color="inherit">
             Movie Posters!
           </Typography>
         </Toolbar>
