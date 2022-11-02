@@ -190,32 +190,41 @@ jobs:
 +     - run: npm run lint
 ```
 
+:pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
+
 ### 3.3 Testing
 
-There is already a script for running our tests in package.json.
+:book: There is already a script for running our unit tests in `package.json`.
 
 :pencil2: Run `npm test` and see that it succeeds. If the terminal says "No tests found related to files changed since last commit" or something similar, press the `a` key to make it run all tests regardless. Press the `q` key to exit. When running this script on our CI, it won't enter this REPL loop or watch mode. It'll just run through all tests once and exit the script.
 
-## Run our CI steps on Travis
+:pencil2: To run tests automatically in our CI pipeline, we need to add the following line to `.github/workflows/main.yml`:
 
-Now that we've added more scripts to run, we need to tell Travis about them, and the order in which to run them.
+```diff
+name: Build
 
-:pencil2: Open `.travis.yml` and change `scripts` to be a list of commands:
+on: [push]
 
-```yml
-script:
-  - npm run lint
-  - npm test
-  - npm run build
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
++     - run: npm test
 ```
 
-Note that in yml files, whitespace/indentation matters. Each list item should be two spaces in.
+:pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
-:pencil2: Commit all changes and push them to git.  
-:pencil2: Open Travis again and watch the build succeed.  
-:pencil2: Locate the lint and test scripts in the build log and see that they succeeds.
-
-![](./images/travis02.png)
+___
 
 Well done so far :tada:! Next, we'll deploy the app.
 
