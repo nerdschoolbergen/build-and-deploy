@@ -1,12 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PosterCard should render correctly 1`] = `
-<div>
+<div
+  className="css-1ucv4vn"
+>
   <div
-    className="MuiPaper-root MuiCard-root PosterCard-card-1 MuiPaper-elevation1 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root PosterCard-card css-bhp9pd-MuiPaper-root-MuiCard-root"
   >
     <div
-      className="MuiCardMedia-root PosterCard-media-2"
+      className="MuiCardMedia-root PosterCard-media css-16cvb1l-MuiCardMedia-root"
+      role="img"
       style={
         Object {
           "backgroundImage": "url(\\"/mock-poster.png\\")",
@@ -15,19 +18,19 @@ exports[`PosterCard should render correctly 1`] = `
       title="Mock Movie 14"
     />
     <div
-      className="MuiCardContent-root"
+      className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
       <h2
-        className="MuiTypography-root MuiTypography-h5"
+        className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
       >
         Mock Movie 14
       </h2>
       <p
-        className="MuiTypography-root MuiTypography-body1"
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       />
     </div>
     <div
-      className="MuiCardActions-root MuiCardActions-spacing"
+      className="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
     />
   </div>
 </div>
