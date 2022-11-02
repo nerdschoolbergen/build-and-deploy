@@ -35,6 +35,7 @@ Have fun! And remember to ask an instructor if you're stuck.
 
 * [Learn GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 * [Heroku Dev Center](https://devcenter.heroku.com/)
+* [Starter workflows for different types of projects](https://github.com/actions/starter-workflows/tree/main/ci)
 
 ### Symbols and notation used in exercises
 

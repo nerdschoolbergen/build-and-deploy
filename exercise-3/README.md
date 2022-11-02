@@ -4,6 +4,8 @@ Instead of setting up a build server from scratch, we'll use GitHub Actions to d
 
 GitHub Actions is a service for handling our Continuous Integration steps. We will use another service for hosting our app once we've built and verified it using GitHub Actions.
 
+Here is an overview of how a CI/CD-pipeline created using GitHub Actions works:
+
 ```mermaid
 flowchart TD
     Git[Local git repository]-- Developer pushes new commit -->GitHub
@@ -76,11 +78,73 @@ jobs:
 
 ![](images/actions-jobs.png)
 
-# Improving Continuous Integration
+:book: The log shows you how each of the steps was processed. Expand any of the steps to view its details.
+
+:book: The example workflow you just added is triggered each time code is pushed to the branch, and shows you how GitHub Actions can work with the contents of your repository.
+
+:book: Next step is to make GitHub Actions do something more useful!
+
+### 3.1.1 Workflow for building our app
+
+:book: The most important step in a CI-pipeline is the _build_ step, where code is built to see if a new commit pushed  _breaks the build_ or not.
+
+:book: We are going to use the following commands inside our new pipeline to build our app:
+
+```bash
+npm ci
+npm run build
+```
+
+- :book: `npm ci` installs all project dependencies. This command is similar to `npm install`, except it's meant to be used in automated environments.
+- :book: `npm run build` creates a `build` directory with a production build of your app.
+
+:bulb: These commands are specific to the app we are building. If you need to build another type of app (Python, .NET, Java, etc.) in your pipeline, you need to use different build tools and commands.
+
+:pencil2: Remove the file `test.yml` we previously created from the `.github\workflows` folder.
+
+:pencil2: Add a new file called `main.yml` in the `.github\workflows` folder with the following contents:
+
+```yml
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+```
+
+Let´s break down what this workflow does:
+
+- `name:` - the name of the workflow
+- `on: [push]` - we want to trigger this workflow when commits are _pushed_
+- `jobs:` - what jobs we want the workflow to do
+  - `build:` - the name of our job
+    - `runs-on: ubuntu-latest` - we want to run our workflow on Linux (latest release of Ubuntu)
+    - `steps:`
+      - `- uses: actions/checkout@v3` - git clone the repository
+      - `- name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x` - install Node.js 16.x
+      - `- run: npm ci` - install dependencies
+      - `run: npm run build` - build app
+
+## 3.2 Improving Continuous Integration
 
 Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
 
-## Linting
+## 3.2.1 Linting
 
 Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _ESLint_ to do this for us. We have used this tool in other JavaScript workshops also.
 
@@ -112,7 +176,7 @@ This is an example of linting helping us enforce good coding practices.
 
 :pencil2: Undo the comment and save the file as it was.
 
-## Testing
+### 3.3 Testing
 
 There is already a script for running our tests in package.json.
 
