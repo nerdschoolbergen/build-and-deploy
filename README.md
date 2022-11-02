@@ -2,7 +2,7 @@
 
 In this workshop we'll learn about building and deploying a simple front-end application.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1qQtwEmrWAy27v1ApGew76wZM3tqYvBlIfD0GSSEm9LY/edit?usp=sharing)
+## [Open presentation slides](https://docs.google.com/presentation/d/1JctjIoqye6FUOaRBHAT3rs3_ZM3Pq7VUACKUnNvklYA/edit?usp=sharing)
 
 ## Focus of this lesson
 
