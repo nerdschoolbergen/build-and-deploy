@@ -2,7 +2,6 @@
 
 - General
   - [ ] Replace Create-React-App movie-app with a more simple web-app with less dependencies (less nagging about npm audit)
-    - [ ] Remove "build" requirement?
     - [ ] Lint
     - [ ] Add unit-tests/Jest?
   - [ ] Update all references to old app
@@ -24,7 +23,7 @@
   - [ ] Remove all info related to Webpack, Grunt, Gulp
   - [ ] Simplify build section
 - Exercise 3
-  - [ ] Replace Travis CI with GitHub Actions
+  - [X] Replace Travis CI with GitHub Actions
 - Exercise 4
   - [ ] Replace Travis CI references
   - [ ] Check if Heroku screenshots and steps are still correct
@@ -33,3 +32,4 @@
     - [ ] Use https://github.com/marketplace/actions/deploy-to-heroku
 - Exercise 5
   - [ ] Remove all references to old React app
+- **Remember to remove workflows from repo before workshop!!**

@@ -155,7 +155,8 @@ Let´s break down what this workflow does:
 Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _[ESLint](https://eslint.org/)_ to do this for us. ESLint statistically analyzes your code to quickly find problems.
 
 :pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
-:pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
+
+:pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`posterUrl: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
 
 ```text
 20:23  error  'classes' is missing in props validation  react/prop-types
