@@ -144,41 +144,51 @@ Let´s break down what this workflow does:
 
 :pencil2: Open the GitHub Actions workflow overview and click on the new `Build` workflow on the left side. Click on the workflow run on the right side to see more details.
 
+:book: A workflow run will either succeed or fail, depending on if any of the job steps fail.
+
 ## 3.2 Improving Continuous Integration
 
-Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
+:book: Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
 
 ## 3.2.1 Linting
 
-Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _ESLint_ to do this for us. We have used this tool in other JavaScript workshops also.
+Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _[ESLint](https://eslint.org/)_ to do this for us. ESLint statistically analyzes your code to quickly find problems.
 
-Luckily `create-react-app` also included ESLint along with some rules (the `eslint-*` packages listed under `dependencies` in `package.json`, but it does not run it by default.
-
-> We added the `eslint-config-airbnb` package in addition to the create-react-app defaults. The Airbnb config is by many seen as the defacto standard for modern JavaScript code practices.
-
-> We're also overriding certain rules in the `.eslintrc.js` file because some rules are unnecessarily strict and hard to work with.
-
-:pencil2: Open `package.json` and add `"lint": "eslint src/**/*.js src/**/*.jsx"` under `"scripts"`. This will run eslint on .js and .jsx files.
-
-```
-"scripts": {
-  ...
-  "lint": "eslint src/**/*.js src/**/*.jsx"
-},
-```
-
-:pencil2: Run `npm run lint` in your terminal. The command should take a few seconds, then exit without errors.  
+:pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
 :pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`classes: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
 
-```
+```text
 20:23  error  'classes' is missing in props validation  react/prop-types
 ```
 
 This is an example of linting helping us enforce good coding practices.
 
-> All modern code editors and IDE's has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful. [Like this](./images/eslint01.png).
+> All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful. [Like this](./images/eslint01.png).
 
 :pencil2: Undo the comment and save the file as it was.
+
+:pencil2: To make our CI pipeline automatically lint code, we need to add the following line to `.github/workflows/main.yml`:
+
+```diff
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
++     - run: npm run lint
+```
 
 ### 3.3 Testing
 
