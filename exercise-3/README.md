@@ -5,20 +5,6 @@ Instead of setting up a build server from scratch, we'll use GitHub Actions to d
 As the name implies, this is a service for handling our Continuous Integration steps. We'll have to find another service for hosting our app once we've built and verified it using GitHub Actions.
 
 ```mermaid
-flowchart TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-```
-
-```mermaid
 flowchart TD
     Git[Local git repository]-- Developer pushes new commit -->GitHub
     GitHub-- GitHub triggers Actions workflow -->GitHub_Actions[GitHub Actions]
