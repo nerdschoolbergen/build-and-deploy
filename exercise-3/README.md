@@ -39,14 +39,18 @@ flowchart TD
 
 :pencil2: Inside `.github`, create a new folder called `workflows`.
 
+### 3.1.1 GitHub Actions Hello World
+
+:book: Before we start doing anything useful with GitHub Actions, we need to get familiar with the basics of how it works.
+
 :pencil2: Inside the `workflows`folder, create a new file named `test.yml` with the following contents:
 
 ```yml
-name: GitHub Actions Demo
+name: GitHub Actions Nerdschool Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Test-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -64,24 +68,27 @@ jobs:
 
 :pencil2: Save and git commit this file. Git push all your changes so far.
 
-## Registering
+:pencil2: Commiting the workflow file in your repository triggers the `push` event and runs your workflow.
 
-:pencil2: Head over to [https://travis-ci.org/](https://travis-ci.org/) and sign up using your GitHub account.  
-:pencil2: Authorize TravisCI to access your repositories.
+### Viewing your workflow results
 
-## Enabling Travis CI
+:pencil2: On GitHub.com, navigate to the main page of your repository.
 
-:pencil2: In the list of projects, flick the switch for the `YOURUSER/build-and-deploy` repository.
+:pencil2: Under your repository name, click "Actions".
 
-A build should be starting immediately on your repository. The build should succeed.
+![](images/actions-tab.png)
 
-:pencil2: Scroll to the bottom of the build log.
+:pencil2: In the left sidebar, click the workflow you want to see (we named it `GitHub Actions Nerdschool Demo`).
 
-:bulb: Notice that you can see commands being run to the right in the build log. This is helpful for finding config related to our app.
+![](images/actions-sidebar.png)
 
-![](./images/travis01.png)
+:pencil2: From the list of workflow runs, click the name of the run you want to see (`'xxx' is testing out GitHub Actions 🚀`)
 
-:pencil2: Find the sections for `npm run build`. It should be one of the last events that occurred.
+![](images/actions-workflows.png)
+
+:pencil2: Under **Jobs**, click the Test-GitHub-Actions job.
+
+![](images/actions-jobs.png)
 
 # Improving Continuous Integration
 
