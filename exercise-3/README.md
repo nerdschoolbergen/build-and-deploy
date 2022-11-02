@@ -1,33 +1,66 @@
-# Exercise 3 - Travis CI
+# Exercise 3 - CI/CD pipeline setup using GitHub Actions
 
-Instead of setting up a build server from scratch, we'll use Travis CI to do all the heavy lifting for us.
+Instead of setting up a build server from scratch, we'll use GitHub Actions to do all the heavy lifting for us.
 
-As the name implies, this is a service for handling our Continuous Integration steps. We'll have to find another service for hosting our app once we've built and verified it using Travis.
+As the name implies, this is a service for handling our Continuous Integration steps. We'll have to find another service for hosting our app once we've built and verified it using GitHub Actions.
 
-## Travis CI config
-
-Travis is configured through a `.travis.yml` file in our repo.
-
-:pencil2: This file doesn't exist yet so you need to create it.
-
-```yml
-language: node_js
-node_js:
-  - '10'
-cache:
-  directories:
-  - node_modules
-script: npm run build
+```mermaid
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
 ```
 
-The file should be named `.travis.yml`, not `travis.yml`.
+```mermaid
+flowchart TD
+    Git[Local git repository]-- Developer pushes new commit -->GitHub
+    GitHub-- GitHub triggers Actions workflow -->GitHub_Actions[GitHub Actions]
+    GitHub_Actions-- Workflow runs job -->Build_task
+    subgraph job1 [ ]
+    Build_task[Build code step] --> Test_task[Run tests step]
+    end
+    subgraph job2 [ ]
+    Test_task-- Workflow runs next job --> Deploy_code[Deploy code step]
+    end
+```
 
-From top to bottom, this tells TravisCI to:
+## 3.1 GitHub Actions config
 
-* Assume our app requires a Node.js environment to build.
-* Use Node.js 10.
-* Cache the `node_modules` directory so we don't have to wait for `npm install` on every build.
-* Run the `build` script, which will build our app with production config.
+:book: GitHub Actions is "code as configuration", which means that you configure it by simply adding a workflow configuration file to your repository.
+
+:pencil2: Create a new folder at the root of the project called `.github`
+
+:pencil2: Inside `.github`, create a new folder called `workflows`.
+
+:pencil2: Inside the `workflows`folder, create a new file named `test.yml` with the following contents:
+
+```yml
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+```
 
 :pencil2: Save and git commit this file. Git push all your changes so far.
 
