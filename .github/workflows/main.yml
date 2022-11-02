@@ -3,14 +3,11 @@ name: Build
 on:
   push:
     branches:
-      - main
       - 2022-rewrite
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
@@ -22,12 +19,3 @@ jobs:
       - run: npm run lint
       - run: npm run test
   
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "marius-build-and-deploy-2022" 
-          heroku_email: "mariuskalvo30@gmail.com"
