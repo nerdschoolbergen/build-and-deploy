@@ -12,11 +12,11 @@ describe('PosterCard', () => {
   };
 
   it('should render correctly', () => {
-    const props = { ...defaultProps };
+    const { posterUrl, movieDetails } = { ...defaultProps };
 
     // Render the PosterCard component
     const component = renderer.create(
-      <PosterCard {...props} />,
+      <PosterCard posterUrl={posterUrl} movieDetails={movieDetails} />,
     );
     // Expect that its rendered state given these props is equal to the last committed rendered state (snapshot)
     // A snapshot is GUI state represented in code. Think of it like rendering the GUI, taking a picture of how it looks,

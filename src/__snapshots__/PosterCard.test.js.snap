@@ -3,10 +3,10 @@
 exports[`PosterCard should render correctly 1`] = `
 <div>
   <div
-    className="MuiPaper-root-4 MuiPaper-elevation1-7 MuiPaper-rounded-5 MuiCard-root-3 PosterCard-card-1"
+    className="MuiPaper-root MuiCard-root PosterCard-card-1 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      className="MuiCardMedia-root-31 PosterCard-media-2"
+      className="MuiCardMedia-root PosterCard-media-2"
       style={
         Object {
           "backgroundImage": "url(\\"/mock-poster.png\\")",
@@ -15,19 +15,19 @@ exports[`PosterCard should render correctly 1`] = `
       title="Mock Movie 14"
     />
     <div
-      className="MuiCardContent-root-33"
+      className="MuiCardContent-root"
     >
       <h2
-        className="MuiTypography-root-34 MuiTypography-h5-50"
+        className="MuiTypography-root MuiTypography-h5"
       >
         Mock Movie 14
       </h2>
       <p
-        className="MuiTypography-root-34 MuiTypography-body1-43"
+        className="MuiTypography-root MuiTypography-body1"
       />
     </div>
     <div
-      className="MuiCardActions-root-70"
+      className="MuiCardActions-root MuiCardActions-spacing"
     />
   </div>
 </div>

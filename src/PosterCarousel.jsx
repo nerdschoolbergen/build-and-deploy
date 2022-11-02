@@ -8,12 +8,12 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PosterCard from './PosterCard';
 import TheMovieDbApi from './TheMovieDbApi';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    marginBottom: theme.spacing.unit * 4,
+    marginBottom: theme.spacing(4),
   },
   posterCard: {
     display: 'flex',
@@ -22,7 +22,7 @@ const styles = theme => ({
   nextButton: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
   },
 });
 

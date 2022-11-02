@@ -3,18 +3,18 @@
    "version": "0.1.0",
    "private": true,
    "dependencies": {
-      "@material-ui/core": "^3.9.3",
-      "@material-ui/icons": "^3.0.2",
-      "@material-ui/system": "^3.0.0-alpha.2",
-      "prop-types": "^15.7.2",
-      "react": "^16.8.6",
-      "react-dom": "^16.8.6",
-      "react-scripts": "2.1.8",
-      "typeface-roboto": "0.0.54"
+      "@material-ui/core": "^4.12.4",
+      "@material-ui/icons": "^4.11.3",
+      "@material-ui/system": "^4.12.2",
+      "prop-types": "^15.8.1",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "^5.0.1",
+      "typeface-roboto": "^1.1.13"
    },
    "devDependencies": {
-      "eslint-config-airbnb": "^17.1.0",
-      "react-test-renderer": "^16.8.6"
+      "eslint-config-airbnb": "^19.0.4",
+      "react-test-renderer": "^18.2.0"
    },
    "scripts": {
       "start": "react-scripts start",

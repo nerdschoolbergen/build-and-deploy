@@ -6,10 +6,10 @@ import MuiAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing(2),
   },
   toolbar: {
     justifyContent: 'center',
@@ -17,17 +17,19 @@ const styles = theme => ({
 });
 
 // This component simply wraps material-ui's AppBar component
-const AppBar = ({ classes }) => (
-  <div className={classes.root}>
-    <MuiAppBar position="static" color="primary">
-      <Toolbar className={classes.toolbar}>
-        <Typography variant="title" color="inherit">
-          Movie Posters!
-        </Typography>
-      </Toolbar>
-    </MuiAppBar>
-  </div>
-);
+function AppBar({ classes }) {
+  return (
+    <div className={classes.root}>
+      <MuiAppBar position="static" color="primary">
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="title" color="inherit">
+            Movie Posters!
+          </Typography>
+        </Toolbar>
+      </MuiAppBar>
+    </div>
+  );
+}
 
 AppBar.propTypes = {
   classes: PropTypes.object.isRequired,

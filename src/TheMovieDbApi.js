@@ -10,12 +10,12 @@ const options = {
 class TheMovieDbApi {
   static getConfiguration() {
     const url = `https://api.themoviedb.org/3/configuration?api_key=${apiKey}`;
-    return fetch(url, options).then(response => response.json());
+    return fetch(url, options).then((response) => response.json());
   }
 
   static getPopularMovies() {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
-    return fetch(url, options).then(response => response.json());
+    return fetch(url, options).then((response) => response.json());
   }
 }
 
