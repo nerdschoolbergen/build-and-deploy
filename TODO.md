@@ -2,6 +2,9 @@
 
 - General
   - [ ] Replace Create-React-App movie-app with a more simple web-app with less dependencies (less nagging about npm audit)
+    - [ ] Remove "build" requirement?
+    - [ ] Lint
+    - [ ] Add unit-tests/Jest?
   - [ ] Update all references to old app
 - Exercise 1
   - [ ] General: To verbose, to much text. Reduce verbosity
@@ -16,3 +19,5 @@
   - [ ] Update app screenshots
   - [ ] Update "How it works" (description of app)
   - [ ] Remove "Components" and "Supporting libraries"
+- Exercise 2
+  - [] ...
