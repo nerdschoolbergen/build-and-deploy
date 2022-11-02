@@ -2,7 +2,7 @@
 
 Instead of setting up a build server from scratch, we'll use GitHub Actions to do all the heavy lifting for us.
 
-As the name implies, this is a service for handling our Continuous Integration steps. We'll have to find another service for hosting our app once we've built and verified it using GitHub Actions.
+GitHub Actions is a service for handling our Continuous Integration steps. We will use another service for hosting our app once we've built and verified it using GitHub Actions.
 
 ```mermaid
 flowchart TD
