@@ -140,6 +140,10 @@ Let´s break down what this workflow does:
       - `- run: npm ci` - install dependencies
       - `run: npm run build` - build app
 
+:pencil2: Commit all changes and push them to git. The new workflow will now trigger.
+
+:pencil2: Open the GitHub Actions workflow overview and click on the new `Build` workflow on the left side. Click on the workflow run on the right side to see more details.
+
 ## 3.2 Improving Continuous Integration
 
 Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
