@@ -1,12 +1,11 @@
 # Exercise 4 - Deploying the app using Heroku
 
-These days there is a plethora of services to choose from when it comes to hosting code on the internet, from Amazon Web Services (AWS), Windows Azure, Google Cloud, and many, many more.
-
-We're going to use Heroku today, because TravisCI and Heroku integrate nicely with eachother with minimal configuration and complexity.
+We are going to use Heroku to deploy our application and make it available on the internet. 
 
 ## Registering
 
-:pencil2: Head over to [Heroku and register](https://www.heroku.com/).
+In order to use Heroku, you will need an account. 
+:pencil2: Head over to [Heroku and register](https://www.heroku.com/) a new account. 
 
 ## Create a project
 
