@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,13 +9,13 @@ const PREFIX = 'AppBar';
 
 const classes = {
   root: `${PREFIX}-root`,
-  toolbar: `${PREFIX}-toolbar`
+  toolbar: `${PREFIX}-toolbar`,
 };
 
 const Root = styled('div')((
   {
-    theme
-  }
+    theme,
+  },
 ) => ({
   [`&.${classes.root}`]: {
     flexGrow: 1,
@@ -25,11 +24,11 @@ const Root = styled('div')((
 
   [`& .${classes.toolbar}`]: {
     justifyContent: 'center',
-  }
+  },
 }));
 
 // This component simply wraps material-ui's AppBar component
-function AppBar({ }) {
+function AppBar() {
   return (
     <Root className={classes.root}>
       <MuiAppBar position="static" color="primary">
@@ -42,9 +41,5 @@ function AppBar({ }) {
     </Root>
   );
 }
-
-AppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default (AppBar);

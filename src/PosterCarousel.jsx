@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import { styled } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 import Fab from '@mui/material/Fab';
 import LinearProgress from '@mui/material/LinearProgress';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -13,13 +12,13 @@ const PREFIX = 'PosterCarousel';
 const classes = {
   root: `${PREFIX}-root`,
   posterCard: `${PREFIX}-posterCard`,
-  nextButton: `${PREFIX}-nextButton`
+  nextButton: `${PREFIX}-nextButton`,
 };
 
 const Root = styled('div')((
   {
-    theme
-  }
+    theme,
+  },
 ) => ({
   [`&.${classes.root}`]: {
     display: 'flex',
@@ -37,7 +36,7 @@ const Root = styled('div')((
     display: 'flex',
     justifyContent: 'center',
     marginTop: theme.spacing(2),
-  }
+  },
 }));
 
 class PosterCarousel extends Component {
@@ -136,7 +135,6 @@ class PosterCarousel extends Component {
     // It will be called every time this.props or this.state changes
 
     // Destruct props and state so we can use it less verbosely
-    const { } = this.props;
     const {
       isFetchingPopularMovies,
       isFetchingConfig,
@@ -177,9 +175,5 @@ class PosterCarousel extends Component {
     );
   }
 }
-
-PosterCarousel.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default (PosterCarousel);

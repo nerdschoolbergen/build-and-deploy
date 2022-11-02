@@ -11,7 +11,7 @@ const PREFIX = 'PosterCard';
 
 const classes = {
   card: `${PREFIX}-card`,
-  media: `${PREFIX}-media`
+  media: `${PREFIX}-media`,
 };
 
 const Root = styled('div')({
@@ -24,7 +24,7 @@ const Root = styled('div')({
 });
 
 // This component renders the movie poster and some details about the movie
-function PosterCard({  posterUrl, movieDetails }) {
+function PosterCard({ posterUrl, movieDetails }) {
   return (
     <Root>
       <Card className={classes.card}>
@@ -44,9 +44,11 @@ function PosterCard({  posterUrl, movieDetails }) {
 }
 
 PosterCard.propTypes = {
-  classes: PropTypes.object.isRequired,
   posterUrl: PropTypes.string.isRequired,
-  movieDetails: PropTypes.object.isRequired,
+  movieDetails: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+  }).isRequired,
 };
 
 export default (PosterCard);
