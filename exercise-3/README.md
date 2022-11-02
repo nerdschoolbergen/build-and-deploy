@@ -115,4 +115,4 @@ Note that in yml files, whitespace/indentation matters. Each list item should be
 
 Well done so far :tada:! Next, we'll deploy the app.
 
-### [Go to exercise 4 :arrow_right:](./exercise_4.md)
+### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)

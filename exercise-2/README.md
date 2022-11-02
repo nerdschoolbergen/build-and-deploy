@@ -59,4 +59,4 @@ We need a static web server to host the app once built. The build output suggest
 :pencil2: Run `npm install -g serve`. This will install `serve` globally on your computer. You probably need to run the terminal as admin to do this.  
 :pencil2: Run `serve -s build` to host the build folder, then open [http://localhost:5000](http://localhost:5000) in your browser and verify the app runs. (You might need to restart the terminal window after installing serve to use it).
 
-### [Go to exercise 3 :arrow_right:](./exercise_3.md)
+### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)

@@ -91,4 +91,4 @@ deploy:
 
 If you've come this far, congratulations! The main parts regarding build and deploy is now done, but exercise 5 has some bonus tasks to build on the app and deploy it rapidly. After all that work of setting up a deployment we need to use it!
 
-### [Go to exercise 5 :arrow_right:](./exercise_5.md)
+### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
