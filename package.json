@@ -5,10 +5,9 @@
    "dependencies": {
       "@emotion/react": "^11.10.5",
       "@emotion/styled": "^11.10.5",
-      "@mui/core": "^5.0.0-alpha.54",
+      "@mui/base": "^5.0.0-alpha.104",
       "@mui/icons-material": "^5.10.9",
       "@mui/material": "^5.10.12",
-      "@mui/styles": "^5.10.10",
       "prop-types": "^15.8.1",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",

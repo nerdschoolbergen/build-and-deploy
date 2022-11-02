@@ -1,25 +1,32 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 
-const styles = {
-  card: {
-    maxWidth: 500,
-  },
-  media: {
-    height: 750,
-  },
+const PREFIX = 'PosterCard';
+
+const classes = {
+  card: `${PREFIX}-card`,
+  media: `${PREFIX}-media`
 };
 
+const Root = styled('div')({
+  [`& .${classes.card}`]: {
+    maxWidth: 500,
+  },
+  [`& .${classes.media}`]: {
+    height: 750,
+  },
+});
+
 // This component renders the movie poster and some details about the movie
-function PosterCard({ classes, posterUrl, movieDetails }) {
+function PosterCard({  posterUrl, movieDetails }) {
   return (
-    <div>
+    <Root>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={posterUrl} title={movieDetails.title} />
         <CardContent>
@@ -32,7 +39,7 @@ function PosterCard({ classes, posterUrl, movieDetails }) {
           {/* TODO */}
         </CardActions>
       </Card>
-    </div>
+    </Root>
   );
 }
 
@@ -42,4 +49,4 @@ PosterCard.propTypes = {
   movieDetails: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PosterCard);
+export default (PosterCard);

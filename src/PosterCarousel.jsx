@@ -1,30 +1,44 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 import Fab from '@mui/material/Fab';
 import LinearProgress from '@mui/material/LinearProgress';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import PosterCard from './PosterCard';
 import TheMovieDbApi from './TheMovieDbApi';
 
-const styles = (theme) => ({
-  root: {
+const PREFIX = 'PosterCarousel';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  posterCard: `${PREFIX}-posterCard`,
+  nextButton: `${PREFIX}-nextButton`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     marginBottom: theme.spacing(4),
   },
-  posterCard: {
+
+  [`& .${classes.posterCard}`]: {
     display: 'flex',
     justifyContent: 'center',
   },
-  nextButton: {
+
+  [`& .${classes.nextButton}`]: {
     display: 'flex',
     justifyContent: 'center',
     marginTop: theme.spacing(2),
-  },
-});
+  }
+}));
 
 class PosterCarousel extends Component {
   constructor(props) {
@@ -122,7 +136,7 @@ class PosterCarousel extends Component {
     // It will be called every time this.props or this.state changes
 
     // Destruct props and state so we can use it less verbosely
-    const { classes } = this.props;
+    const { } = this.props;
     const {
       isFetchingPopularMovies,
       isFetchingConfig,
@@ -146,7 +160,7 @@ class PosterCarousel extends Component {
     const posterUrl = this.constructPosterUrl(currentMovie.poster_path);
 
     return (
-      <div className={classes.root}>
+      <Root className={classes.root}>
         <div className={classes.posterCard}>
           <PosterCard posterUrl={posterUrl} movieDetails={currentMovie} />
         </div>
@@ -159,7 +173,7 @@ class PosterCarousel extends Component {
             <NavigateNextIcon />
           </Fab>
         </div>
-      </div>
+      </Root>
     );
   }
 }
@@ -168,4 +182,4 @@ PosterCarousel.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PosterCarousel);
+export default (PosterCarousel);

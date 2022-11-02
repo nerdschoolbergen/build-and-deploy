@@ -1,25 +1,37 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-const styles = (theme) => ({
-  root: {
+const PREFIX = 'AppBar';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  toolbar: `${PREFIX}-toolbar`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     flexGrow: 1,
     marginBottom: theme.spacing(2),
   },
-  toolbar: {
+
+  [`& .${classes.toolbar}`]: {
     justifyContent: 'center',
-  },
-});
+  }
+}));
 
 // This component simply wraps material-ui's AppBar component
-function AppBar({ classes }) {
+function AppBar({ }) {
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <MuiAppBar position="static" color="primary">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit">
@@ -27,7 +39,7 @@ function AppBar({ classes }) {
           </Typography>
         </Toolbar>
       </MuiAppBar>
-    </div>
+    </Root>
   );
 }
 
@@ -35,4 +47,4 @@ AppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AppBar);
+export default (AppBar);
