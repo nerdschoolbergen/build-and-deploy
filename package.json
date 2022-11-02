@@ -3,9 +3,12 @@
    "version": "0.1.0",
    "private": true,
    "dependencies": {
-      "@material-ui/core": "^4.12.4",
-      "@material-ui/icons": "^4.11.3",
-      "@material-ui/system": "^4.12.2",
+      "@emotion/react": "^11.10.5",
+      "@emotion/styled": "^11.10.5",
+      "@mui/core": "^5.0.0-alpha.54",
+      "@mui/icons-material": "^5.10.9",
+      "@mui/material": "^5.10.12",
+      "@mui/styles": "^5.10.10",
       "prop-types": "^15.8.1",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
@@ -13,8 +16,8 @@
    },
    "devDependencies": {
       "eslint-config-airbnb": "^19.0.4",
-      "react-test-renderer": "^18.2.0",
-      "react-scripts": "^5.0.1"
+      "react-scripts": "^5.0.1",
+      "react-test-renderer": "^18.2.0"
    },
    "scripts": {
       "start": "react-scripts start",

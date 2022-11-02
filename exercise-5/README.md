@@ -12,7 +12,7 @@ Here are some suggestions to features you can make:
 
 The link should open [The Movie Db's page for the given movie](https://www.themoviedb.org/movie/374720).
 
-* In `PosterCard.jsx`, `import` a `Button` from `@material-ui/core/Button`, which is the UI library we use. [Here are some demos for making buttons](https://material-ui-next.com/demos/buttons/)
+* In `PosterCard.jsx`, `import` a `Button` from `@mui/core/Button`, which is the UI library we use.
 
 * The button should be placed inside the `CardActions` element in `PosterCard.jsx`.
 * In the button's `href` prop, construct a full url to The Movie Db's page for the given movie. You can use `https://www.themoviedb.org/movie/MOVIE_ID` as the url. The movie ID is available in `movieDetails` (`movieDetails.id`) which is already available inside `PosterCard`.

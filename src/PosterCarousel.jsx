@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { withStyles } from '@mui/styles';
+import Fab from '@mui/material/Fab';
+import LinearProgress from '@mui/material/LinearProgress';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import PosterCard from './PosterCard';
 import TheMovieDbApi from './TheMovieDbApi';
 
