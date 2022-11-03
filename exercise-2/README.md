@@ -18,4 +18,6 @@ To see what our application looks like and to get a development feedback loop, w
 
 If you were able to successfully perform all the operations above, you are officially in the "it works on my machine" phase of the development lifecycle. The real challenge is to get it to work on someone elses computer, aka "The Cloud" :tm:
 
+![It works on my machine](./images/worksonmymachine.jpg)
+
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)

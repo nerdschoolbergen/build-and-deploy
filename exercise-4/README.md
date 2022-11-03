@@ -1,4 +1,4 @@
-# Exercise 4 - Deploying the app using Heroku
+# Exercise 4 - Deploying the app to Azure Static Websites
 
 We are going to use Azure Static Web Sites to deploy our application and make it available on the internet. 
 
