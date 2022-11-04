@@ -1,6 +1,6 @@
 # Exercise 3 - Deploying the app to the cloud
 
-:book: In this exercise we are going to use [Azure Static Web Apps](https://azure.microsoft.com/en-us/products/app-service/static cloud service to deploy our application and make it available publicly on the internet.
+:book: In this exercise we are going to use [Azure Static Web Apps](https://azure.microsoft.com/en-us/products/app-service/static) cloud service to deploy our application and make it available publicly on the internet.
 
 You will learn:
 - How to configure the API-token needed for deploy using GitHub Secrets
