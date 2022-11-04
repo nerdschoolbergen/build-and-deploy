@@ -3,16 +3,14 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build app and deploy to Azure
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: true
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         working-directory: "./code"

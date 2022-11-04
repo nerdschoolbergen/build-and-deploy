@@ -163,6 +163,8 @@ Let´s break down what this workflow does:
 
 :book: A workflow run will either succeed or fail, depending on if any of the job steps fail.
 
+:pencil2: Did the workflow run fail :x:?  Try reading the error message and figure out what´s wrong. Ask an instructor if you are stuck.
+
 ## 2.5 Improving Continuous Integration
 
 :book: Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
