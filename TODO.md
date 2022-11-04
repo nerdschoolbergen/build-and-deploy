@@ -4,7 +4,7 @@
   - [X] Replace Create-React-App movie-app with a more simple web-app with less dependencies (less nagging about npm audit)
     - [X] Lint
     - [X] Add unit-tests/Jest
-  - [ ] Update all references to old app
+  - [x] Update all references to old app
 - Exercise 1
   - [X] General: To verbose, to much text. Reduce verbosity
   - [X] Add section about Node.js install
@@ -20,9 +20,10 @@
 - Exercise 2
   - [X] Replace Travis CI with GitHub Actions
 - Exercise 3
-  - [ ] Replace Travis CI references
-  - [ ] Replace Heroku with Azure
-  - [ ] Remove all references to old React app
+  - [x] Replace Travis CI references
+  - [x] Replace Heroku with Azure
+  - [x] Remove all references to old React app
 - Exercise 4
-  - [ ] ???
+  - [x] Freestyle task
+  - [x] More ex 4?
 - **Remember to remove workflows from repo before workshop!!**
