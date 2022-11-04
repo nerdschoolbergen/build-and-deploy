@@ -7,17 +7,16 @@
   - [ ] Update all references to old app
 - Exercise 1
   - [X] General: To verbose, to much text. Reduce verbosity
-  - [ ] Add section about Node.js install
-  - [ ] Add section about Git install
-  - [ ] GitHub images outdated, needs to be updated
-  - [ ] Add links to GitHub documentation for account creation, forking and cloning operations
-  - [ ] Suggest GitHub Desktop for people unfamiliar with GitHub
-  - [ ] Replace references to "your favorite text editor" with VS Code
-  - [ ] Remove section about dot-files being hidden in Windows explorer (they are visibile in vscode and the terminal anyway)
-  - [ ] Remove part about Create-React-App
-  - [ ] Update app screenshots
-  - [ ] Update "How it works" (description of app)
-  - [ ] Remove "Components" and "Supporting libraries"
+  - [X] Add section about Node.js install
+  - [X] Add section about Git install
+  - [X] GitHub images outdated, needs to be updated
+  - [X] Add links to GitHub documentation for account creation, forking and cloning operations
+  - [X] Suggest GitHub Desktop for people unfamiliar with GitHub
+  - [X] Replace references to "your favorite text editor" with VS Code
+  - [X] Remove section about dot-files being hidden in Windows explorer (they are visibile in vscode and the terminal anyway)
+  - [X] Remove part about Create-React-App
+  - [X] Update app screenshot
+  - [X] Update "How it works" (description of app)
 - Exercise 2
   - [X] Replace Travis CI with GitHub Actions
 - Exercise 3
