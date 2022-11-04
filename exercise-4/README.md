@@ -12,4 +12,4 @@ Now we have created a pipeline to build, verify the quality, and deploy our appl
 
 :pencil2: Just like Fleetwood Mac, you are free to go your own way. Make any change you would like to see live on your page and see it deployed on the internet. 
 
-[![Go your own way](http://img.youtube.com/vi/qNM6IuA87eM/0.jpg)](https://www.youtube.com/watch?v=qNM6IuA87eM "Go your own way")
+![Cat developer](./images/cat_computer.gif)
