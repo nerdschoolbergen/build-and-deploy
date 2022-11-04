@@ -26,8 +26,7 @@ We'll look at the infrastructure of deploying an app to production and not the a
 * [Exercise 1](./exercise-1/README.md) (Start here)
 * [Exercise 2](./exercise-2/README.md)
 * [Exercise 3](./exercise-3/README.md)
-* [Exercise 4](./exercise-4/README.md)
-* [Exercise 5 (bonus)](./exercise-5/README.md)
+* [Exercise 4 (bonus)](./exercise-5/README.md)
 
 Have fun! And remember to ask an instructor if you're stuck.
 
