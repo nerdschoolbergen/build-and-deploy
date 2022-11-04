@@ -113,7 +113,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./code
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js 16.x
@@ -131,6 +133,9 @@ Let´s break down what this workflow does:
 - `jobs:` - what jobs we want the workflow to do
   - `build:` - the name of our job
     - `runs-on: ubuntu-latest` - we want to run our workflow on Linux (latest release of Ubuntu)
+    - `defaults:` default settings for the job
+      - `run:` - settings for running commands
+        - `working-directory: ./code` - set working directory for running commands to `./code`, where our app is located
     - `steps:`
       - `- uses: actions/checkout@v3` - git clone the repository
       - `- name: Use Node.js 16.x
