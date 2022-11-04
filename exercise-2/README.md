@@ -190,7 +190,7 @@ This is one of the quality checks we get with linting. We have a unused variable
 This is an example of linting helping us enforce good coding practices.
 
 > All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful.
- ![ESLint example is VS Code](./images/eslint_example.png).
+ ![ESLint example is VS Code](./images/eslint.png).
 
 :pencil2: Remove the unused variable that we introduced, and run `npm run lint` again in your terminal to ensure that the code is linted successfully.
 
@@ -294,7 +294,7 @@ jobs:
 
 Commit and push your change to Github, and you chould see the following output on the bottom of your workflow page. This is our application that has been built and is ready to be deployed.
 
- ![Artifact example](./images/artifact.png).
+ ![Artifact example](./images/actions-artifact.png).
 ___
 
 Well done so far :tada:! Next, we'll deploy the app.
