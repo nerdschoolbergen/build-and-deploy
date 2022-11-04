@@ -10,6 +10,6 @@ Now we have created a pipeline to build, verify the quality, and deploy our appl
 
 ## Freestyle it - Go your own way
 
-:pencil2: Just like Fleetwood Mac, you are free to go your own way. Make any change you would like to see live on your page and see it deployed on the internet. 
+:pencil2: Feel free to freestyle it from now on. Make any change you would like to see live on your page and see it deployed on the internet. 
 
 ![Cat developer](./images/cat_computer.gif)
