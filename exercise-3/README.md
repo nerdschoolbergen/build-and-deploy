@@ -32,39 +32,113 @@ You will learn:
 
 ### Deploying the app to Azure using GitHub Actions
 
-:book: To automatically deploy our web app to Azure when we push new commits to GitHub, we will create a new GitHub Actions workflow.
+:book: To automatically deploy our web app to Azure when we push new commits to GitHub, we will create a new GitHub Actions workflow job.
 
-:pencil2: Create a file called `deploy.yml` inside the `./github/workflows` directory with the following contents:
 
-```yml
-name: Deploy
+:pencil2: Open the `main.yaml` inside the `./github/workflows` directory with the following contents. 
 
-on:
-  push:
-    branches:
-      - master
+```diff
+name: Build and deploy
+
+on: [push]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./code
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: ./code/dist
+
++ deploy:
++   runs-on: ubuntu-latest
++   name: Deploy application to Azure Static Websites
++   needs: build
++   steps:
++     - name: Get artifact from build step
++       uses: actions/download-artifact@v3
++       with:
++         name: artifact
++     - name: Deploy
++       id: deploy
++       uses: Azure/static-web-apps-deploy@v1
++       with:
++         azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
++         action: "upload"
++         app_location: "." 
+      
+```
+
+<details>
+<summary>Click to view the file without the diff syntax</summary>
+
+```yaml
+name: Build and deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./code
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: ./code/dist
+
   deploy:
     runs-on: ubuntu-latest
-    name: Build app and deploy to Azure
+    name: Deploy application to Azure Static Websites
+    needs: build
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Azure Static Web Apps
-        id: builddeploy
-        working-directory: "./code"
+      - name: Get artifact from build step
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+      - name: Deploy
+        id: deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "upload"
           app_location: "." 
 ```
+</details>
 
-:pencil2: Let's have a look at what this workflow does:
-
-- It will trigger when commits are pushed to the `master` branch
-- It clones the repository
-- It uses a premade Action called [`Azure/static-web-apps-deploy`](https://learn.microsoft.com/nb-no/azure/static-web-apps/build-configuration?tabs=github-actions#build-and-deploy) to build and deploy the code to Azure using the `AZURE_STATIC_WEB_APPS_API_TOKEN` as API-token.
+:pencil2: Let's have a look at what this workflow job does:
+- The step `Get artifact from build step` will download the artifact file from our build step and make its content available in the file system of the action runner.
+- It uses a premade Action called [`Azure/static-web-apps-deploy`](https://learn.microsoft.com/nb-no/azure/static-web-apps/build-configuration?tabs=github-actions#build-and-deploy) to deploy the artifact to Azure using the `AZURE_STATIC_WEB_APPS_API_TOKEN` as API-token.
 
 :pencil2: Git commit and push these changes.
 
