@@ -109,14 +109,12 @@ code
 ├── package-lock.json
 ├── package.json
 ├── src
-│   ├── clock.js
-│   ├── clock.test.js
-│   ├── main.js
-│   └── style.css
 ```
 
+* `index.html` is the main entrypoint of the app
 * The `package-lock.json` file is just for NPM to keep track of our dependencies.
 * The `package.json` file is where we keep some metatdata about our app, some _scripts_ like building the app and running tests, and listing our dependencies.
+* `src` - contains the web app JavaScript code
 
 :pencil2: Run `npm start` in your terminal.
 
