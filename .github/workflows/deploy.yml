@@ -8,11 +8,7 @@ jobs:
     name: Build app and deploy to Azure
     needs: build
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@master
-        with:
-          name: build-output
-          path: ./build-output
+      - uses: actions/checkout@v2
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         working-directory: "./build-ouput"
