@@ -1,8 +1,20 @@
-# Exercise 2 - CI/CD pipeline setup using GitHub Actions
+# Exercise 2 - CI/CD pipeline setup
 
-Instead of setting up a build server from scratch, we'll use GitHub Actions to do all the heavy lifting for us.
+In this exercise you will learn how to set up a CI/CD pipeline for automating tasks using a service called GitHub Actions.
 
-GitHub Actions is a service for handling our Continuous Integration steps. We will use another service for hosting our app once we've built and verified it using GitHub Actions.
+You will learn:
+
+- The basics of GitHub Actions
+- Setting up a pipeline
+- Automating building the code
+- Automate code quality control
+- Automate running unit tests
+
+## 2.1 GitHub Actions
+
+:book: Instead of setting up a build server from scratch, we'll use GitHub Actions to do all the heavy lifting for us.
+
+:book: GitHub Actions is a service for handling our Continuous Integration steps. We will use another service for hosting our app once we've built and verified it using GitHub Actions.
 
 Here is an overview of how a CI/CD-pipeline created using GitHub Actions works:
 
@@ -19,7 +31,7 @@ flowchart TD
     end
 ```
 
-## 2.1 GitHub Actions config
+## 2.2 GitHub Actions config
 
 :book: GitHub Actions is "code as configuration", which means that you configure it by simply adding a workflow configuration file to your repository.
 
@@ -27,7 +39,7 @@ flowchart TD
 
 :pencil2: Inside `.github`, create a new folder called `workflows`.
 
-### 2.1.1 GitHub Actions Hello World
+### 2.2.1 GitHub Actions Hello World
 
 :book: Before we start doing anything useful with GitHub Actions, we need to get familiar with the basics of how it works.
 
@@ -58,7 +70,7 @@ jobs:
 
 :pencil2: Commiting the workflow file in your repository triggers the `push` event and runs your workflow.
 
-### 2.2 Viewing your workflow results
+### 2.3 Viewing your workflow results
 
 :pencil2: On GitHub.com, navigate to the main page of your repository.
 
@@ -84,7 +96,7 @@ jobs:
 
 :book: Next step is to make GitHub Actions do something more useful!
 
-### 2.3 Workflow for building our app
+### 2.4 Workflow for building our app
 
 :book: The most important step in a CI-pipeline is the _build_ step, where code is built to see if a new commit pushed  _breaks the build_ or not.
 
@@ -151,11 +163,11 @@ Let´s break down what this workflow does:
 
 :book: A workflow run will either succeed or fail, depending on if any of the job steps fail.
 
-## 2.4 Improving Continuous Integration
+## 2.5 Improving Continuous Integration
 
 :book: Remember that Continuous Integration is all about making sure our code is good enough to be deployed. So far we're not doing much to prove this. We make sure the app can be built, but that's about it. Let's introduce some more quality checks.
 
-## 2.4.1 Linting
+## 2.5.1 Linting
 
 Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _[ESLint](https://eslint.org/)_ to do this for us. ESLint statistically analyzes your code to quickly find problems.
 
@@ -198,7 +210,7 @@ jobs:
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
-### 2.4.2 Testing
+### 2.5.2 Testing
 
 :book: There is already a script for running our unit tests in `package.json`.
 
