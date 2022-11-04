@@ -1,12 +1,12 @@
 # 2022 rewrite TODO
 
 - General
-  - [ ] Replace Create-React-App movie-app with a more simple web-app with less dependencies (less nagging about npm audit)
-    - [ ] Lint
-    - [ ] Add unit-tests/Jest?
+  - [X] Replace Create-React-App movie-app with a more simple web-app with less dependencies (less nagging about npm audit)
+    - [X] Lint
+    - [X] Add unit-tests/Jest
   - [ ] Update all references to old app
 - Exercise 1
-  - [ ] General: To verbose, to much text. Reduce verbosity
+  - [X] General: To verbose, to much text. Reduce verbosity
   - [ ] Add section about Node.js install
   - [ ] Add section about Git install
   - [ ] GitHub images outdated, needs to be updated
@@ -19,17 +19,11 @@
   - [ ] Update "How it works" (description of app)
   - [ ] Remove "Components" and "Supporting libraries"
 - Exercise 2
-  - [ ] Needs total rewrite
-  - [ ] Remove all info related to Webpack, Grunt, Gulp
-  - [ ] Simplify build section
-- Exercise 3
   - [X] Replace Travis CI with GitHub Actions
-- Exercise 4
+- Exercise 3
   - [ ] Replace Travis CI references
-  - [ ] Check if Heroku screenshots and steps are still correct
-  - [ ] Replace Travis CI -> Heroku integration part
-    - [ ] See https://blog.logrocket.com/ci-cd-pipelines-react-github-actions-heroku/
-    - [ ] Use https://github.com/marketplace/actions/deploy-to-heroku
-- Exercise 5
+  - [ ] Replace Heroku with Azure
   - [ ] Remove all references to old React app
+- Exercise 4
+  - [ ] ???
 - **Remember to remove workflows from repo before workshop!!**
