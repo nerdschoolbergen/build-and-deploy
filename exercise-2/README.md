@@ -43,7 +43,7 @@ flowchart TD
 
 :book: Before we start doing anything useful with GitHub Actions, we need to get familiar with the basics of how it works.
 
-:pencil2: Inside the `workflows`folder, create a new file named `test.yml` with the following contents:
+:pencil2: Inside the `workflows` folder, create a new file named `test.yml` with the following contents:
 
 ```yml
 name: GitHub Actions Nerdschool Demo
@@ -175,17 +175,24 @@ Linting is just to verify that our code follows certain best practices and code 
 
 :pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
 
-:pencil2: Open `src/PosterCard.jsx` and comment out line 38 (`posterUrl: PropTypes.object.isRequired,`) and run `lint` again. It should now fail with one error:
-
-```text
-20:23  error  'classes' is missing in props validation  react/prop-types
+:pencil2: Open `code/main.js` and add the following line to the end of the file
+```javascript
+const unusedVariable = 3;
 ```
 
+:pencil2: Run `npm run lint` again. 
+You should see the following error on the screen
+```
+error  'unusedVariable' is assigned a value but never used  no-unused-vars
+```
+
+This is one of the quality checks we get with linting. We have a unused variable that is not used anywhere and does not provide any value, so the linter will give us feedback that the code is not up to the required standards. 
 This is an example of linting helping us enforce good coding practices.
 
-> All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful. [Like this](./images/eslint01.png).
+> All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful.
+ ![ESLint example is VS Code](./images/eslint_example.png).
 
-:pencil2: Undo the comment and save the file as it was.
+:pencil2: Remove the unused variable that we introduced, and run `npm run lint` again in your terminal to ensure that the code is linted successfully.
 
 :pencil2: To make our CI pipeline automatically lint code, we need to add the following line to `.github/workflows/main.yml`:
 
@@ -244,6 +251,50 @@ jobs:
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
+
+## Creating a build artifact
+
+Before we can start deploying anything to the internet, we need something to deploy. So far, we have checked that our code builds and that is passes our quality control checks through linting and testing. 
+
+In order to get an artifact (fancy word for a application that has been built), we can take the output of our build step and store it was a file related to the Github Action workflow that we have just run. 
+
+`npm build` will produce a folder called `dist` in our Github Action Runner. We can take that file and assign it to our workflow and use it in later steps when we are going to deploy the application.
+
+Modify your workflow file to include the `Archive artifacts` step as shown below. 
+
+```diff
+name: Build and deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./code
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+
++     - name: Archive artifacts
++       uses: actions/upload-artifact@v3
++       with:
++         name: artifact
++         path: ./code/dist
+```
+
+Commit and push your change to Github, and you chould see the following output on the bottom of your workflow page. This is our application that has been built and is ready to be deployed.
+
+ ![Artifact example](./images/artifact.png).
 ___
 
 Well done so far :tada:! Next, we'll deploy the app.

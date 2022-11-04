@@ -1,4 +1,4 @@
-name: Build
+name: Build and deploy
 
 on: [push]
 
@@ -20,7 +20,7 @@ jobs:
       - run: npm run lint
       - run: npm run test
 
-      - name: Archive production artifacts
+      - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
           name: artifact
