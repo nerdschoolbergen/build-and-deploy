@@ -108,7 +108,7 @@ npm run build
 ```
 
 - :book: `npm ci` installs all project dependencies. This command is similar to `npm install`, except it's meant to be used in automated environments.
-- :book: `npm run build` creates a `build` directory with a production build of your app.
+- :book: `npm run build` creates a `dist` (abbriviation for "distribution") directory with a production build of your app.
 
 :bulb: These commands are specific to the app we are building. If you need to build another type of app (Python, .NET, Java, etc.) in your pipeline, you need to use different build tools and commands.
 
@@ -176,8 +176,23 @@ Linting is just to verify that our code follows certain best practices and code 
 :pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
 
 :pencil2: Open `code/main.js` and add the following line to the end of the file
-```javascript
-const unusedVariable = 3;
+
+```diff
+import {  getSecondsLeftOfYear, getTimeString } from "./clock";
+
+const timeContainer = document.getElementById("time");
+const timeLeft = document.getElementById("seconds-left");
+
+const render = () => {
+  const now = new Date();
+  timeLeft.innerText = getSecondsLeftOfYear(now);
+  timeContainer.innerText = getTimeString(now);
+}
+
+render();
+setInterval(render, 1000);
+
++ const unusedVariable = 3;
 ```
 
 :pencil2: Run `npm run lint` again. 
@@ -191,8 +206,6 @@ This is an example of linting helping us enforce good coding practices.
 
 > All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful.
  ![ESLint example is VS Code](./images/eslint.png).
-
-:pencil2: Remove the unused variable that we introduced, and run `npm run lint` again in your terminal to ensure that the code is linted successfully.
 
 :pencil2: To make our CI pipeline automatically lint code, we need to add the following line to `.github/workflows/main.yml`:
 
@@ -218,6 +231,10 @@ jobs:
 ```
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
+
+:book: The build should fail at this point, because it did not pass our linting step. 
+
+:pencil2: Remove the unused variable that we introduced, and run `npm run lint` again in your terminal to ensure that the code is linted successfully. Push the change to Github and see that the build is successful.
 
 ### 2.5.2 Testing
 
@@ -251,6 +268,7 @@ jobs:
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
+:bonus: Bonus task: Try messing around with the tests. Can you make them fail? Or even create new tests that are run in our CI pipeline?
 
 ## Creating a build artifact
 
