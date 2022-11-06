@@ -148,4 +148,35 @@ jobs:
 
 :pencil2: Did the workflow run fail :x:?  Try reading the error message and figure out what´s wrong. Ask an instructor if you are stuck.
 
+### Making a change to the app
+
+:pencil2: Go to the `code/index.html` file and make a change to the file. E.g. you can change the heading of the page. Push the change to github, and see that the change is deployed to the live webpage after the Action has completed.
+
+```diff
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css">
+    <title>My Page</title>
+  </head>
+  <body>
+    <div class="clock-container">
+-     <h1>🕑</h1>
++     <h1>Welcome to my amazing time app</h1>
+
+      <span>Current time</span>
+      <h2 id="time"></h2>
+
+      <span>Seconds left of year</span>
+      <h2 id="seconds-left"></h2>
+
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+```
+
+
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
