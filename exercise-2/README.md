@@ -96,6 +96,8 @@ jobs:
 
 :book: Next step is to make GitHub Actions do something more useful!
 
+:exclamation: - If you are not able to see the workflow, try refreshing the page.
+
 ### 2.4 Workflow for building our app
 
 :book: The most important step in a CI-pipeline is the _build_ step, where code is built to see if a new commit pushed  _breaks the build_ or not.
@@ -268,7 +270,7 @@ jobs:
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
-:bonus: Bonus task: Try messing around with the tests. Can you make them fail? Or even create new tests that are run in our CI pipeline?
+:star: Bonus task: Try messing around with the tests. Can you make them fail? Or even create new tests that are run in our CI pipeline?
 
 ## Creating a build artifact
 
