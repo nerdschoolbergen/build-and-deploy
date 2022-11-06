@@ -1,0 +1,19 @@
+body {
+  background-color: #fafafa;
+}
+
+.clock-container {
+  max-width: 300px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.16), 0 2px 1px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: rem;
+}
