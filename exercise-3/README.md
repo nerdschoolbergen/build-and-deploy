@@ -1,8 +1,9 @@
 # Exercise 3 - Deploying the app to the cloud
 
-:book: In this exercise we are going to use [Azure Static Web Apps](https://azure.microsoft.com/en-us/products/app-service/static) cloud service to deploy our application and make it available publicly on the internet.
+:book: In this exercise we are going to use the [Azure Static Web Apps](https://azure.microsoft.com/en-us/products/app-service/static) cloud service to deploy our application and make it available publicly on the internet.
 
 You will learn:
+
 - How to configure the API-token needed for deploy using GitHub Secrets
 - Create a new deployment pipeline for automating web app deployment
   
@@ -10,7 +11,7 @@ You will learn:
 
 :book: To avoid having to register an Azure account, we have prepared a an Azure environment where you can deploy your application.
 
-:pencil2: Ask an instructor to provide you with a secret Azure API-token and a URL of the web application, if you haven't received it already.
+:pencil2: Open [https://nerdschool-vending-machine.vercel.app/](https://nerdschool-vending-machine.vercel.app/) and follow the instructions to receive an API-token via e-mail.
 
 > :exclamation::exclamation: **Do not share the Azure API-token with anyone else or commit it to the repository.**  :exclamation::exclamation:
 
