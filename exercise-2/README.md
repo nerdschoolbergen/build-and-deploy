@@ -179,22 +179,8 @@ Linting is just to verify that our code follows certain best practices and code 
 
 :pencil2: Open `code/src/main.js` and add the following line to the end of the file
 
-```diff
-import {  getSecondsLeftOfYear, getTimeString } from "./clock";
-
-const timeContainer = document.getElementById("time");
-const timeLeft = document.getElementById("seconds-left");
-
-const render = () => {
-  const now = new Date();
-  timeLeft.innerText = getSecondsLeftOfYear(now);
-  timeContainer.innerText = getTimeString(now);
-}
-
-render();
-setInterval(render, 1000);
-
-+ const unusedVariable = 3;
+```javascript
+const unusedVariable = 3;
 ```
 
 :pencil2: Run `npm run lint` again. 
