@@ -177,7 +177,7 @@ Linting is just to verify that our code follows certain best practices and code 
 
 :pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
 
-:pencil2: Open `code/main.js` and add the following line to the end of the file
+:pencil2: Open `code/src/main.js` and add the following line to the end of the file
 
 ```diff
 import {  getSecondsLeftOfYear, getTimeString } from "./clock";
