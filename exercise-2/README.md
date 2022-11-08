@@ -35,7 +35,7 @@ flowchart TD
 
 :book: GitHub Actions is "code as configuration", which means that you configure it by simply adding a workflow configuration file to your repository.
 
-:pencil2: Create a new folder at the root of the project called `.github`
+:pencil2: Create a new folder at the root of the repository called `.github`
 
 :pencil2: Inside `.github`, create a new folder called `workflows`.
 
