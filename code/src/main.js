@@ -11,3 +11,5 @@ const render = () => {
 
 render();
 setInterval(render, 1000);
+// There is a line of code here in the github repo
+// + const unusedVariable 0 3;

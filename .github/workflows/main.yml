@@ -1,0 +1,68 @@
+name: Build and deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./code
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm test
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: ./code/dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy application to Azure Static Websites
+    needs: build
+    steps:
+      - name: Get artifact from build step
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+      - name: Deploy
+        id: deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "upload"
+          app_location: "."
+# The following lines of code are meant to be used by AWS for deployment there instead of Azure
+# You might check how to do it
+#   deploy:
+#     runs-on: ubuntu-latest
+#     name: Deploy application to AWS
+#     needs: build
+#     steps:
+#       - name: Get artifact from buil step
+#       uses: actions/download-artifact@v3
+#       with:
+#         name: artifact
+#         - name: Install AWS CLI
+#         run: I
+#         aws configure set aws_Access_key_id${{
+#         secrets.AWS_ACCESS_KEY_ID}}
+#         aws configure set aws_secrets_access_key${{
+#         secrets.AWS_SECRET_ACCESS_KEY}}
+#         aws configure set default.region${{secrets.AWS_REGION}}
+#         - name: Deploy
+#         run: I
+#         AWS_DEFAULT_REGION:${{secrets.AWS_REGION}}
+#         AWS_ACCESS_KEY_ID:${{secrets.AWS_ACCESS_KEY_ID}}
+#         AWS_SECRET_ACCESS_KEY:${{secrets.AWS_SECRET_ACCESS_KEY}}
+#
+
