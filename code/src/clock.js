@@ -4,7 +4,7 @@ export const getTimeString = (now) => {
     const seconds = now.getSeconds();
     return `${hour}:${minute}:${seconds}`
 }
-
+// Some comments here.
 const getNextYearDate = (now) => {
     const endOfYearDate = new Date(0)
     endOfYearDate.setUTCFullYear(now.getUTCFullYear() + 1)
