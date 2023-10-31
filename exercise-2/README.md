@@ -68,7 +68,7 @@ jobs:
 
 :pencil2: Save and git commit this file. Git push all your changes so far.
 
-:pencil2: Commiting the workflow file in your repository and pushing it to GitHub triggers the `push` event and runs your workflow.
+:book: Commiting the workflow file in your repository and pushing it to GitHub triggers the `push` event and runs your workflow.
 
 ### 2.3 Viewing your workflow results
 
