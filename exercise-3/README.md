@@ -62,7 +62,7 @@ jobs:
       - run: npm run test
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: ./code/dist
@@ -113,7 +113,7 @@ jobs:
       - run: npm run test
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: ./code/dist
