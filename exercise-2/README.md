@@ -208,7 +208,7 @@ Linting is just to verify that our code follows certain best practices and code 
 const unusedVariable = 3;
 ```
 
-:pencil2: Save the file and run `npm run lint` again. You should see the following error on the screen:
+:pencil2: Save the file, commit the change and run `npm run lint` again. You should see the following error on the screen:
 
 ```shell
 > nerdschool-build-and-deploy@0.0.0 lint
@@ -288,7 +288,7 @@ jobs:
 
 :pencil2: Git commit this change and push. View the result in the Actions workflow jobs overview on GitHub.com.
 
-:star: Bonus task: Try messing around with the tests. Can you make them fail? Or even create new tests that are run in our CI pipeline?
+:star: Bonus task: Try messing around with the tests in `code/src/clock.test.js`. Can you make them fail? Or even create new tests that are run in our CI pipeline?
 
 ## Creating a build artifact
 
