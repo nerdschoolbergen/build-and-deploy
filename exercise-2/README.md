@@ -184,7 +184,7 @@ Let´s break down what this workflow does:
       - `- run: npm ci` - install dependencies
       - `run: npm run build` - build app
 
-:pencil2: Commit all changes and push them to git. The new workflow will now trigger.
+:pencil2: Commit all changes and push them to GitHub. The new workflow will now trigger.
 
 :pencil2: Open the GitHub Actions workflow overview and click on the new `Build` workflow on the left side. Click on the workflow run on the right side to see more details.
 
