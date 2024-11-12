@@ -200,7 +200,7 @@ Let´s break down what this workflow does:
 
 Linting is just to verify that our code follows certain best practices and code conventions. We use the tool _[ESLint](https://eslint.org/)_ to do this for us. ESLint statistically analyzes your code to quickly find problems.
 
-:pencil2: Run `npm run lint` in your terminal to run ESLint. The command should take a few seconds, then exit without errors.
+:pencil2: In a terminal window, cd into the `code` folder and run `npm run lint` to run ESLint. The command should take a few seconds, then exit without errors.
 
 :pencil2: Open `code/src/main.js` and add the following line to the end of the file:
 
@@ -214,7 +214,7 @@ const unusedVariable = 3;
 error  'unusedVariable' is assigned a value but never used  no-unused-vars
 ```
 
-This is one of the quality checks we get with linting. We have a unused variable that is not used anywhere and does not provide any value, so the linter will give us feedback that the code is not up to the required standards. 
+This is one of the quality checks we get with linting. We have a unused variable that is not used anywhere and does not provide any value, so the linter will give us feedback that the code is not up to the required standards.
 This is an example of linting helping us enforce good coding practices.
 
 > All modern code editors and IDEs has plugins for ESLint so you get warnings and errors inline in your editor which is very helpful.
