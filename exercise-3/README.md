@@ -73,7 +73,7 @@ jobs:
 +   needs: build
 +   steps:
 +     - name: Get artifact from build step
-+       uses: actions/download-artifact@v3
++       uses: actions/download-artifact@v4
 +       with:
 +         name: artifact
 +     - name: Deploy
@@ -124,7 +124,7 @@ jobs:
     needs: build
     steps:
       - name: Get artifact from build step
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact
       - name: Deploy
