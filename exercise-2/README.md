@@ -134,9 +134,9 @@ npm run build
 
 :bulb: These commands are specific to the app we are building. If you need to build another type of app (Python, .NET, Java, etc.) in your pipeline, you need to use different build tools and commands.
 
-:pencil2: Remove the file `test.yml` we previously created from the `.github\workflows` folder.
+:pencil2: Delete the file `test.yml` we previously created from the `.github\workflows` folder.
 
-:pencil2: Add a new file called `main.yml` in the `.github\workflows` folder with the following contents:
+:pencil2: Create a new file called `main.yml` in the `.github\workflows` folder with the following contents:
 
 ```yml
 name: Build
