@@ -44,6 +44,11 @@ flowchart TD
 ```shell
 .github
 └── workflows
+```The folder structure should look like this:
+
+```shell
+.github
+└── workflows
 ```
 
 ### 2.2.1 GitHub Actions Hello World
@@ -167,7 +172,7 @@ Let´s break down what this workflow does:
         - `working-directory: ./code` - set working directory for running commands to `./code`, where our app is located
     - `steps:`
       - `- uses: actions/checkout@v4` - git clone the repository
-      - Install Node.js 16.x:
+      - Install Node.js:
 
       ```yml
         - name: Use Node.js 22.x
