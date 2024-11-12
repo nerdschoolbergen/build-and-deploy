@@ -39,6 +39,13 @@ flowchart TD
 
 :pencil2: Inside `.github`, create a new folder called `workflows`.
 
+:book: The folder structure should look like this:
+
+```shell
+.github
+└── workflows
+```
+
 ### 2.2.1 GitHub Actions Hello World
 
 :book: Before we start doing anything useful with GitHub Actions, we need to get familiar with the basics of how it works.
@@ -64,6 +71,14 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+```
+
+:book: The folder structure should look like this:
+
+```shell
+.github
+└── workflows
+    └── test.yml
 ```
 
 :pencil2: Save and git commit this file. Git push all your changes so far.
