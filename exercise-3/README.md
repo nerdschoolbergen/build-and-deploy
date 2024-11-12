@@ -36,7 +36,7 @@ You will learn:
 :book: To automatically deploy our web app to Azure when we push new commits to GitHub, we will create a new GitHub Actions workflow job.
 
 
-:pencil2: Open the `main.yaml` inside the `./github/workflows` directory with the following contents. 
+:pencil2: Open the file `main.yml` inside the `./github/workflows` directory and add the following content. 
 
 ```diff
 name: Build and deploy
@@ -151,7 +151,7 @@ jobs:
 
 ### Making a change to the app
 
-:pencil2: Go to the `code/index.html` file and make a change to the file. E.g. you can change the heading of the page. Push the change to github, and see that the change is deployed to the live webpage after the Action has completed.
+:pencil2: Go to the `code/index.html` file and make a change to the file. E.g. you can change the heading of the page. Push the change to Github, and see that the change is deployed to the live webpage after the Action has completed.
 
 ```diff
 <!DOCTYPE html>
