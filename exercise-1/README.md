@@ -28,6 +28,12 @@ You will learn to:
 
 :pencil2: Install [Google Chrome](https://www.google.com/chrome/browser/desktop/) if you don't have it.
 
+### 1.1.3 Visual Studio Code and YAML extension
+
+:pencil2: Install [Visual Studio Code](https://code.visualstudio.com/).
+
+:pencil2: Install the [Red Hat YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for Visual Studio Code.
+
 ### 1.2 GitHub account setup
 
 :pencil2: If you don't already have a GitHub account, follow the [Sign up for a new GitHub account](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account) guide on GitHub.com. It's free!

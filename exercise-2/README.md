@@ -290,7 +290,7 @@ jobs:
 
 :star: Bonus task: Try messing around with the tests in `code/src/clock.test.js`. Can you make them fail? Or even create new tests that are run in our CI pipeline?
 
-## Creating a build artifact
+## 2.6 Creating a build artifact
 
 Before we can start deploying anything to the internet, we need something to deploy. So far, we have checked that our code builds and that is passes our quality control checks through linting and testing. 
 
