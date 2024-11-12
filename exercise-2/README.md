@@ -57,7 +57,7 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
@@ -131,7 +131,7 @@ jobs:
       run:
         working-directory: ./code
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -151,11 +151,16 @@ Let´s break down what this workflow does:
       - `run:` - settings for running commands
         - `working-directory: ./code` - set working directory for running commands to `./code`, where our app is located
     - `steps:`
-      - `- uses: actions/checkout@v3` - git clone the repository
-      - `- name: Use Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x` - install Node.js 16.x
+      - `- uses: actions/checkout@v4` - git clone the repository
+      - Install Node.js 16.x:
+
+      ```yml
+        - name: Use Node.js 16.x
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16.x
+      ```
+
       - `- run: npm ci` - install dependencies
       - `run: npm run build` - build app
 
@@ -208,7 +213,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -243,7 +248,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -280,7 +285,7 @@ jobs:
       run:
         working-directory: ./code
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Use Node.js
         uses: actions/setup-node@v3

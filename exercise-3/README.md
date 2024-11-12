@@ -50,7 +50,7 @@ jobs:
       run:
         working-directory: ./code
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -101,7 +101,7 @@ jobs:
       run:
         working-directory: ./code
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Use Node.js
         uses: actions/setup-node@v3
