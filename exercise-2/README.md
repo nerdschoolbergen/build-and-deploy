@@ -208,9 +208,9 @@ Linting is just to verify that our code follows certain best practices and code 
 const unusedVariable = 3;
 ```
 
-:pencil2: Run `npm run lint` again. 
-You should see the following error on the screen
-```
+:pencil2: Run `npm run lint` again. You should see the following error on the screen:
+
+```shell
 error  'unusedVariable' is assigned a value but never used  no-unused-vars
 ```
 
