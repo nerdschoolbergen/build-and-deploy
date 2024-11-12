@@ -132,10 +132,10 @@ jobs:
         working-directory: ./code
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
 ```
@@ -155,10 +155,10 @@ Let´s break down what this workflow does:
       - Install Node.js 16.x:
 
       ```yml
-        - name: Use Node.js 16.x
-          uses: actions/setup-node@v3
+        - name: Use Node.js 22.x
+          uses: actions/setup-node@v4
           with:
-            node-version: 16.x
+            node-version: 22.x
       ```
 
       - `- run: npm ci` - install dependencies
@@ -214,10 +214,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
 +     - run: npm run lint
@@ -249,10 +249,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
       - run: npm run lint
@@ -288,9 +288,9 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
       - run: npm run lint

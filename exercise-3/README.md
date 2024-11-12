@@ -53,9 +53,9 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
       - run: npm run lint
@@ -104,9 +104,9 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
       - run: npm ci
       - run: npm run build
       - run: npm run lint
