@@ -211,7 +211,14 @@ const unusedVariable = 3;
 :pencil2: Save the file and run `npm run lint` again. You should see the following error on the screen:
 
 ```shell
-error  'unusedVariable' is assigned a value but never used  no-unused-vars
+> nerdschool-build-and-deploy@0.0.0 lint
+> eslint **/*.js
+
+
+<path-to-repo>/code/src/main.js
+  15:7  error  'unusedVariable' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
 ```
 
 This is one of the quality checks we get with linting. We have a unused variable that is not used anywhere and does not provide any value, so the linter will give us feedback that the code is not up to the required standards.
