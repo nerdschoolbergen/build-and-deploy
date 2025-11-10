@@ -22,6 +22,18 @@ Terraform source code: <https://github.com/nerdschoolbergen/cloud-infra/tree/mai
 - This Google Sheet is updated for each attendee with their unique event site URL and deployment key: <https://docs.google.com/spreadsheets/d/1dhokHgE63OayadCiRg0frQO_iG7qwKa8X2e4r4DoULc/edit?gid=0#gid=0>
 - If you try to register twice with the same email address, the app will prevent you from getting a second site.
 
+### Clearing registrations
+
+- Remove all rows from the Google Sheet: <https://docs.google.com/spreadsheets/d/1dhokHgE63OayadCiRg0frQO_iG7qwKa8X2e4r4DoULc/edit?gid=0#gid=0>
+- Clear Redis cache used by the vending machine app:
+  - Go to https://vercel.com/nerdschool/vending-machine
+  - Select Storage tab
+  - Select database
+  - Select Open in Redis
+  - Open Redis Insight via Launch button under "View and manage your data with Redis Insight"
+  - Select Workbench tab
+  - Run command: `FLUSHALL`
+
 ## Post-event cleanup
 
 1. Log into "nerdschool" org at https://app.terraform.io/.
