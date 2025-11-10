@@ -10,12 +10,12 @@
     "lint": "eslint **/*.js"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
     "@eslint/js": "^9.14.0",
-    "eslint": "^8.57.1",
-    "globals": "^15.12.0",
-    "jest": "^29.2.2",
-    "vite": "^3.2.0",
-    "eslint-plugin-jest": "^28.9.0"
+    "eslint": "^9.39.1",
+    "eslint-plugin-jest": "^29.0.1",
+    "globals": "^16.5.0",
+    "jest": "^30.2.0",
+    "vite": "^7.2.2"
   }
 }
