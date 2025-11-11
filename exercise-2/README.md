@@ -44,11 +44,6 @@ flowchart TD
 ```shell
 .github
 └── workflows
-```The folder structure should look like this:
-
-```shell
-.github
-└── workflows
 ```
 
 ### 2.2.1 GitHub Actions Hello World
