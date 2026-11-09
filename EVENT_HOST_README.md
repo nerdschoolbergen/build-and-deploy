@@ -18,6 +18,7 @@ Before each event, run through all exercises once on a fresh fork. GitHub, Netli
 | --- | --- |
 | No workflows run at all | Actions are disabled on new forks. Open the _Actions_ tab on the fork and enable workflows (exercise 1.3.2). |
 | The site URL shows a Netlify login page | The project is only visible to the attendee's team. On the project, set _Who can access your live project_ to _Public_ (exercise 3.1). |
+| The preview link in the PR shows a Netlify login page | Previews are private by default and only work when logged in to Netlify. Expected; see exercise 4.3. |
 | Netlify builds the site by itself on every push, or a project is linked to the GitHub repository | The attendee chose _Import a Git repository_ during sign-up. Let them create a new project with Netlify Drop (exercise 3.1) and use that Project ID. They can delete the imported project. |
 | `npm ci` fails in the workflow | The step is missing `working-directory: ./code`, or `package-lock.json` wasn't committed. |
 | `deploy` job is skipped | It only runs on pushes to `master`. The attendee is pushing to another branch. |

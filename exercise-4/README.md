@@ -206,6 +206,10 @@ jobs:
 
 :pencil2: Wait for the workflow to finish. A comment with a link to your preview should appear on the pull request. Open it and check that you can see the new background color.
 
+:book: Netlify keeps previews **private** by default: they're only visible to people logged in to your Netlify team. You're logged in, so the link works for you. Open it in a private browser window, and you'll get a Netlify login page instead.
+
+:bulb: Private previews are common in real projects, because unfinished work shouldn't be public. If you want to share previews with anyone, open your project's _Project configuration_ → _General_ → _Visitor access_, and change _Deploy Preview visibility_ with _Edit visibility_.
+
 :pencil2: Open your production site. It should still have the old background.
 
 :pencil2: Did the workflow run fail :x:? Try reading the error message and figure out what's wrong. Ask an instructor if you are stuck.

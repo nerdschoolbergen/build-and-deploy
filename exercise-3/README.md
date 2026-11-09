@@ -34,7 +34,7 @@ npm run build
 
 :pencil2: Open your project's overview page by selecting the project name in the breadcrumb at the top of the page (_Projects_ / _your-project-name_). You can also select _Projects_ in the menu on the left, and then your project. Next to the project name you should see a green **Public** badge.
 
-:pencil2: Select _Project configuration_ (the button under the project name, or the item in the menu on the left), then copy the **Project ID** from _General_ → _Project details_. You'll need it in a moment.
+:pencil2: Select _Project configuration_ (the button under the project name, or the item in the menu on the left), then copy the **Project ID** from _General_ → _Project details_. Netlify notes that it's _also known as Site ID_. You'll need it in a moment.
 
 :bulb: You'll come back to this project page later. It lists every deploy under _Activity_.
 
@@ -66,7 +66,7 @@ npm run build
 
 :pencil2: Select _New repository secret_ again. Set _Name_ to `NETLIFY_SITE_ID` and _Secret_ to the Project ID you copied earlier. Select _Add secret_.
 
-:bulb: The project ID isn't really a secret, but storing it next to the token keeps the configuration in one place.
+:bulb: The project ID isn't really a secret, but storing it next to the token keeps the configuration in one place. The Netlify CLI calls it a _site ID_, hence the secret name.
 
 ## 3.4 Deploying the app using GitHub Actions
 
