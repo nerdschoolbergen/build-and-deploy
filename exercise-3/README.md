@@ -12,7 +12,7 @@ You will learn:
 
 ## 3.1 Creating a site on Netlify
 
-:pencil2: If you haven't already, sign up for a free account at [app.netlify.com/signup](https://app.netlify.com/signup). Choosing _Sign up with GitHub_ is the quickest option.
+:pencil2: If you haven't already, sign up for a free account at [app.netlify.com/signup](https://app.netlify.com/signup). Choosing _Sign up with GitHub_ is the quickest option. When asked for a team name, enter your own name or your GitHub username.
 
 :book: Before we automate anything, let's do a deploy the _manual_ way. This is how many people deploy their first site, and it's exactly what our pipeline is going to replace.
 

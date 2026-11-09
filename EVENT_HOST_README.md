@@ -8,7 +8,7 @@ Send attendees this checklist in the invitation, so account sign-ups don't eat i
 
 1. Install [Node.js](https://nodejs.org/en/download) 26 or newer, [Git](https://github.com/git-guides/install-git) and [Visual Studio Code](https://code.visualstudio.com/).
 2. Create a free [GitHub account](https://github.com/signup).
-3. Create a free [Netlify account](https://app.netlify.com/signup) (sign up with GitHub, no credit card needed).
+3. Create a free [Netlify account](https://app.netlify.com/signup) (sign up with GitHub, no credit card needed). The last sign-up step asks for a team name: use your own name or GitHub username.
 
 Before each event, run through all exercises once on a fresh fork. GitHub, Netlify and the action versions change over time.
 
