@@ -50,7 +50,9 @@ npm run build
 
 :pencil2: Keep the default _Expiration_ of **7 days**. That's plenty for this workshop, and you can finish at home.
 
-:pencil2: Select _Generate token_, then copy the token. Netlify only shows it once.
+:pencil2: Select _Generate token_. Netlify shows _New token created_ with your token.
+
+:exclamation: Netlify only shows the token **once**. Keep this page open, and do the next step (3.3) in a new browser tab. Copy the token with the copy button when you need it, and only select _Done_ after you've saved it as a GitHub secret. If you lose it, just delete it and create a new one.
 
 :bulb: In real life you want tokens with **as few permissions as possible** and **a limited lifetime**. A Netlify personal access token can do everything your user can do, so the expiry date is your main protection if it leaks. When the token expires, the deploy job fails with an authentication error. You then create a new token and update the secret. Teams do this regularly, and it's called _rotating_ a secret. Many cloud providers also let you limit a token to specific projects or actions. Use that when you can.
 
@@ -64,7 +66,9 @@ npm run build
 
 :pencil2: In the left hand menu, under _Security_, select _Secrets and variables_ → _Actions_.
 
-:pencil2: Select _New repository secret_. Set _Name_ to `NETLIFY_AUTH_TOKEN` and _Secret_ to your API token. Select _Add secret_.
+:pencil2: Select _New repository secret_. Set _Name_ to `NETLIFY_AUTH_TOKEN` and _Secret_ to your API token (use the copy button on the Netlify page you kept open). Select _Add secret_.
+
+:pencil2: Now you can select _Done_ on the Netlify token page.
 
 :pencil2: Select _New repository secret_ again. Set _Name_ to `NETLIFY_SITE_ID` and _Secret_ to the Project ID you copied earlier. Select _Add secret_.
 
