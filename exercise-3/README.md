@@ -24,11 +24,15 @@ npm run build
 
 :pencil2: Open [app.netlify.com/drop](https://app.netlify.com/drop) and drag and drop the `code/dist` folder onto the page.
 
-:book: Netlify creates a new _project_ for you with a random name, and your app is now live! Open the URL Netlify shows you (something like `https://random-name-123456.netlify.app`).
+:book: Netlify creates a new _project_ for you with a random name, and shows _Your project is ready!_ with the URL of your app (something like `https://cool-biscuit-e7be17.netlify.app`).
 
-:pencil2: Optional: give your project a nicer name under _Project configuration_ → _Change project name_.
+:pencil2: Netlify says the project is _currently visible only to your team_. Make sure _Who can access your live project_ is set to _Public_, and select **Make public**. Otherwise everyone else gets a Netlify login page instead of your app.
 
-:pencil2: Go to _Project configuration_ → _General_ → _Project details_ and copy the **Project ID**. You'll need it in a moment.
+:pencil2: Open the URL in a private browser window to check that your app is live for everyone.
+
+:pencil2: Optional: give your project a nicer name by selecting _Edit_ next to the domain. The name becomes part of your URL.
+
+:pencil2: Select _Go to project overview_, then go to _Project configuration_ → _General_ → _Project details_ and copy the **Project ID**. You'll need it in a moment.
 
 :question: What would happen if every developer on a team deployed by dragging folders from their own computer? How would you know which version is live, and whether it was tested?
 
