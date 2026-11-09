@@ -5,11 +5,8 @@ export const getTimeString = (now) => {
     return `${hour}:${minute}:${seconds}`
 }
 
-const getNextYearDate = (now) => {
-    const endOfYearDate = new Date(0)
-    endOfYearDate.setUTCFullYear(now.getUTCFullYear() + 1)
-    return endOfYearDate;
-}
+// Midnight on January 1st next year, in the user's local time zone
+const getNextYearDate = (now) => new Date(now.getFullYear() + 1, 0, 1);
 
 export const getSecondsLeftOfYear = (now) => {
     const startOfNextYear = getNextYearDate(now);

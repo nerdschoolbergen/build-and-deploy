@@ -5,6 +5,9 @@ import pluginJest from 'eslint-plugin-jest';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
+    ignores: ["dist/", "coverage/"],
+  },
+  {
     plugins: { jest: pluginJest },
     languageOptions: { 
       globals: {
