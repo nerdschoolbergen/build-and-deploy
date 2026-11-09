@@ -200,9 +200,26 @@ Let's break down what this workflow does:
 
 ### 2.5.1 Linting
 
-:book: Linting means verifying that our code follows certain best practices and code conventions. We use the tool _[ESLint](https://eslint.org/)_ to do this for us. ESLint statically analyzes your code to quickly find problems.
+:book: Linting means verifying that our code follows certain best practices and code conventions. We use the tool _[Oxlint](https://oxc.rs/docs/guide/usage/linter)_ to do this for us. Oxlint statically analyzes your code to quickly find problems. It understands the same rules as [ESLint](https://eslint.org/), the most widely used JavaScript linter, but is a lot faster.
 
-:pencil2: In a terminal window, cd into the `code` folder and run `npm run lint` to run ESLint. The command should take a few seconds, then exit without errors.
+:book: Oxlint is configured in `code/.oxlintrc.json`. We tell it that our code runs in a browser, that every rule in the _correctness_ category is an error, and which folders to skip:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true
+  },
+  "categories": {
+    "correctness": "error"
+  },
+  "ignorePatterns": ["node_modules", "dist", "coverage"]
+}
+```
+
+:bulb: Linters separate _warnings_ from _errors_. Only errors make `npm run lint` fail, so only errors stop our pipeline. By making the correctness rules errors, we make sure code with real problems never gets deployed.
+
+:pencil2: In a terminal window, cd into the `code` folder and run `npm run lint` to run Oxlint. The command should finish in a moment, without errors.
 
 :pencil2: Open `code/src/main.js` and add the following line to the end of the file:
 
@@ -214,20 +231,24 @@ const unusedVariable = 3;
 
 ```shell
 > nerdschool-build-and-deploy@0.0.0 lint
-> eslint .
+> oxlint
 
+  × eslint(no-unused-vars): Variable 'unusedVariable' is declared but never used. Unused variables should start with a '_'.
+    ╭─[src/main.js:14:7]
+ 13 │ setInterval(render, 1000);
+ 14 │ const unusedVariable = 3;
+    ·       ───────┬──────
+    ·              ╰── 'unusedVariable' is declared here
+    ╰────
+  help: Consider removing this declaration.
 
-<path-to-repo>/code/src/main.js
-  14:7  error  'unusedVariable' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (1 error, 0 warnings)
+Found 0 warnings and 1 error.
 ```
 
 :book: This is one of the quality checks we get with linting. We have a variable that is not used anywhere and does not provide any value, so the linter tells us that the code is not up to the required standards.
 This is an example of linting helping us enforce good coding practices.
 
-:bulb: All modern code editors and IDEs have plugins for ESLint, so you get warnings and errors inline in your editor, which is very helpful.
- ![ESLint example is VS Code](./images/eslint.png)
+:bulb: Most code editors have plugins for linters, so you get warnings and errors inline while you type, which is very helpful. For Visual Studio Code, install the [Oxc extension](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
 
 :pencil2: To make our CI pipeline automatically lint code, add the following line to `.github/workflows/main.yml`:
 

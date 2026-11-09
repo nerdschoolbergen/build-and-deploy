@@ -15,7 +15,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"oxc.oxc-vscode"
 			]
 		}
 	}
