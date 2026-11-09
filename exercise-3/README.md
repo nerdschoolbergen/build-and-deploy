@@ -46,11 +46,13 @@ npm run build
 
 :pencil2: Open [User settings → Applications → Personal access tokens](https://app.netlify.com/user/applications#personal-access-tokens) and select _New access token_.
 
-:pencil2: Give it a description like `build-and-deploy GitHub Actions`, and set an **expiration** date, for example 30 days.
+:pencil2: Enter a description like `build-and-deploy GitHub Actions`, so you'll remember later what the token is used for.
 
-:pencil2: Select _Generate token_ and copy the token. Netlify only shows it once.
+:pencil2: Keep the default _Expiration_ of **7 days**. That's plenty for this workshop, and you can finish at home.
 
-:bulb: In real life you want tokens with **as few permissions as possible** and **a limited lifetime**. A Netlify personal access token can do everything your user can do, so the expiry date is your main protection if it leaks. Many cloud providers also let you limit a token to specific projects or actions. Use that when you can.
+:pencil2: Select _Generate token_, then copy the token. Netlify only shows it once.
+
+:bulb: In real life you want tokens with **as few permissions as possible** and **a limited lifetime**. A Netlify personal access token can do everything your user can do, so the expiry date is your main protection if it leaks. When the token expires, the deploy job fails with an authentication error. You then create a new token and update the secret. Teams do this regularly, and it's called _rotating_ a secret. Many cloud providers also let you limit a token to specific projects or actions. Use that when you can.
 
 > :exclamation::exclamation: **Never share your API token with anyone else or commit it to the repository.** Anyone with the token can deploy anything to your sites. :exclamation::exclamation:
 

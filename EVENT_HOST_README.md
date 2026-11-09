@@ -23,6 +23,7 @@ Before each event, run through all exercises once on a fresh fork. GitHub, Netli
 | `npm ci` fails in the workflow | The step is missing `working-directory: ./code`, or `package-lock.json` wasn't committed. |
 | `deploy` job is skipped | It only runs on pushes to `master`. The attendee is pushing to another branch. |
 | `Authentication required. NETLIFY_AUTH_TOKEN is not set` | The secret is missing or misspelled. Secret names must match exactly. |
+| Deploys worked before but now fail with `Unauthorized` or `Authentication required` | The Netlify token has expired (7 days by default). Create a new token and update the `NETLIFY_AUTH_TOKEN` secret. |
 | `Project not found` | `NETLIFY_SITE_ID` holds the project _name_ instead of the Project ID. |
 | Pull request shows up on `nerdschoolbergen/build-and-deploy` | The attendee opened the PR against the upstream repository. Close it, and open a new one with _base repository_ set to their own fork (exercise 4.2). |
 | Preview job fails with missing secrets | The PR comes from a different fork than the one with the secrets. Branches must be pushed to the attendee's own fork. |
