@@ -3,7 +3,7 @@
 # dependencies
 /code/node_modules
 /code/dist
-/coverage
+/code/coverage
 
 # misc
 .DS_Store
@@ -17,3 +17,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode/
+
+# deploy tooling
+.netlify/
+.wrangler/

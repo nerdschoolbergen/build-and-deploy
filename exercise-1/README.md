@@ -16,17 +16,17 @@ You will learn to:
 :book: To see if you already have Node.js installed, open up your terminal application.
 
 * If you're on a Mac, look for a command prompt application called "Terminal".
-* If you're on a Windows machine, open the Windows command prompt or "Git Bash".
+* If you're on a Windows machine, open Windows Terminal or "Git Bash".
 
-:book: Once you´ve opened your terminal application, type `node -v`. The output will either tell you which version of Node.js is installed, or it will alert you that Node.js is an unknown command.
+:book: Once you've opened your terminal application, type `node -v`. The output will either tell you which version of Node.js is installed, or it will alert you that Node.js is an unknown command.
 
-:pencil2: If it's an unknown command, download and install the latest LTS (long-term support) release from [nodejs.org](https://nodejs.org/en/).
+:pencil2: If it's an unknown command, download and install the latest LTS (long-term support) release from [nodejs.org](https://nodejs.org/en/download). This workshop requires **Node.js 26 or newer**.
 
-:exclamation: **Note:** If you have Node installed with a version _less_ than the latest LTS version, please upgrade to the latest LTS version before continuing.
+:exclamation: **Note:** If you have Node.js installed with a version _less_ than 26, please upgrade to the latest LTS version before continuing.
 
 ### 1.1.2 Installing Chrome
 
-:pencil2: Install [Google Chrome](https://www.google.com/chrome/browser/desktop/) if you don't have it.
+:pencil2: Install [Google Chrome](https://www.google.com/chrome/) if you don't have it.
 
 ### 1.1.3 Visual Studio Code and YAML extension
 
@@ -34,32 +34,41 @@ You will learn to:
 
 :pencil2: Install the [Red Hat YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for Visual Studio Code.
 
-### 1.2 GitHub account setup
-
-:pencil2: If you don't already have a GitHub account, follow the [Sign up for a new GitHub account](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account) guide on GitHub.com. It's free!
-
-:pencil2: Make a note of your GitHub _username_.
-
-### 1.3 Installing git
+### 1.1.4 Installing Git
 
 :book: Git is a command line tool for version control. It is used to manage and track changes in code.
 
-#### Checking for Git
+:pencil2: To see if you already have Git installed, type `git version` in your terminal. The output will either tell you which version of Git is installed, or it will alert you that git is an unknown command. If it's an unknown command, follow the [Install Git](https://github.com/git-guides/install-git) guide.
 
-:pencil2: To see if you already have Git installed, open up your terminal application.
+#### Optional - Install GitHub Desktop
 
-* If you're on a Mac, look for a command prompt application called "Terminal".
-* If you're on a Windows machine, open Windows Terminal or "Git Bash".
+:bulb: If you are new to git, [GitHub Desktop](https://desktop.github.com/) is recommended to simplify working with git. GitHub Desktop also installs git automatically.
 
-Once you've opened your terminal application, type `git version`. The output will either tell you which version of Git is installed, or it will alert you that git is an unknown command. If it's an unknown command, follow the [Install Git](https://github.com/git-guides/install-git) guide.
+## 1.2 Accounts
 
-#### 1.2.2 Optional - Install GitHub Desktop
+### 1.2.1 GitHub account
 
-If you are new to git, [GitHub Desktop](https://desktop.github.com/) is recommended to simplify working with git. GitHub Desktop also installs git automatically.
+:pencil2: If you don't already have a GitHub account, follow the [Sign up for a new GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) guide on GitHub.com. It's free!
 
-## 1.2 Getting started
+:pencil2: Make a note of your GitHub _username_.
 
-:bulb: The exercises assume that you have prior experience using git. If you are new to git, consider reading the following guides before continuing:
+### 1.2.2 Netlify account
+
+:book: We'll host the app on [Netlify](https://www.netlify.com/), a cloud platform with a free plan that doesn't require a credit card.
+
+:pencil2: Sign up for a free account at [app.netlify.com/signup](https://app.netlify.com/signup). Choosing _Sign up with GitHub_ is the quickest option.
+
+:pencil2: When Netlify asks _What is the name of your team?_, enter your own name or your GitHub username.
+
+:book: On Netlify, every project belongs to a _team_. Companies use teams to share projects and billing between colleagues. For this workshop your team is just you, and the free plan is all we need.
+
+:pencil2: Next, Netlify asks you to _Deploy your first project_. Select **Skip this step for now** at the top of the page.
+
+> :exclamation: Don't choose _Import a Git repository_. Netlify would then build and deploy the app by itself, and we want to build that pipeline ourselves with GitHub Actions. We'll create the Netlify project in exercise 3.
+
+## 1.3 Getting the code
+
+:bulb: The exercises assume that you have some prior experience using git. If you are new to git, consider reading the following guides before continuing:
 
 * Git overview: [About Git](https://docs.github.com/en/get-started/using-git/about-git) on GitHub Docs
 * [Push commits to a remote](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository) on GitHub Docs
@@ -67,7 +76,7 @@ If you are new to git, [GitHub Desktop](https://desktop.github.com/) is recommen
 
 :book: Feel free to always ask the instructors for help, as git can be overwhelming for beginners.
 
-### Forking the git repository
+### 1.3.1 Forking the git repository
 
 :book: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 
@@ -79,23 +88,25 @@ If you are new to git, [GitHub Desktop](https://desktop.github.com/) is recommen
 
 :book: After forking, you should now have a copy of the repository on _your_ GitHub account.
 
-### Cloning the git repository
+### 1.3.2 Enabling GitHub Actions on your fork
+
+:book: GitHub turns off workflows on new forks, so a fork can't run automation you haven't looked at. We'll use GitHub Actions in the next exercises, so let's turn it on now.
+
+:pencil2: On your fork's page on GitHub, select the _Actions_ tab.
+
+:pencil2: Select _I understand my workflows, go ahead and enable them_.
+
+### 1.3.3 Cloning the git repository
 
 :book: Repositories on GitHub are remote repositories. To create a local copy on your computer, you _clone_ the remote repository you just created on your account.
 
-#### Cloning using GitHub Desktop
+:pencil2: **Using GitHub Desktop:** follow [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=desktop).
 
-:book: If you have GitHub Desktop installed, you can use it to clone the repository.
+:pencil2: **Using a web browser and a terminal:** follow [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui).
 
-:pencil2: Follow these [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui).
+:exclamation: Make sure you clone _your fork_ (`https://github.com/<your-username>/build-and-deploy`), not the original nerdschoolbergen repository.
 
-#### Cloning using a web browser and terminal
-
-:book: If you don't have GitHub Desktop installed, you can clone the repository using the browser and a terminal.
-
-:pencil2: Follow these [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui).
-
-### Setting up the local app development environment
+## 1.4 Setting up the local app development environment
 
 :book: To make things easier, we have provided a simple example web app for you.
 
@@ -114,12 +125,14 @@ code
 ├── index.html
 ├── package-lock.json
 ├── package.json
-├── src
+├── public
+└── src
 ```
 
 * `index.html` is the main entrypoint of the app
-* The `package-lock.json` file is just for NPM to keep track of our dependencies.
-* The `package.json` file is where we keep some metatdata about our app, some _scripts_ like building the app and running tests, and listing our dependencies.
+* The `package-lock.json` file is for npm to keep track of the exact versions of our dependencies.
+* The `package.json` file is where we keep some metadata about our app, some _scripts_ like building the app and running tests, and a list of our dependencies.
+* `public` - static files that are copied as-is into the built app (like the favicon)
 * `src` - contains the web app JavaScript code
 
 :pencil2: Run `npm start` in your terminal.
@@ -127,7 +140,7 @@ code
 :book: The following output should appear:
 
 ```bash
-  VITE v3.2.11  ready in 92 ms
+  VITE v8.3.7  ready in 92 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
@@ -135,9 +148,9 @@ code
 
 :pencil2: Open [http://localhost:5173](http://localhost:5173) in Chrome.
 
-### :book: 1.3 The app
+## :book: 1.5 The app
 
-Today is about deploying the app and not how it works or building more features, but it's worth having a quick tour nontheless.
+Today is about deploying the app and not how it works or building more features, but it's worth having a quick tour nonetheless.
 
 As the name implies, the app simply displays the current time and number of seconds left of the year:
 
