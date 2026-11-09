@@ -132,7 +132,7 @@ code
 :book: The following output should appear:
 
 ```bash
-  VITE v7.3.8  ready in 92 ms
+  VITE v8.3.7  ready in 92 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
