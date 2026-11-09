@@ -52,6 +52,12 @@ You will learn to:
 
 :pencil2: Make a note of your GitHub _username_.
 
+### 1.2.2 Netlify account
+
+:book: We'll host the app on [Netlify](https://www.netlify.com/), a cloud platform with a free plan that doesn't require a credit card.
+
+:pencil2: Sign up for a free account at [app.netlify.com/signup](https://app.netlify.com/signup). Choosing _Sign up with GitHub_ is the quickest option.
+
 ## 1.3 Getting the code
 
 :bulb: The exercises assume that you have some prior experience using git. If you are new to git, consider reading the following guides before continuing:
