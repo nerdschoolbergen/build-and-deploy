@@ -10,7 +10,9 @@ We'll look at the infrastructure of deploying an app to production and not the a
 
 ## What you need
 
-* [Visual Studio Code](https://code.visualstudio.com)
+* A laptop with [Node.js](https://nodejs.org/en/download) 26 or newer, Git and [Visual Studio Code](https://code.visualstudio.com)
+* A free [GitHub](https://github.com/signup) account
+* A free [Cloudflare](https://dash.cloudflare.com/sign-up) account (no credit card needed)
 
 ## Prerequisites
 
@@ -18,21 +20,23 @@ We'll look at the infrastructure of deploying an app to production and not the a
 
 ## How to get started
 
-* Open [Exercise 1](./exercise-1/README.md/).
+* Open [Exercise 1](./exercise-1/README.md).
 * Remember to ask an instructor if you're stuck.
 
 ## Exercises
 
-* [Exercise 1](./exercise-1/README.md) (Start here)
-* [Exercise 2](./exercise-2/README.md)
-* [Exercise 3](./exercise-3/README.md)
-* [Exercise 4 (bonus)](./exercise-5/README.md)
+* [Exercise 1 - Getting started](./exercise-1/README.md) (Start here)
+* [Exercise 2 - CI pipeline with GitHub Actions](./exercise-2/README.md)
+* [Exercise 3 - Deploying to production](./exercise-3/README.md)
+* [Exercise 4 - Preview deploys for pull requests](./exercise-4/README.md)
+* [Exercise 5 (bonus) - Making good use of our build setup](./exercise-5/README.md)
 
 Have fun! And remember to ask an instructor if you're stuck.
 
 ## Helpful resources
 
 * [Learn GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
+* [Wrangler commands](https://developers.cloudflare.com/workers/wrangler/commands/)
 * [Starter workflows for different types of projects](https://github.com/actions/starter-workflows/tree/main/ci)
 
 ### Symbols and notation used in exercises

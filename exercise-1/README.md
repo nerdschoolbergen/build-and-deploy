@@ -52,6 +52,12 @@ You will learn to:
 
 :pencil2: Make a note of your GitHub _username_.
 
+### 1.2.2 Cloudflare account
+
+:book: We'll host the app on [Cloudflare Workers](https://developers.cloudflare.com/workers/), a cloud platform with a free plan that doesn't require a credit card.
+
+:pencil2: Sign up for a free account at [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up), and verify your email address.
+
 ## 1.3 Getting the code
 
 :bulb: The exercises assume that you have some prior experience using git. If you are new to git, consider reading the following guides before continuing:

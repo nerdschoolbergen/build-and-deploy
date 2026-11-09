@@ -1,0 +1,19 @@
+// Configuration for deploying the app to Cloudflare Workers.
+// Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+{
+  // The name of your Worker. Your site will be available at
+  // https://build-and-deploy.<your-subdomain>.workers.dev
+  "name": "build-and-deploy",
+
+  // Which version of the Workers runtime behaviour to use
+  "compatibility_date": "2026-11-01",
+
+  // We only serve static files: the dist folder created by `npm run build`
+  "assets": {
+    "directory": "./dist"
+  },
+
+  // Publish on the free workers.dev domain, and allow preview URLs
+  "workers_dev": true,
+  "preview_urls": true
+}
