@@ -8,7 +8,7 @@ Send attendees this checklist in the invitation, so account sign-ups don't eat i
 
 1. Install [Node.js](https://nodejs.org/en/download) 26 or newer, [Git](https://github.com/git-guides/install-git) and [Visual Studio Code](https://code.visualstudio.com/).
 2. Create a free [GitHub account](https://github.com/signup).
-3. Create a free [Netlify account](https://app.netlify.com/signup) (sign up with GitHub, no credit card needed). The last sign-up step asks for a team name: use your own name or GitHub username.
+3. Create a free [Netlify account](https://app.netlify.com/signup) (sign up with GitHub, no credit card needed). When asked for a team name, use your own name or GitHub username. Then select _Skip this step for now_ on _Deploy your first project_: don't import the Git repository.
 
 Before each event, run through all exercises once on a fresh fork. GitHub, Netlify and the action versions change over time.
 
@@ -17,6 +17,7 @@ Before each event, run through all exercises once on a fresh fork. GitHub, Netli
 | Symptom | Cause and fix |
 | --- | --- |
 | No workflows run at all | Actions are disabled on new forks. Open the _Actions_ tab on the fork and enable workflows (exercise 1.3.2). |
+| Netlify builds the site by itself on every push, or a project is linked to the GitHub repository | The attendee chose _Import a Git repository_ during sign-up. Let them create a new project with Netlify Drop (exercise 3.1) and use that Project ID. They can delete the imported project. |
 | `npm ci` fails in the workflow | The step is missing `working-directory: ./code`, or `package-lock.json` wasn't committed. |
 | `deploy` job is skipped | It only runs on pushes to `master`. The attendee is pushing to another branch. |
 | `Authentication required. NETLIFY_AUTH_TOKEN is not set` | The secret is missing or misspelled. Secret names must match exactly. |
