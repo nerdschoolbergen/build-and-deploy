@@ -32,9 +32,11 @@ npm run build
 
 :pencil2: Optional: give your project a nicer name by selecting _Edit_ next to the domain. The name becomes part of your URL.
 
-:pencil2: Open your project's overview page by selecting the project name in the breadcrumb at the top of the page (_Projects_ / _your-project-name_). Next to the project name you should see a green **Public** badge.
+:pencil2: Open your project's overview page by selecting the project name in the breadcrumb at the top of the page (_Projects_ / _your-project-name_). You can also select _Projects_ in the menu on the left, and then your project. Next to the project name you should see a green **Public** badge.
 
-:pencil2: Select _Project configuration_, then copy the **Project ID** from _General_ → _Project details_. You'll need it in a moment.
+:pencil2: Select _Project configuration_ (the button under the project name, or the item in the menu on the left), then copy the **Project ID** from _General_ → _Project details_. You'll need it in a moment.
+
+:bulb: You'll come back to this project page later. It lists every deploy under _Activity_.
 
 :question: What would happen if every developer on a team deployed by dragging folders from their own computer? How would you know which version is live, and whether it was tested?
 
