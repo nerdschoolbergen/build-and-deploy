@@ -32,7 +32,7 @@ npm run build
 
 :pencil2: Optional: give your project a nicer name by selecting _Edit_ next to the domain. The name becomes part of your URL.
 
-:pencil2: Open your project's overview page by selecting the project name in the breadcrumb at the top of the page (_Projects_ / _your-project-name_). You can also select _Projects_ in the menu on the left, and then your project. Next to the project name you should see a green **Public** badge.
+:pencil2: Open your project's overview page by selecting the project name in the breadcrumb at the top of the page (_Projects_ / _your-project-name_). You can also select the _Projects_ icon (stacked layers, just below your team's initial) in the narrow menu on the far left, and then your project. Next to the project name you should see a green **Public** badge.
 
 :pencil2: Select _Project configuration_ (the button under the project name, or the item in the menu on the left), then copy the **Project ID** from _General_ → _Project details_. Netlify notes that it's _also known as Site ID_. You'll need it in a moment.
 
