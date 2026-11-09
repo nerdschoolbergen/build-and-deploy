@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { getSecondsLeftOfYear, getTimeString } from "./clock";
 
 test('getTimeString formats time string correctly', () => {
