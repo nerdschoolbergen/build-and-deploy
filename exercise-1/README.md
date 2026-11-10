@@ -38,9 +38,7 @@ You will learn to:
 
 :book: Git is a command line tool for version control. It is used to manage and track changes in code.
 
-:pencil2: To see if you already have Git installed, type `git version` in your terminal. The output will either tell you which version of Git is installed, or it will alert you that git is an unknown command. If it's an unknown command, follow the [Install Git](https://github.com/git-guides/install-git) guide.
-
-:pencil2: You will push code to GitHub in the next exercises, so make sure Git is configured and can access GitHub. If you haven't done this before, follow our [Setting up Git and GitHub access](https://nerdschool.no/workshop-tasks.html#git-github) guide.
+:pencil2: You will push code to GitHub in the next exercises, so make sure Git is installed, configured and can access GitHub. If you haven't done this before, follow our [Setting up Git and GitHub access](https://nerdschool.no/workshop-tasks.html#git-github) guide.
 
 #### Optional - Install GitHub Desktop
 
